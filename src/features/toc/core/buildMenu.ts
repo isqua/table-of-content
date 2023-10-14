@@ -1,41 +1,58 @@
-import type { MenuItem, PageDescriptor, PageURL, TableOfContent } from '../types'
+import type { MenuItem, PageDescriptor, PageId, PageURL, TableOfContent } from '../types'
 
-type BuildMenuOptions = {
+type BuildMenuBaseOptions = {
     url: PageURL
 }
 
-type PageProps = {
-    isActive: boolean
+type BuildMenuTopLevelOptions = BuildMenuBaseOptions
+
+type BuildMenuNestingOptions = BuildMenuBaseOptions & {
+    parentId: string
+    level: number
 }
 
-const mapPageToMenuItem = (page: PageDescriptor, props: PageProps) => ({
+type BuildMenuOptions = BuildMenuTopLevelOptions | BuildMenuNestingOptions
+
+type PageProps = {
+    isActive: boolean
+    level: number
+}
+
+const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => ({
     id: page.id,
     parentId: page.parentId,
     title: page.title,
-    url: page.url,
+    url: page.url ?? `#${page.id}`,
     isActive: props.isActive,
+    level: props.level,
+    hasChildren: Boolean(page.pages?.length),
 })
 
+const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => {
+    if (!parentId) {
+        return toc.topLevelIds
+    }
+
+    if (!(parentId in toc.entities.pages)) {
+        return []
+    }
+
+    return toc.entities.pages[parentId]?.pages ?? []
+}
+
 export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
-    const { url } = options
-
+    const { url, parentId, level = 0 } = options as BuildMenuNestingOptions
     const menu: MenuItem[] = []
+    const pagesIds = getPagesForParent(toc, parentId)
 
-    for (const pageId of toc.topLevelIds) {
+    for (const pageId of pagesIds) {
         const page = toc.entities.pages[pageId]
 
-        menu.push(mapPageToMenuItem(page, {
-            isActive: page.url === url,
-        }))
-
-        if (page.pages?.length) {
-            for (const subPageId of page.pages) {
-                const subPage = toc.entities.pages[subPageId]
-
-                menu.push(mapPageToMenuItem(subPage, {
-                    isActive: subPage.url === url,
-                }))
-            }
+        if (page) {
+            menu.push(mapPageToMenuItem(page, {
+                isActive: page.url === url,
+                level,
+            }))
         }
     }
 

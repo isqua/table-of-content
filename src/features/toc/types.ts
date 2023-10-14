@@ -9,7 +9,7 @@ export type PageDescriptor = {
     pages?: PageId[]
 }
 
-export type PagesIndex = Record<PageId, PageDescriptor>
+export type PagesIndex = Record<PageId, PageDescriptor | undefined>
 
 export type TableOfContent = {
     entities: {
@@ -21,7 +21,9 @@ export type TableOfContent = {
 export type MenuItem = {
     id: PageId
     parentId: PageId
-    url?: PageURL
+    url: PageURL
     title: string
-    isActive?: boolean
+    level: number
+    isActive: boolean
+    hasChildren: boolean
 }

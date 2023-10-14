@@ -9,7 +9,7 @@ const NotFoundPage: PageDescriptor = {
 
 export const getCurrentPage = (toc: TableOfContent, url: PageURL) => {
     for (const page of Object.values(toc.entities.pages)) {
-        if (page.url === url) {
+        if (page?.url === url) {
             return page
         }
     }

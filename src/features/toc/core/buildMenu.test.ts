@@ -34,10 +34,18 @@ describe('toc/buildMenu', () => {
         expect(menu).toMatchSnapshot()
     })
 
-    it('should build a menu with nesting', () => {
+    it('should show page children', () => {
+        const toc: TableOfContent = tocTwoLevels
+        const currentUrl = '/bar.html'
+        const menu = buildMenu(toc, { url: currentUrl })
+
+        expect(menu).toMatchSnapshot()
+    })
+
+    it('should build a nested menu', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar-features.html'
-        const menu = buildMenu(toc, { url: currentUrl })
+        const menu = buildMenu(toc, { url: currentUrl, parentId: 'bar' })
 
         expect(menu).toMatchSnapshot()
     })
