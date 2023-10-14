@@ -1,0 +1,45 @@
+{
+    "entities": {
+        "pages": {
+            "foo": {
+                "id": "foo",
+                "title": "Foo",
+                "url": "/foo.html",
+                "parentId": "root"
+            },
+            "bar": {
+                "id": "bar",
+                "title": "Bar",
+                "url": "/bar.html",
+                "parentId": "root",
+                "pages": [
+                    "bar_install",
+                    "bar_features"
+                ]
+            },
+            "baz": {
+                "id": "baz",
+                "title": "Baz",
+                "url": "/baz.html",
+                "parentId": "root"
+            },
+            "bar_install": {
+                "id": "bar_install",
+                "title": "Bar: Install",
+                "url": "/bar-install.html",
+                "parentId": "bar"
+            },
+            "bar_features": {
+                "id": "bar_features",
+                "title": "Bar: Features",
+                "url": "/bar-features.html",
+                "parentId": "bar"
+            }
+        }
+    },
+    "topLevelIds": [
+        "bar",
+        "baz",
+        "foo"
+    ]
+}
