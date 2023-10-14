@@ -1,0 +1,25 @@
+{
+    "entities": {
+        "pages": {
+            "foo": {
+                "id": "foo",
+                "title": "Foo",
+                "url": "/foo.html",
+                "parentId": "root"
+            },
+            "bar": {
+                "id": "bar",
+                "title": "Bar",
+                "url": "/bar.html",
+                "parentId": "root"
+            },
+            "baz": {
+                "id": "baz",
+                "title": "Baz",
+                "url": "/baz.html",
+                "parentId": "root"
+            }
+        }
+    },
+    "topLevelIds": []
+}
