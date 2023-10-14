@@ -3,22 +3,28 @@
 exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 [
   {
+    "hasChildren": false,
     "id": "bar",
     "isActive": true,
+    "level": 0,
     "parentId": "root",
     "title": "Bar",
     "url": "/bar.html",
   },
   {
+    "hasChildren": false,
     "id": "baz",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Baz",
     "url": "/baz.html",
   },
   {
+    "hasChildren": false,
     "id": "foo",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Foo",
     "url": "/foo.html",
@@ -29,22 +35,28 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 exports[`toc/buildMenu > should build a menu even if there are no current page 1`] = `
 [
   {
+    "hasChildren": false,
     "id": "bar",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Bar",
     "url": "/bar.html",
   },
   {
+    "hasChildren": false,
     "id": "baz",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Baz",
     "url": "/baz.html",
   },
   {
+    "hasChildren": false,
     "id": "foo",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Foo",
     "url": "/foo.html",
@@ -52,44 +64,59 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
 ]
 `;
 
-exports[`toc/buildMenu > should build a menu with nesting 1`] = `
+exports[`toc/buildMenu > should build a nested menu 1`] = `
 [
   {
-    "id": "bar",
-    "isActive": false,
-    "parentId": "root",
-    "title": "Bar",
-    "url": "/bar.html",
-  },
-  {
+    "hasChildren": false,
     "id": "bar_install",
     "isActive": false,
+    "level": 0,
     "parentId": "bar",
     "title": "Bar: Install",
     "url": "/bar-install.html",
   },
   {
+    "hasChildren": false,
     "id": "bar_features",
     "isActive": true,
+    "level": 0,
     "parentId": "bar",
     "title": "Bar: Features",
     "url": "/bar-features.html",
   },
+]
+`;
+
+exports[`toc/buildMenu > should build an empty menu if there are no top level ids  1`] = `[]`;
+
+exports[`toc/buildMenu > should show page children 1`] = `
+[
   {
+    "hasChildren": true,
+    "id": "bar",
+    "isActive": true,
+    "level": 0,
+    "parentId": "root",
+    "title": "Bar",
+    "url": "/bar.html",
+  },
+  {
+    "hasChildren": false,
     "id": "baz",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Baz",
     "url": "/baz.html",
   },
   {
+    "hasChildren": false,
     "id": "foo",
     "isActive": false,
+    "level": 0,
     "parentId": "root",
     "title": "Foo",
     "url": "/foo.html",
   },
 ]
 `;
-
-exports[`toc/buildMenu > should build an empty menu if there are no top level ids  1`] = `[]`;
