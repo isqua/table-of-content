@@ -1,0 +1,18 @@
+.menu {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+
+    --menu-item-block-padding: 8px;
+    --menu-item-inline-padding: 22px;
+    --menu-item-level-padding: 16px;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
