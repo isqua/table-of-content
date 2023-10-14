@@ -52,4 +52,44 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
 ]
 `;
 
+exports[`toc/buildMenu > should build a menu with nesting 1`] = `
+[
+  {
+    "id": "bar",
+    "isActive": false,
+    "parentId": "root",
+    "title": "Bar",
+    "url": "/bar.html",
+  },
+  {
+    "id": "bar_install",
+    "isActive": false,
+    "parentId": "bar",
+    "title": "Bar: Install",
+    "url": "/bar-install.html",
+  },
+  {
+    "id": "bar_features",
+    "isActive": true,
+    "parentId": "bar",
+    "title": "Bar: Features",
+    "url": "/bar-features.html",
+  },
+  {
+    "id": "baz",
+    "isActive": false,
+    "parentId": "root",
+    "title": "Baz",
+    "url": "/baz.html",
+  },
+  {
+    "id": "foo",
+    "isActive": false,
+    "parentId": "root",
+    "title": "Foo",
+    "url": "/foo.html",
+  },
+]
+`;
+
 exports[`toc/buildMenu > should build an empty menu if there are no top level ids  1`] = `[]`;

@@ -27,6 +27,16 @@ export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuI
         menu.push(mapPageToMenuItem(page, {
             isActive: page.url === url,
         }))
+
+        if (page.pages?.length) {
+            for (const subPageId of page.pages) {
+                const subPage = toc.entities.pages[subPageId]
+
+                menu.push(mapPageToMenuItem(subPage, {
+                    isActive: subPage.url === url,
+                }))
+            }
+        }
     }
 
     return menu

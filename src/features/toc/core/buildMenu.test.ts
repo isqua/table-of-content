@@ -4,6 +4,7 @@ import type { TableOfContent } from '../types'
 import { buildMenu } from './buildMenu'
 
 import tocFlat from './test/fixtures/flat.json'
+import tocTwoLevels from './test/fixtures/two-levels.json'
 
 describe('toc/buildMenu', () => {
     it('should build a menu and highlight current page', () => {
@@ -28,6 +29,14 @@ describe('toc/buildMenu', () => {
             topLevelIds: [],
         }
         const currentUrl = ''
+        const menu = buildMenu(toc, { url: currentUrl })
+
+        expect(menu).toMatchSnapshot()
+    })
+
+    it('should build a menu with nesting', () => {
+        const toc: TableOfContent = tocTwoLevels
+        const currentUrl = '/bar-features.html'
         const menu = buildMenu(toc, { url: currentUrl })
 
         expect(menu).toMatchSnapshot()
