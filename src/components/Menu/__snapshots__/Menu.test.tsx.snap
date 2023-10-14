@@ -1,0 +1,143 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components/Menu > should build a menu and highlight current page 1`] = `
+<nav
+  class="_menu_29d207"
+>
+  <ul
+    class="_list_29d207"
+  >
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6 _active_daf4a6"
+        href="/bar.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/baz.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Baz
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/foo.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Foo
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`components/Menu > should build a two-levels menu 1`] = `
+<nav
+  class="_menu_29d207"
+>
+  <ul
+    class="_list_29d207"
+  >
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/bar.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6 _active_daf4a6"
+        href="/bar-install.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar: Install
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/bar-features.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar: Features
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/baz.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Baz
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/foo.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Foo
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;

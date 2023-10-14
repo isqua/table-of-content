@@ -15,6 +15,7 @@
     --color-general-background: var(--base-color-grey-0);
     --color-general-text: var(--base-color-grey-100);
     --color-active-background: var(--base-color-primary-light);
+    --color-active-secondary-background: var(--base-color-primary-dark);
     --color-active-text: var(--base-color-grey-0);
     --color-secondary-background: var(--base-color-grey-5);
     --color-tertiary-background: var(--base-color-grey-10);
@@ -50,6 +51,7 @@ body {
         --color-general-background: var(--base-color-grey-100);
         --color-general-text: var(--base-color-grey-0);
         --color-active-background: var(--base-color-primary-dark);
+        --color-active-secondary-background: var(--base-color-primary-light);
         --color-active-text: var(--base-color-grey-0);
         --color-secondary-background: var(--base-color-grey-95);
         --color-tertiary-background: var(--base-color-grey-90);
