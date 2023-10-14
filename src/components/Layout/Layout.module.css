@@ -1,0 +1,15 @@
+.layout {
+    display: flex;
+    justify-content: stretch;
+    min-height: 100%;
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.sidebar {
+    flex: 0 0 300px;
+    overflow-y: auto;
+    border-inline-end: 1px solid var(--color-border);
+}
