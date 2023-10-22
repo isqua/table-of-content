@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components/Article > should render an article 1`] = `
+<article
+  class="_article_a23c90"
+>
+  <h1
+    class="_title_a23c90"
+  >
+    Foo Article
+  </h1>
+</article>
+`;

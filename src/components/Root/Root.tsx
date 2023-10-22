@@ -2,6 +2,7 @@ import { Layout } from '../Layout'
 import { Menu } from '../Menu'
 
 import tocData from '../../test/fixtures/toc/idea.json'
+import { DocPage } from '../DocPage'
 
 export function Root() {
     return (
@@ -10,7 +11,7 @@ export function Root() {
                 <Menu toc={tocData} />
             </Layout.Sidebar>
             <Layout.Main>
-                Hello world
+                <DocPage toc={tocData} />
             </Layout.Main>
         </Layout>
     )
