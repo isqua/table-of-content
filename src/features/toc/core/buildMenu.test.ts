@@ -3,8 +3,8 @@ import { describe, expect, it } from 'vitest'
 import type { TableOfContent } from '../types'
 import { buildMenu } from './buildMenu'
 
-import tocFlat from './test/fixtures/flat.json'
-import tocTwoLevels from './test/fixtures/two-levels.json'
+import tocFlat from '../../../test/fixtures/toc/flat.json'
+import tocTwoLevels from '../../../test/fixtures/toc/two-levels.json'
 
 describe('toc/buildMenu', () => {
     it('should build a menu and highlight current page', () => {

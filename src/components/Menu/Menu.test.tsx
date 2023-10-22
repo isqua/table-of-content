@@ -2,8 +2,8 @@ import { render, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import type { TableOfContent } from '../../features/toc'
-import tocFlat from '../../features/toc/core/test/fixtures/flat.json'
-import tocTwoLevels from '../../features/toc/core/test/fixtures/two-levels.json'
+import tocFlat from '../../test/fixtures/toc/flat.json'
+import tocTwoLevels from '../../test/fixtures/toc/two-levels.json'
 import { Menu } from './Menu'
 
 describe('components/Menu', () => {
