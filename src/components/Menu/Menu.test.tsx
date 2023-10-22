@@ -1,4 +1,4 @@
-import { act, screen } from '@testing-library/react'
+import { act, fireEvent, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import type { TableOfContent } from '../../features/toc'
@@ -25,6 +25,27 @@ describe('components/Menu', () => {
 
         act(() => {
             renderInApp(<Menu toc={toc} />, { url: currentUrl })
+        })
+
+        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+    })
+
+    it('should open and close a submenu when clicking on a chevron', async () => {
+        const toc: TableOfContent = tocTwoLevels
+        const currentUrl = '/bar-install.html'
+
+        act(() => {
+            renderInApp(<Menu toc={toc} />, { url: currentUrl })
+        })
+
+        act(() => {
+            fireEvent.click(screen.getByRole('button', { expanded: false }))
+        })
+
+        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+
+        act(() => {
+            fireEvent.click(screen.getByRole('button', { expanded: true }))
         })
 
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
