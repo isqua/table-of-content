@@ -9,7 +9,7 @@ import tocTwoLevels from '../../../test/fixtures/toc/two-levels.json'
 describe('toc/buildMenu', () => {
     it('should build a menu and highlight current page', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = '/bar.html'
+        const currentUrl = 'bar.html'
         const menu = buildMenu(toc, { url: currentUrl })
 
         expect(menu).toMatchSnapshot()
@@ -36,7 +36,7 @@ describe('toc/buildMenu', () => {
 
     it('should show page children', () => {
         const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/bar.html'
+        const currentUrl = 'bar.html'
         const menu = buildMenu(toc, { url: currentUrl })
 
         expect(menu).toMatchSnapshot()
@@ -44,7 +44,7 @@ describe('toc/buildMenu', () => {
 
     it('should build a nested menu', () => {
         const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/bar-features.html'
+        const currentUrl = 'bar-features.html'
         const menu = buildMenu(toc, { url: currentUrl, parentId: 'bar' })
 
         expect(menu).toMatchSnapshot()
