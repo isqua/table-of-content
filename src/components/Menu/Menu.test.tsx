@@ -1,9 +1,10 @@
-import { act, render, screen } from '@testing-library/react'
+import { act, screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import type { TableOfContent } from '../../features/toc'
 import tocFlat from '../../test/fixtures/toc/flat.json'
 import tocTwoLevels from '../../test/fixtures/toc/two-levels.json'
+import { renderInApp } from '../../test'
 import { Menu } from './Menu'
 
 describe('components/Menu', () => {
@@ -12,7 +13,7 @@ describe('components/Menu', () => {
         const currentUrl = '/bar.html'
 
         act(() => {
-            render(<Menu toc={toc} url={currentUrl} />)
+            renderInApp(<Menu toc={toc} />, { url: currentUrl })
         })
 
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
@@ -23,7 +24,7 @@ describe('components/Menu', () => {
         const currentUrl = '/bar-install.html'
 
         act(() => {
-            render(<Menu toc={toc} url={currentUrl} />)
+            renderInApp(<Menu toc={toc} />, { url: currentUrl })
         })
 
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
