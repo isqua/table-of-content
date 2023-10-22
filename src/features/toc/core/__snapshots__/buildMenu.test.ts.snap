@@ -9,7 +9,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "/bar.html",
+    "url": "bar.html",
   },
   {
     "hasChildren": false,
@@ -18,7 +18,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "/baz.html",
+    "url": "baz.html",
   },
   {
     "hasChildren": false,
@@ -27,7 +27,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "/foo.html",
+    "url": "foo.html",
   },
 ]
 `;
@@ -41,7 +41,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "/bar.html",
+    "url": "bar.html",
   },
   {
     "hasChildren": false,
@@ -50,7 +50,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "/baz.html",
+    "url": "baz.html",
   },
   {
     "hasChildren": false,
@@ -59,7 +59,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "/foo.html",
+    "url": "foo.html",
   },
 ]
 `;
@@ -73,7 +73,7 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Install",
-    "url": "/bar-install.html",
+    "url": "bar-install.html",
   },
   {
     "hasChildren": false,
@@ -82,7 +82,7 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Features",
-    "url": "/bar-features.html",
+    "url": "bar-features.html",
   },
 ]
 `;
@@ -98,7 +98,7 @@ exports[`toc/buildMenu > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "/bar.html",
+    "url": "bar.html",
   },
   {
     "hasChildren": false,
@@ -107,7 +107,7 @@ exports[`toc/buildMenu > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "/baz.html",
+    "url": "baz.html",
   },
   {
     "hasChildren": false,
@@ -116,7 +116,7 @@ exports[`toc/buildMenu > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "/foo.html",
+    "url": "foo.html",
   },
 ]
 `;
