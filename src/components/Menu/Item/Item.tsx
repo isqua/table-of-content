@@ -1,4 +1,6 @@
 import clsx from 'clsx'
+import { Link } from 'react-router-dom'
+
 import { MenuItem } from '../../../features/toc'
 
 import styles from './Item.module.css'
@@ -19,9 +21,9 @@ export function Item({ item }: ItemProps): JSX.Element {
 
     return (
         <li className={styles.item} aria-level={ariaLevel}>
-            <a href={item.url} className={linkClassName}>
+            <Link to={item.url} className={linkClassName}>
                 <span className={styles.text}>{item.title}</span>
-            </a>
+            </Link>
         </li>
     )
 }

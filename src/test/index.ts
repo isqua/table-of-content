@@ -1,0 +1,1 @@
+export { renderInApp } from './render'
