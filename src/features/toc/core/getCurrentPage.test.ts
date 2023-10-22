@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import tocFlat from './test/fixtures/flat.json'
+import tocFlat from '../../../test/fixtures/toc/flat.json'
 
 import type { TableOfContent } from '../types'
 import { getCurrentPage } from './getCurrentPage'
