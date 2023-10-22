@@ -1,14 +1,8 @@
-import { Layout } from './components/Layout'
+import { AppRouter } from './components/Router'
 
 function App() {
     return (
-        <Layout>
-            <Layout.Sidebar>
-            </Layout.Sidebar>
-            <Layout.Main>
-                Hello world
-            </Layout.Main>
-        </Layout>
+        <AppRouter />
     )
 }
 
