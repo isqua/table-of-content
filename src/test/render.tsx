@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react'
-import { render, type RenderOptions } from '@testing-library/react'
+import { render, renderHook, type RenderOptions } from '@testing-library/react'
 
 import { TestRouter } from '../components/Router'
 
@@ -18,6 +18,20 @@ export const renderInApp = (
     )
 
     render(ui, {
+        wrapper: AllTheProviders,
+        ...options
+    })
+}
+
+export const renderHookInApp = <Result, Props>(
+    hook: (initialProps: Props) => Result,
+    options?: CustomRenderOptions,
+) => {
+    const AllTheProviders = ({ children }: PropsWithChildren) => (
+        <TestRouter url={options?.url}>{children}</TestRouter>
+    )
+
+    return renderHook(hook, {
         wrapper: AllTheProviders,
         ...options
     })

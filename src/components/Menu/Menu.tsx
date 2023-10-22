@@ -1,8 +1,7 @@
-import { useLocation } from 'react-router-dom'
-
 import { type TableOfContent } from '../../features/toc'
-import { Section } from './Section/Section'
+import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
 import { MenuProvider } from './Context/MenuProvider'
+import { Section } from './Section/Section'
 
 import styles from './Menu.module.css'
 
@@ -11,8 +10,7 @@ type MenuProps = {
 }
 
 export function Menu({ toc }: MenuProps): JSX.Element {
-    const location = useLocation()
-    const currentUrl = location.pathname.replace(/^\//, '')
+    const currentUrl = useCurrentPageUrl()
 
     return (
         <nav className={styles.menu}>

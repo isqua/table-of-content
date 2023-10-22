@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
-import { useLocation } from 'react-router-dom'
 
 import { getCurrentPage, type TableOfContent } from '../../features/toc'
+import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
 import { Article } from '../Article'
 
 type DocPageProps = {
@@ -9,8 +9,7 @@ type DocPageProps = {
 }
 
 export function DocPage({ toc }: DocPageProps) {
-    const location = useLocation()
-    const currentUrl = location.pathname.replace(/^\//, '')
+    const currentUrl = useCurrentPageUrl()
     const page = getCurrentPage(toc, currentUrl)
 
     useEffect(() => {
