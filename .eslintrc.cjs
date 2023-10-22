@@ -24,6 +24,7 @@ module.exports = {
     plugins: ['react-refresh'],
     rules: {
         'indent': ['error', 4],
+        'quotes': ['error', 'single'],
         'semi': ['error', 'never'],
         'react-refresh/only-export-components': [
             'warn',
