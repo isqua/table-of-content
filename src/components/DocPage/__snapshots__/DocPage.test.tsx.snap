@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components/DocPage > should render an article by url 1`] = `
+<article
+  class="_article_a23c90"
+>
+  <h1
+    class="_title_a23c90"
+  >
+    Bar
+  </h1>
+</article>
+`;
