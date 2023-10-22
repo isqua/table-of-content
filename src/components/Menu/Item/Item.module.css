@@ -5,9 +5,23 @@
 
 .link {
     display: flex;
-    padding: var(--menu-item-block-padding) var(--menu-item-inline-padding);
+    padding:
+        var(--menu-item-block-padding)
+        var(--menu-item-inline-end-padding)
+        var(--menu-item-block-padding)
+        var(--menu-item-inline-start-padding);
     color: var(--color-general-text);
     text-decoration: none;
+}
+
+.text {
+    position: relative;
+}
+
+.toggle {
+    position: absolute;
+    top: var(--menu-chevron-vertical-correction);
+    left: var(--menu-chevron-horizontal-correction);
 }
 
 .link:hover {
@@ -24,25 +38,25 @@
 }
 
 .item[aria-level="1"] .text {
-    padding-inline-start: 0;
+    margin-inline-start: var(--menu-item-level-padding);
 }
 
 .item[aria-level="2"] .text {
-    padding-inline-start: calc(var(--menu-item-level-padding) * 1);
+    margin-inline-start: calc(var(--menu-item-level-padding) * 2);
 }
 
 .item[aria-level="3"] .text {
-    padding-inline-start: calc(var(--menu-item-level-padding) * 2);
+    margin-inline-start: calc(var(--menu-item-level-padding) * 3);
 }
 
 .item[aria-level="4"] .text {
-    padding-inline-start: calc(var(--menu-item-level-padding) * 3);
+    margin-inline-start: calc(var(--menu-item-level-padding) * 4);
 }
 
 .item[aria-level="5"] .text {
-    padding-inline-start: calc(var(--menu-item-level-padding) * 4);
+    margin-inline-start: calc(var(--menu-item-level-padding) * 5);
 }
 
 .item[aria-level="6"] .text {
-    padding-inline-start: calc(var(--menu-item-level-padding) * 5);
+    margin-inline-start: calc(var(--menu-item-level-padding) * 6);
 }

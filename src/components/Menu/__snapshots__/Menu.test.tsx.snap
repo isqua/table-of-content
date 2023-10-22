@@ -74,6 +74,90 @@ exports[`components/Menu > should build a two-levels menu 1`] = `
         <span
           class="_text_daf4a6"
         >
+          <svg
+            aria-expanded="false"
+            class="_chevron_eafbf3 _toggle_daf4a6"
+            fill="none"
+            height="16"
+            role="button"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 13 11 8 6 3v9Z"
+              fill="currentColor"
+            />
+          </svg>
+          Bar
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/baz.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Baz
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/foo.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Foo
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`components/Menu > should open and close a submenu when clicking on a chevron 1`] = `
+<nav
+  class="_menu_29d207"
+>
+  <ul
+    class="_list_29d207"
+  >
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/bar.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          <svg
+            aria-expanded="true"
+            class="_chevron_eafbf3 _toggle_daf4a6 _open_eafbf3"
+            fill="none"
+            height="16"
+            role="button"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 13 11 8 6 3v9Z"
+              fill="currentColor"
+            />
+          </svg>
           Bar
         </span>
       </a>
@@ -105,6 +189,76 @@ exports[`components/Menu > should build a two-levels menu 1`] = `
           class="_text_daf4a6"
         >
           Bar: Features
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/baz.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Baz
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/foo.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Foo
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
+exports[`components/Menu > should open and close a submenu when clicking on a chevron 2`] = `
+<nav
+  class="_menu_29d207"
+>
+  <ul
+    class="_list_29d207"
+  >
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6"
+        href="/bar.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          <svg
+            aria-expanded="false"
+            class="_chevron_eafbf3 _toggle_daf4a6"
+            fill="none"
+            height="16"
+            role="button"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 13 11 8 6 3v9Z"
+              fill="currentColor"
+            />
+          </svg>
+          Bar
         </span>
       </a>
     </li>
