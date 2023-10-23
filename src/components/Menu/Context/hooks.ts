@@ -3,7 +3,7 @@ import { buildMenu, type PageId, type SectionHighlight } from '../../../features
 import { LocationContext, TocContext } from './contexts'
 
 export const useMenuItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
-    const toc = useContext(TocContext)
+    const { toc } = useContext(TocContext)
     const currentLocation = useContext(LocationContext)
 
     const items = buildMenu(toc, {
@@ -15,4 +15,10 @@ export const useMenuItems = (parentId: PageId = '', level: number = 0, highlight
     })
 
     return items
+}
+
+export const useIsLoading = () => {
+    const { isLoading } = useContext(TocContext)
+
+    return isLoading
 }

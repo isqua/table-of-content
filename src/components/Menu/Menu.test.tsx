@@ -8,6 +8,17 @@ import { renderInApp } from '../../test'
 import { Menu } from './Menu'
 
 describe('components/Menu', () => {
+    it('should render skeletons while TOC is loading', async () => {
+        const toc: TableOfContent = tocTwoLevels
+        const currentUrl = '/bar.html'
+
+        act(() => {
+            renderInApp(<Menu isLoading toc={toc} />, { url: currentUrl })
+        })
+
+        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+    })
+
     it('should build a menu and highlight current page', async () => {
         const toc: TableOfContent = tocFlat
         const currentUrl = '/bar.html'

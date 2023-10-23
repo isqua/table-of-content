@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom'
 
 import { MenuItem } from '../../../features/toc'
 import { Chevron } from '../../Chevron'
+import { Skeleton } from '../../Skeleton'
 
 import styles from './Item.module.css'
 
 type BaseItemProps = {
     item: MenuItem
+    isLoading?: boolean
 }
 
 type LeafItemProps = BaseItemProps
@@ -52,26 +54,36 @@ function OptionalLink({ to, className, children, onClick }: OptionalLinkProps) {
 }
 
 export function Item(props: ItemProps): JSX.Element {
-    const { item } = props
+    const { item, isLoading } = props
 
     const linkClassName = clsx(
         styles.link,
-        getItemHighlightStyles(item),
+        !isLoading && getItemHighlightStyles(item),
+    )
+
+    const textClassName = clsx(
+        styles.text,
+        isLoading && styles.skeleton
     )
 
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
 
-    const onLinkClick = isSubMenuItemProps(props) && !props.open ?
+    const onLinkClick = isSubMenuItemProps(props) && !isLoading && !props.open ?
         props.onToggle : undefined
+
+    const itemUrl = isLoading ? '' : item.url
 
     return (
         <li className={styles.item} aria-level={ariaLevel}>
-            <OptionalLink to={item.url} className={linkClassName} onClick={onLinkClick}>
-                <span className={styles.text}>
-                    {isSubMenuItemProps(props) && (
+            <OptionalLink to={itemUrl} className={linkClassName} onClick={onLinkClick}>
+                <span className={textClassName}>
+                    {isSubMenuItemProps(props) && !isLoading && (
                         <Chevron className={styles.toggle} open={props.open} onClick={props.onToggle} />
                     )}
-                    {item.title}
+                    {isLoading ?
+                        <Skeleton className={styles.loader} /> :
+                        item.title
+                    }
                 </span>
             </OptionalLink>
         </li>

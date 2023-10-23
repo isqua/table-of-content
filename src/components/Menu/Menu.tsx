@@ -7,15 +7,16 @@ import styles from './Menu.module.css'
 
 type MenuProps = {
     toc: TableOfContent
+    isLoading?: boolean
 }
 
-export function Menu({ toc }: MenuProps): JSX.Element {
+export function Menu({ toc, isLoading }: MenuProps): JSX.Element {
     const currentUrl = useCurrentPageUrl()
 
     return (
         <nav className={styles.menu}>
             <ul className={styles.list}>
-                <MenuProvider toc={toc} url={currentUrl}>
+                <MenuProvider toc={toc} url={currentUrl} isLoading={isLoading}>
                     <Section parentId='' level={0} />
                 </MenuProvider>
             </ul>
