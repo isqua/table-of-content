@@ -1,5 +1,6 @@
 import { createContext } from 'react'
-import { type PageDescriptor, type PageURL, type TableOfContent } from '../../../features/toc'
+
+import type { PageDescriptor, PageURL, TableOfContent } from '../../../types'
 
 type TocContextValue = {
     toc: TableOfContent

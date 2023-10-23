@@ -1,22 +1,22 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`components/Menu > should build a menu and highlight current page 1`] = `
+exports[`features/toc/ui/Menu > should build a menu and highlight current page 1`] = `
 <nav
-  class="_menu_29d207"
+  class="_menu_f33640"
 >
   <ul
-    class="_list_29d207"
+    class="_list_f33640"
   >
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _active_daf4a6"
+        class="_link_c21f54 _active_c21f54"
         href="/bar.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Bar
         </span>
@@ -24,14 +24,14 @@ exports[`components/Menu > should build a menu and highlight current page 1`] = 
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/baz.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Baz
         </span>
@@ -39,14 +39,14 @@ exports[`components/Menu > should build a menu and highlight current page 1`] = 
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/foo.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Foo
         </span>
@@ -56,27 +56,27 @@ exports[`components/Menu > should build a menu and highlight current page 1`] = 
 </nav>
 `;
 
-exports[`components/Menu > should build a two-levels menu and open all parents that contains current page 1`] = `
+exports[`features/toc/ui/Menu > should build a two-levels menu and open all parents that contains current page 1`] = `
 <nav
-  class="_menu_29d207"
+  class="_menu_f33640"
 >
   <ul
-    class="_list_29d207"
+    class="_list_f33640"
   >
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _parent_daf4a6"
+        class="_link_c21f54 _parent_c21f54"
         href="/bar.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <svg
             aria-expanded="true"
-            class="_chevron_eafbf3 _toggle_daf4a6 _open_eafbf3"
+            class="_chevron_eafbf3 _toggle_c21f54 _open_eafbf3"
             fill="none"
             height="16"
             role="button"
@@ -94,14 +94,14 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _active_daf4a6"
+        class="_link_c21f54 _active_c21f54"
         href="/bar-install.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Bar: Install
         </span>
@@ -109,14 +109,14 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _parent_daf4a6"
+        class="_link_c21f54 _parent_c21f54"
         href="/bar-features.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Bar: Features
         </span>
@@ -124,14 +124,14 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/baz.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Baz
         </span>
@@ -139,14 +139,14 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/foo.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Foo
         </span>
@@ -156,27 +156,27 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
 </nav>
 `;
 
-exports[`components/Menu > should close a submenu when clicking on a chevron 1`] = `
+exports[`features/toc/ui/Menu > should close a submenu when clicking on a chevron 1`] = `
 <nav
-  class="_menu_29d207"
+  class="_menu_f33640"
 >
   <ul
-    class="_list_29d207"
+    class="_list_f33640"
   >
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _parent_daf4a6"
+        class="_link_c21f54 _parent_c21f54"
         href="/bar.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <svg
             aria-expanded="true"
-            class="_chevron_eafbf3 _toggle_daf4a6 _open_eafbf3"
+            class="_chevron_eafbf3 _toggle_c21f54 _open_eafbf3"
             fill="none"
             height="16"
             role="button"
@@ -194,14 +194,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 1`]
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _active_daf4a6"
+        class="_link_c21f54 _active_c21f54"
         href="/bar-install.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Bar: Install
         </span>
@@ -209,14 +209,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 1`]
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _parent_daf4a6"
+        class="_link_c21f54 _parent_c21f54"
         href="/bar-features.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Bar: Features
         </span>
@@ -224,14 +224,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 1`]
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/baz.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Baz
         </span>
@@ -239,14 +239,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 1`]
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/foo.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Foo
         </span>
@@ -256,27 +256,27 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 1`]
 </nav>
 `;
 
-exports[`components/Menu > should close a submenu when clicking on a chevron 2`] = `
+exports[`features/toc/ui/Menu > should close a submenu when clicking on a chevron 2`] = `
 <nav
-  class="_menu_29d207"
+  class="_menu_f33640"
 >
   <ul
-    class="_list_29d207"
+    class="_list_f33640"
   >
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6 _parent_daf4a6"
+        class="_link_c21f54 _parent_c21f54"
         href="/bar.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <svg
             aria-expanded="false"
-            class="_chevron_eafbf3 _toggle_daf4a6"
+            class="_chevron_eafbf3 _toggle_c21f54"
             fill="none"
             height="16"
             role="button"
@@ -294,14 +294,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 2`]
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/baz.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Baz
         </span>
@@ -309,14 +309,14 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 2`]
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_c21f54"
         href="/foo.html"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           Foo
         </span>
@@ -326,89 +326,89 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 2`]
 </nav>
 `;
 
-exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
+exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`] = `
 <nav
-  class="_menu_29d207"
+  class="_menu_f33640"
 >
   <ul
-    class="_list_29d207"
+    class="_list_f33640"
   >
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <span
-        class="_link_daf4a6"
+        class="_link_c21f54"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <span
-            class="_skeleton_2cc9eb _loader_daf4a6"
+            class="_skeleton_2cc9eb _loader_c21f54"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <span
-        class="_link_daf4a6"
+        class="_link_c21f54"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <span
-            class="_skeleton_2cc9eb _loader_daf4a6"
+            class="_skeleton_2cc9eb _loader_c21f54"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="2"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <span
-        class="_link_daf4a6"
+        class="_link_c21f54"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <span
-            class="_skeleton_2cc9eb _loader_daf4a6"
+            class="_skeleton_2cc9eb _loader_c21f54"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <span
-        class="_link_daf4a6"
+        class="_link_c21f54"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <span
-            class="_skeleton_2cc9eb _loader_daf4a6"
+            class="_skeleton_2cc9eb _loader_c21f54"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="1"
-      class="_item_daf4a6"
+      class="_item_c21f54"
     >
       <span
-        class="_link_daf4a6"
+        class="_link_c21f54"
       >
         <span
-          class="_text_daf4a6"
+          class="_text_c21f54"
         >
           <span
-            class="_skeleton_2cc9eb _loader_daf4a6"
+            class="_skeleton_2cc9eb _loader_c21f54"
           />
         </span>
       </span>
