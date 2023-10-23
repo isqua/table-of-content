@@ -56,7 +56,7 @@ exports[`components/Menu > should build a menu and highlight current page 1`] = 
 </nav>
 `;
 
-exports[`components/Menu > should build a two-levels menu 1`] = `
+exports[`components/Menu > should build a two-levels menu and open all parents that contains current page 1`] = `
 <nav
   class="_menu_29d207"
 >
@@ -75,8 +75,8 @@ exports[`components/Menu > should build a two-levels menu 1`] = `
           class="_text_daf4a6"
         >
           <svg
-            aria-expanded="false"
-            class="_chevron_eafbf3 _toggle_daf4a6"
+            aria-expanded="true"
+            class="_chevron_eafbf3 _toggle_daf4a6 _open_eafbf3"
             fill="none"
             height="16"
             role="button"
@@ -89,6 +89,36 @@ exports[`components/Menu > should build a two-levels menu 1`] = `
             />
           </svg>
           Bar
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6 _active_daf4a6"
+        href="/bar-install.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar: Install
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <a
+        class="_link_daf4a6 _parent_daf4a6"
+        href="/bar-features.html"
+      >
+        <span
+          class="_text_daf4a6"
+        >
+          Bar: Features
         </span>
       </a>
     </li>

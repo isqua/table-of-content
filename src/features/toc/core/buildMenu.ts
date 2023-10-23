@@ -17,6 +17,7 @@ type BuildMenuOptions = BuildMenuTopLevelOptions | BuildMenuNestingOptions
 
 type PageProps = {
     highlight: PageHighlight
+    defaultOpenState: boolean
     level: number
 }
 
@@ -28,6 +29,7 @@ const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => 
     highlight: props.highlight,
     level: props.level,
     hasChildren: Boolean(page.pages?.length),
+    defaultOpenState: props.defaultOpenState
 })
 
 const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => {
@@ -59,16 +61,20 @@ export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuI
 
         if (page) {
             let highlight: PageHighlight = sectionHighlight
+            let defaultOpenState = false
 
             if (page.url === url) {
                 highlight = 'active'
+                defaultOpenState = Boolean(page.pages?.length)
             } else if (breadcrumbs[level] === page) {
                 highlight = 'parent'
+                defaultOpenState = true
             }
 
             menu.push(mapPageToMenuItem(page, {
                 highlight,
                 level,
+                defaultOpenState,
             }))
         }
     }

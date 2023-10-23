@@ -3,6 +3,7 @@
 exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 [
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": "active",
     "id": "bar",
@@ -12,6 +13,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
     "url": "bar.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "baz",
@@ -21,6 +23,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
     "url": "baz.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "foo",
@@ -35,6 +38,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 exports[`toc/buildMenu > should build a menu even if there are no current page 1`] = `
 [
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "bar",
@@ -44,6 +48,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
     "url": "bar.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "baz",
@@ -53,6 +58,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
     "url": "baz.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "foo",
@@ -67,6 +73,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
 exports[`toc/buildMenu > should build a nested menu 1`] = `
 [
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "bar_install",
@@ -76,6 +83,7 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
     "url": "bar-install.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": "active",
     "id": "bar_features",
@@ -92,6 +100,7 @@ exports[`toc/buildMenu > should build an empty menu if there are no top level id
 exports[`toc/buildMenu > should show page children 1`] = `
 [
   {
+    "defaultOpenState": true,
     "hasChildren": true,
     "highlight": "active",
     "id": "bar",
@@ -101,6 +110,7 @@ exports[`toc/buildMenu > should show page children 1`] = `
     "url": "bar.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "baz",
@@ -110,6 +120,7 @@ exports[`toc/buildMenu > should show page children 1`] = `
     "url": "baz.html",
   },
   {
+    "defaultOpenState": false,
     "hasChildren": false,
     "highlight": undefined,
     "id": "foo",
