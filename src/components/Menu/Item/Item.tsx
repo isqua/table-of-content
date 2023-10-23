@@ -6,6 +6,7 @@ import { OptionalLink } from '../../OptionalLink'
 import { Skeleton } from '../../Skeleton'
 
 import styles from './Item.module.css'
+import { PropsWithChildren, useState } from 'react'
 
 type BaseItemProps = {
     item: MenuItem
@@ -21,6 +22,11 @@ type SubMenuItemProps = BaseItemProps & {
 }
 
 type ItemProps = LeafItemProps | SubMenuItemProps
+
+type ItemToggleProps = PropsWithChildren<{
+    item: MenuItem
+    isLoading: boolean
+}>
 
 const highlightStyles = {
     active: styles.active,
@@ -72,5 +78,26 @@ export function Item(props: ItemProps): JSX.Element {
                 </span>
             </OptionalLink>
         </li>
+    )
+}
+
+export function ItemToggle({ item, children, isLoading }: ItemToggleProps): JSX.Element {
+    const [ isOpen, setOpen ]  = useState(isLoading ? true : item.defaultOpenState)
+
+    const onToggle = () => {
+        setOpen(value => !value)
+    }
+
+    return (
+        <>
+            <Item
+                hasChildren
+                isLoading={isLoading}
+                item={item}
+                open={isOpen}
+                onToggle={onToggle}
+            />
+            {isOpen && children}
+        </>
     )
 }
