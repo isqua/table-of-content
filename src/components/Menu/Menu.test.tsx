@@ -1,4 +1,4 @@
-import { act, fireEvent, screen } from '@testing-library/react'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
 import type { TableOfContent } from '../../features/toc'
@@ -30,7 +30,7 @@ describe('components/Menu', () => {
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
     })
 
-    it('should open and close a submenu when clicking on a chevron', async () => {
+    it('should close a submenu when clicking on a chevron', async () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar-install.html'
 
@@ -45,5 +45,24 @@ describe('components/Menu', () => {
         })
 
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
+    })
+
+    it('should open a submenu when clicking on an item with children', async () => {
+        const toc: TableOfContent = tocTwoLevels
+        const currentUrl = '/foo.html'
+
+        act(() => {
+            renderInApp(<Menu toc={toc} />, { url: currentUrl })
+        })
+
+        act(() => {
+            fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
+        })
+
+        await waitFor(() => {
+            expect(screen.getByRole('button', { expanded: true })).not.toBeNull()
+        })
+
+        expect(screen.getByText('Bar: Install')).not.toBeNull()
     })
 })

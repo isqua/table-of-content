@@ -24,6 +24,7 @@ type ItemProps = LeafItemProps | SubMenuItemProps
 type OptionalLinkProps = PropsWithChildren<{
     to: string
     className: string
+    onClick?: () => void
 }>
 
 const highlightStyles = {
@@ -42,12 +43,12 @@ function getItemHighlightStyles(item: MenuItem): string | undefined {
 
 const INDENT_LEVEL_LIMIT = 6
 
-function OptionalLink({ to, className, children }: OptionalLinkProps) {
+function OptionalLink({ to, className, children, onClick }: OptionalLinkProps) {
     if (to) {
-        return (<Link to={to} className={className}>{children}</Link>)
+        return (<Link to={to} className={className} onClick={onClick}>{children}</Link>)
     }
 
-    return (<span className={className}>{children}</span>)
+    return (<span className={className} onClick={onClick}>{children}</span>)
 }
 
 export function Item(props: ItemProps): JSX.Element {
@@ -60,9 +61,12 @@ export function Item(props: ItemProps): JSX.Element {
 
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
 
+    const onLinkClick = isSubMenuItemProps(props) && !props.open ?
+        props.onToggle : undefined
+
     return (
         <li className={styles.item} aria-level={ariaLevel}>
-            <OptionalLink to={item.url} className={linkClassName}>
+            <OptionalLink to={item.url} className={linkClassName} onClick={onLinkClick}>
                 <span className={styles.text}>
                     {isSubMenuItemProps(props) && (
                         <Chevron className={styles.toggle} open={props.open} onClick={props.onToggle} />
