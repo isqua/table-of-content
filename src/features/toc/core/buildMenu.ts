@@ -22,7 +22,7 @@ const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => 
     id: page.id,
     parentId: page.parentId,
     title: page.title,
-    url: page.url ?? `#${page.id}`,
+    url: page.url ?? '',
     isActive: props.isActive,
     level: props.level,
     hasChildren: Boolean(page.pages?.length),
