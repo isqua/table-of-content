@@ -1,7 +1,7 @@
 import type { PropsWithChildren, ReactElement } from 'react'
 import { render, renderHook, type RenderOptions } from '@testing-library/react'
 
-import { TestRouter } from '../components/Router'
+import { TestRouter } from '../app/Router'
 
 type AppProvidersProps = {
     url?: string

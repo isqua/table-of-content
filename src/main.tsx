@@ -1,8 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import styles from './App.module.css'
-import App from './App.tsx'
+import styles from './app/App.module.css'
+import App from './app/App.tsx'
 
 const appRootElement = document.getElementById('root')
 
