@@ -16,7 +16,7 @@ export function Menu({ toc }: MenuProps): JSX.Element {
         <nav className={styles.menu}>
             <ul className={styles.list}>
                 <MenuProvider toc={toc} url={currentUrl}>
-                    <Section parentId='' level={0} />
+                    <Section relationToActiveItem={undefined} parentId='' level={0} />
                 </MenuProvider>
             </ul>
         </nav>

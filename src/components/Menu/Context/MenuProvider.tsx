@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react'
-import { type PageURL, type TableOfContent } from '../../../features/toc'
-import { TocContext, LocationContext } from './contexts'
+import { getTopHighlightedPage, type PageURL, type TableOfContent } from '../../../features/toc'
+import { LocationContext, TocContext } from './contexts'
 
 type MenuProviderProps = PropsWithChildren<{
     toc: TableOfContent
@@ -8,9 +8,12 @@ type MenuProviderProps = PropsWithChildren<{
 }>
 
 export function MenuProvider({ toc, url, children }: MenuProviderProps): JSX.Element {
+    const topLevelHighlightedPage = getTopHighlightedPage(toc, url)
+    const locationContextValue = { url, topLevelHighlightedPage }
+
     return (
         <TocContext.Provider value={toc}>
-            <LocationContext.Provider value={url}>
+            <LocationContext.Provider value={locationContextValue}>
                 {children}
             </LocationContext.Provider>
         </TocContext.Provider>

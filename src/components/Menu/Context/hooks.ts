@@ -1,16 +1,22 @@
 import { useContext } from 'react'
-import { buildMenu } from '../../../features/toc'
+import { PageId, buildMenu } from '../../../features/toc'
 import { LocationContext, TocContext } from './contexts'
 
-export const useMenuItems = (parentId: string = '', level: number = 0) => {
+export const useMenuItems = (parentId: PageId = '', level: number = 0) => {
     const toc = useContext(TocContext)
-    const currentUrl = useContext(LocationContext)
+    const currentLocation = useContext(LocationContext)
 
     const items = buildMenu(toc, {
-        url: currentUrl,
+        url: currentLocation.url,
         parentId,
         level,
     })
 
     return items
+}
+
+export const useTopLevelHighlightedPage = () => {
+    const currentLocation = useContext(LocationContext)
+
+    return currentLocation.topLevelHighlightedPage
 }
