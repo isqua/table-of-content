@@ -39,11 +39,6 @@ export function Item(props: ItemProps): JSX.Element {
         !isLoading && getItemHighlightStyles(item),
     )
 
-    const textClassName = clsx(
-        styles.text,
-        isLoading && styles.skeleton
-    )
-
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
 
     const itemUrl = isLoading ? '' : item.url
@@ -51,7 +46,7 @@ export function Item(props: ItemProps): JSX.Element {
     return (
         <li className={styles.item} aria-level={ariaLevel}>
             <OptionalLink to={itemUrl} className={linkClassName} onClick={onClick}>
-                <span className={textClassName}>
+                <span className={styles.text}>
                     {isLoading ?
                         <Skeleton className={styles.loader} /> :
                         children
