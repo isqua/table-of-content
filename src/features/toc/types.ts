@@ -11,6 +11,10 @@ export type PageDescriptor = {
 
 export type PagesIndex = Record<PageId, PageDescriptor | undefined>
 
+export type SectionHighlight = 'parent' | 'child' | undefined
+
+export type PageHighlight = 'active' | SectionHighlight
+
 export type TableOfContent = {
     entities: {
         pages: PagesIndex,
@@ -24,6 +28,6 @@ export type MenuItem = {
     url: PageURL
     title: string
     level: number
-    isActive: boolean
+    highlight: PageHighlight
     hasChildren: boolean
 }

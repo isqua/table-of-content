@@ -4,8 +4,8 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 [
   {
     "hasChildren": false,
+    "highlight": "active",
     "id": "bar",
-    "isActive": true,
     "level": 0,
     "parentId": "root",
     "title": "Bar",
@@ -13,8 +13,8 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "baz",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Baz",
@@ -22,8 +22,8 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "foo",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Foo",
@@ -36,8 +36,8 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
 [
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "bar",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Bar",
@@ -45,8 +45,8 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "baz",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Baz",
@@ -54,8 +54,8 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "foo",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Foo",
@@ -68,8 +68,8 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
 [
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "bar_install",
-    "isActive": false,
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Install",
@@ -77,8 +77,8 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
   },
   {
     "hasChildren": false,
+    "highlight": "active",
     "id": "bar_features",
-    "isActive": true,
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Features",
@@ -93,8 +93,8 @@ exports[`toc/buildMenu > should show page children 1`] = `
 [
   {
     "hasChildren": true,
+    "highlight": "active",
     "id": "bar",
-    "isActive": true,
     "level": 0,
     "parentId": "root",
     "title": "Bar",
@@ -102,8 +102,8 @@ exports[`toc/buildMenu > should show page children 1`] = `
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "baz",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Baz",
@@ -111,8 +111,8 @@ exports[`toc/buildMenu > should show page children 1`] = `
   },
   {
     "hasChildren": false,
+    "highlight": undefined,
     "id": "foo",
-    "isActive": false,
     "level": 0,
     "parentId": "root",
     "title": "Foo",
