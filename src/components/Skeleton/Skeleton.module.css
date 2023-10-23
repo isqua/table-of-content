@@ -1,0 +1,24 @@
+.skeleton {
+    display: block;
+    animation: loading 2s infinite;
+    background-color: var(--color-secondary-background);
+    pointer-events: none;
+}
+
+.skeleton::before {
+    content: '\00a0';
+}
+
+@keyframes loading {
+    0% {
+        background-color: var(--color-secondary-background);
+    }
+
+    50% {
+        background-color: var(--color-tertiary-background);
+    }
+
+    100% {
+        background-color: var(--color-secondary-background);
+    }
+}
