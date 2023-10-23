@@ -6,12 +6,14 @@ import { Chevron } from '../../Chevron'
 
 import styles from './Item.module.css'
 
-type LeafItemProps = {
+type BaseItemProps = {
     item: MenuItem
+    relationToActiveItem: 'parent' | 'child' | undefined
 }
 
-type SubMenuItemProps = {
-    item: MenuItem
+type LeafItemProps = BaseItemProps
+
+type SubMenuItemProps = BaseItemProps & {
     hasChildren: true
     open?: boolean
     onToggle?: () => void
@@ -23,6 +25,20 @@ function isSubMenuItemProps(props: ItemProps): props is SubMenuItemProps {
     return (props as SubMenuItemProps).hasChildren
 }
 
+function getItemRelationToActiveItem({ item, relationToActiveItem }: BaseItemProps) {
+    if (item.isActive) {
+        return styles.active
+    }
+
+    if (relationToActiveItem === 'parent') {
+        return styles.parent
+    }
+
+    if (relationToActiveItem === 'child') {
+        return styles.child
+    }
+}
+
 const INDENT_LEVEL_LIMIT = 6
 
 export function Item(props: ItemProps): JSX.Element {
@@ -30,7 +46,7 @@ export function Item(props: ItemProps): JSX.Element {
 
     const linkClassName = clsx(
         styles.link,
-        item.isActive && styles.active,
+        getItemRelationToActiveItem(props),
     )
 
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)

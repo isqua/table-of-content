@@ -68,7 +68,7 @@ exports[`components/Menu > should build a two-levels menu 1`] = `
       class="_item_daf4a6"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_daf4a6 _parent_daf4a6"
         href="/bar.html"
       >
         <span
@@ -138,7 +138,7 @@ exports[`components/Menu > should open and close a submenu when clicking on a ch
       class="_item_daf4a6"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_daf4a6 _parent_daf4a6"
         href="/bar.html"
       >
         <span
@@ -182,7 +182,7 @@ exports[`components/Menu > should open and close a submenu when clicking on a ch
       class="_item_daf4a6"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_daf4a6 _parent_daf4a6"
         href="/bar-features.html"
       >
         <span
@@ -238,7 +238,7 @@ exports[`components/Menu > should open and close a submenu when clicking on a ch
       class="_item_daf4a6"
     >
       <a
-        class="_link_daf4a6"
+        class="_link_daf4a6 _parent_daf4a6"
         href="/bar.html"
       >
         <span
