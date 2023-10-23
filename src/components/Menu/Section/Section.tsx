@@ -34,7 +34,7 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
 
 function SubMenu({ item, level }: SubMenuProps): JSX.Element {
     const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
-    const [ isOpen, setOpen ]  = useState(false)
+    const [ isOpen, setOpen ]  = useState(item.defaultOpenState)
 
     const onToggle = () => {
         setOpen(value => !value)
