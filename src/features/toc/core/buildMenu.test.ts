@@ -26,6 +26,16 @@ describe('toc/buildMenu', () => {
         expect(menu).toMatchSnapshot()
     })
 
+    it('should build an empty menu if page with parent id does not exists', () => {
+        const toc: TableOfContent = tocFlat
+        const currentUrl = ''
+        const parentId = 'this-id-does-not-exist'
+        const breadcrumbs = getBreadCrumbs(toc, currentUrl)
+        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs, parentId })
+
+        expect(menu).toEqual([])
+    })
+
     it('should build an empty menu if there are no top level ids ', () => {
         const toc: TableOfContent = {
             entities: { pages: {} },
