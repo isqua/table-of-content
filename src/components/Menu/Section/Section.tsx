@@ -1,5 +1,5 @@
 import { type PageId, type SectionHighlight } from '../../../features/toc'
-import { useIsLoading, useMenuItems } from '../Context/hooks'
+import { useMenuItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
 
 type SectionProps = {
@@ -9,7 +9,6 @@ type SectionProps = {
 }
 
 export function Section({ parentId, level, highlight }: SectionProps): JSX.Element {
-    const isLoading = useIsLoading()
     const items = useMenuItems(parentId, level, highlight)
 
     return (
@@ -17,7 +16,7 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
             {items.map((item) => {
                 if (!item.hasChildren) {
                     return (
-                        <Item isLoading={isLoading} key={item.id} item={item}>
+                        <Item key={item.id} item={item}>
                             {item.title}
                         </Item>
                     )
@@ -26,7 +25,7 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
                 const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
 
                 return (
-                    <ItemToggle isLoading={isLoading} key={item.id} item={item}>
+                    <ItemToggle key={item.id} item={item}>
                         <Section highlight={subMenuHighlight} parentId={item.id} level={level + 1} />
                     </ItemToggle>
                 )

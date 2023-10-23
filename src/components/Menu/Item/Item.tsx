@@ -5,18 +5,17 @@ import type { MenuItem } from '../../../features/toc'
 import { Chevron } from '../../Chevron'
 import { OptionalLink } from '../../OptionalLink'
 import { Skeleton } from '../../Skeleton'
+import { useIsLoading } from '../Context/hooks'
 
 import styles from './Item.module.css'
 
 type ItemProps = PropsWithChildren<{
     item: MenuItem
-    isLoading?: boolean
     onClick?: () => void
 }>
 
 type ItemToggleProps = PropsWithChildren<{
     item: MenuItem
-    isLoading: boolean
 }>
 
 const highlightStyles = {
@@ -32,7 +31,8 @@ function getItemHighlightStyles(item: MenuItem): string | undefined {
 const INDENT_LEVEL_LIMIT = 6
 
 export function Item(props: ItemProps): JSX.Element {
-    const { item, isLoading, children, onClick } = props
+    const isLoading = useIsLoading()
+    const { item, children, onClick } = props
 
     const linkClassName = clsx(
         styles.link,
@@ -62,7 +62,8 @@ export function Item(props: ItemProps): JSX.Element {
     )
 }
 
-export function ItemToggle({ item, children, isLoading }: ItemToggleProps): JSX.Element {
+export function ItemToggle({ item, children }: ItemToggleProps): JSX.Element {
+    const isLoading = useIsLoading()
     const [ isOpen, setOpen ]  = useState(isLoading ? true : item.defaultOpenState)
 
     const onToggle = () => {
@@ -73,7 +74,7 @@ export function ItemToggle({ item, children, isLoading }: ItemToggleProps): JSX.
 
     return (
         <>
-            <Item isLoading={isLoading} item={item} onClick={onLinkClick}>
+            <Item item={item} onClick={onLinkClick}>
                 <Chevron className={styles.toggle} open={isOpen} onClick={onToggle} />
                 {item.title}
             </Item>
