@@ -1,5 +1,5 @@
-import { type TableOfContent } from '../../features/toc'
-import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
+import { useCurrentPageUrl } from '../../../../hooks/useCurrentPageUrl'
+import type { TableOfContent } from '../../types'
 import { MenuProvider } from './Context/MenuProvider'
 import { Section } from './Section/Section'
 

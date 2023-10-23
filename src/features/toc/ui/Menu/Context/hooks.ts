@@ -1,5 +1,7 @@
 import { useContext } from 'react'
-import { buildMenu, type PageId, type SectionHighlight } from '../../../features/toc'
+
+import { buildMenu } from '../../../core/buildMenu'
+import type { PageId, SectionHighlight } from '../../../types'
 import { LocationContext, TocContext } from './contexts'
 
 export const useMenuItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {

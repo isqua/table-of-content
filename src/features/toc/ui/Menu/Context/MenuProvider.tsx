@@ -1,5 +1,6 @@
-import { type PropsWithChildren } from 'react'
-import { getBreadCrumbs, type PageURL, type TableOfContent } from '../../../features/toc'
+import type { PropsWithChildren } from 'react'
+import { getBreadCrumbs } from '../../../core/getBreadCrumbs'
+import type { PageURL, TableOfContent } from '../../../types'
 import { LocationContext, TocContext } from './contexts'
 
 type MenuProviderProps = PropsWithChildren<{

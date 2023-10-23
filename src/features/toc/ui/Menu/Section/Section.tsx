@@ -1,4 +1,4 @@
-import { type PageId, type SectionHighlight } from '../../../features/toc'
+import type { PageId, SectionHighlight } from '../../../types'
 import { useMenuItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
 
