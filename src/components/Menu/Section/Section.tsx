@@ -1,43 +1,39 @@
 import { useState } from 'react'
-import { type MenuItem, type PageId } from '../../../features/toc'
-import { useTopLevelHighlightedPage, useMenuItems } from '../Context/hooks'
+import { type MenuItem, type PageId, type SectionHighlight } from '../../../features/toc'
+import { useMenuItems } from '../Context/hooks'
 import { Item } from '../Item/Item'
 
 type SectionProps = {
     parentId: PageId
     level: number
-    relationToActiveItem?: 'parent' | 'child'
+    highlight?: SectionHighlight
 }
 
 type SubMenuProps = {
     item: MenuItem
     level: number
-    relationToActiveItem: 'parent' | 'child' | undefined
 }
 
-export function Section({ parentId, level, relationToActiveItem }: SectionProps): JSX.Element {
-    const items = useMenuItems(parentId, level)
-    const topLevelHighlightedPage = useTopLevelHighlightedPage()
+export function Section({ parentId, level, highlight }: SectionProps): JSX.Element {
+    const items = useMenuItems(parentId, level, highlight)
 
     return (
         <>
             {items.map((item) => {
-                const itemsRelation = topLevelHighlightedPage === item.id ? 'parent' : relationToActiveItem
-
                 if (!item.hasChildren) {
-                    return (<Item relationToActiveItem={itemsRelation} key={item.id} item={item} />)
+                    return (<Item key={item.id} item={item} />)
                 }
 
                 return (
-                    <SubMenu relationToActiveItem={itemsRelation} key={item.id} item={item} level={level + 1} />
+                    <SubMenu key={item.id} item={item} level={level + 1} />
                 )
             })}
         </>
     )
 }
 
-function SubMenu({ item, level, relationToActiveItem }: SubMenuProps): JSX.Element {
-    const subItemRelation = item.isActive ? 'child' : relationToActiveItem
+function SubMenu({ item, level }: SubMenuProps): JSX.Element {
+    const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
     const [ isOpen, setOpen ]  = useState(false)
 
     const onToggle = () => {
@@ -48,13 +44,12 @@ function SubMenu({ item, level, relationToActiveItem }: SubMenuProps): JSX.Eleme
         <>
             <Item
                 hasChildren
-                relationToActiveItem={relationToActiveItem}
                 item={item}
                 open={isOpen}
                 onToggle={onToggle}
             />
             {isOpen && (
-                <Section relationToActiveItem={subItemRelation} parentId={item.id} level={level} />
+                <Section highlight={subMenuHighlight} parentId={item.id} level={level} />
             )}
         </>
     )

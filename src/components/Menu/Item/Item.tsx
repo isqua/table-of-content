@@ -9,7 +9,6 @@ import styles from './Item.module.css'
 
 type BaseItemProps = {
     item: MenuItem
-    relationToActiveItem: 'parent' | 'child' | undefined
 }
 
 type LeafItemProps = BaseItemProps
@@ -27,22 +26,18 @@ type OptionalLinkProps = PropsWithChildren<{
     className: string
 }>
 
+const highlightStyles = {
+    active: styles.active,
+    parent: styles.parent,
+    child: styles.child,
+}
+
 function isSubMenuItemProps(props: ItemProps): props is SubMenuItemProps {
     return (props as SubMenuItemProps).hasChildren
 }
 
-function getItemRelationToActiveItem({ item, relationToActiveItem }: BaseItemProps) {
-    if (item.isActive) {
-        return styles.active
-    }
-
-    if (relationToActiveItem === 'parent') {
-        return styles.parent
-    }
-
-    if (relationToActiveItem === 'child') {
-        return styles.child
-    }
+function getItemHighlightStyles(item: MenuItem): string | undefined {
+    return item.highlight && highlightStyles[item.highlight]
 }
 
 const INDENT_LEVEL_LIMIT = 6
@@ -60,7 +55,7 @@ export function Item(props: ItemProps): JSX.Element {
 
     const linkClassName = clsx(
         styles.link,
-        getItemRelationToActiveItem(props),
+        getItemHighlightStyles(item),
     )
 
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)

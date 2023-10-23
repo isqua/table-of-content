@@ -1,7 +1,8 @@
-import type { MenuItem, PageDescriptor, PageId, PageURL, TableOfContent } from '../types'
+import type { MenuItem, PageDescriptor, PageHighlight, PageId, PageURL, SectionHighlight, TableOfContent } from '../types'
 
 type BuildMenuBaseOptions = {
     url: PageURL
+    breadcrumbs: PageDescriptor[]
 }
 
 type BuildMenuTopLevelOptions = BuildMenuBaseOptions
@@ -9,12 +10,13 @@ type BuildMenuTopLevelOptions = BuildMenuBaseOptions
 type BuildMenuNestingOptions = BuildMenuBaseOptions & {
     parentId: string
     level: number
+    highlight: SectionHighlight
 }
 
 type BuildMenuOptions = BuildMenuTopLevelOptions | BuildMenuNestingOptions
 
 type PageProps = {
-    isActive: boolean
+    highlight: PageHighlight
     level: number
 }
 
@@ -23,7 +25,7 @@ const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => 
     parentId: page.parentId,
     title: page.title,
     url: page.url ?? '',
-    isActive: props.isActive,
+    highlight: props.highlight,
     level: props.level,
     hasChildren: Boolean(page.pages?.length),
 })
@@ -41,7 +43,14 @@ const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => 
 }
 
 export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
-    const { url, parentId, level = 0 } = options as BuildMenuNestingOptions
+    const {
+        url,
+        parentId,
+        breadcrumbs = [],
+        level = 0,
+        highlight: sectionHighlight,
+    } = options as BuildMenuNestingOptions
+
     const menu: MenuItem[] = []
     const pagesIds = getPagesForParent(toc, parentId)
 
@@ -49,8 +58,16 @@ export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuI
         const page = toc.entities.pages[pageId]
 
         if (page) {
+            let highlight: PageHighlight = sectionHighlight
+
+            if (page.url === url) {
+                highlight = 'active'
+            } else if (breadcrumbs[level] === page) {
+                highlight = 'parent'
+            }
+
             menu.push(mapPageToMenuItem(page, {
-                isActive: page.url === url,
+                highlight,
                 level,
             }))
         }
