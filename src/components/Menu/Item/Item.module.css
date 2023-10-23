@@ -10,9 +10,10 @@
         var(--menu-item-inline-end-padding)
         var(--menu-item-block-padding)
         var(--menu-item-inline-start-padding);
+    border: 1px solid transparent;
     color: var(--color-general-text);
     text-decoration: none;
-    transition: color 0.15s, background-color 0.15s;
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
 }
 
 .text {
@@ -33,6 +34,11 @@
 
 .link:hover {
     background-color: var(--color-secondary-background);
+}
+
+.link:focus {
+    border-color: var(--color-active-background);
+    outline: none;
 }
 
 .link.parent {
