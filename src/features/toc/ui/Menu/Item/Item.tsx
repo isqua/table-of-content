@@ -1,10 +1,10 @@
 import clsx from 'clsx'
 import { useState, type PropsWithChildren } from 'react'
 
-import type { MenuItem } from '../../../features/toc'
-import { Chevron } from '../../Chevron'
-import { OptionalLink } from '../../OptionalLink'
-import { Skeleton } from '../../Skeleton'
+import { Chevron } from '../../../../../components/Chevron'
+import { OptionalLink } from '../../../../../components/OptionalLink'
+import { Skeleton } from '../../../../../components/Skeleton'
+import type { MenuItem } from '../../../types'
 import { useIsLoading } from '../Context/hooks'
 
 import styles from './Item.module.css'

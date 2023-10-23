@@ -1,13 +1,13 @@
 import { fireEvent, screen, waitFor } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import type { TableOfContent } from '../../features/toc'
-import tocFlat from '../../test/fixtures/toc/flat.json'
-import tocTwoLevels from '../../test/fixtures/toc/two-levels.json'
-import { renderInApp } from '../../test'
+import { renderInApp } from '../../../../test'
+import tocFlat from '../../../../test/fixtures/toc/flat.json'
+import tocTwoLevels from '../../../../test/fixtures/toc/two-levels.json'
+import type { TableOfContent } from '../../types'
 import { Menu } from './Menu'
 
-describe('components/Menu', () => {
+describe('features/toc/ui/Menu', () => {
     it('should render skeletons while TOC is loading', async () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar.html'
