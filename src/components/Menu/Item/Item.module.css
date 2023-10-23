@@ -12,6 +12,7 @@
         var(--menu-item-inline-start-padding);
     color: var(--color-general-text);
     text-decoration: none;
+    transition: color 0.15s, background-color 0.15s;
 }
 
 .text {
