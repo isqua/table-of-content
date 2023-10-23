@@ -16,7 +16,11 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
         <>
             {items.map((item) => {
                 if (!item.hasChildren) {
-                    return (<Item isLoading={isLoading} key={item.id} item={item} />)
+                    return (
+                        <Item isLoading={isLoading} key={item.id} item={item}>
+                            {item.title}
+                        </Item>
+                    )
                 }
 
                 const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
