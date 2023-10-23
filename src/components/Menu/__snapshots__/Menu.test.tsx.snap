@@ -156,7 +156,7 @@ exports[`components/Menu > should build a two-levels menu and open all parents t
 </nav>
 `;
 
-exports[`components/Menu > should open and close a submenu when clicking on a chevron 1`] = `
+exports[`components/Menu > should close a submenu when clicking on a chevron 1`] = `
 <nav
   class="_menu_29d207"
 >
@@ -256,7 +256,7 @@ exports[`components/Menu > should open and close a submenu when clicking on a ch
 </nav>
 `;
 
-exports[`components/Menu > should open and close a submenu when clicking on a chevron 2`] = `
+exports[`components/Menu > should close a submenu when clicking on a chevron 2`] = `
 <nav
   class="_menu_29d207"
 >
