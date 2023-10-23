@@ -325,3 +325,94 @@ exports[`components/Menu > should close a submenu when clicking on a chevron 2`]
   </ul>
 </nav>
 `;
+
+exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
+<nav
+  class="_menu_29d207"
+>
+  <ul
+    class="_list_29d207"
+  >
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <span
+        class="_link_daf4a6"
+      >
+        <span
+          class="_text_daf4a6 _skeleton_daf4a6"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_daf4a6"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <span
+        class="_link_daf4a6"
+      >
+        <span
+          class="_text_daf4a6 _skeleton_daf4a6"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_daf4a6"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_daf4a6"
+    >
+      <span
+        class="_link_daf4a6"
+      >
+        <span
+          class="_text_daf4a6 _skeleton_daf4a6"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_daf4a6"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <span
+        class="_link_daf4a6"
+      >
+        <span
+          class="_text_daf4a6 _skeleton_daf4a6"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_daf4a6"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_daf4a6"
+    >
+      <span
+        class="_link_daf4a6"
+      >
+        <span
+          class="_text_daf4a6 _skeleton_daf4a6"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_daf4a6"
+          />
+        </span>
+      </span>
+    </li>
+  </ul>
+</nav>
+`;

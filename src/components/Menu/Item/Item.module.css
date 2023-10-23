@@ -17,6 +17,12 @@
 
 .text {
     position: relative;
+    flex-grow: 1;
+}
+
+.loader {
+    /* Make right side of the skeletons column more dynamic */
+    width: 80%;
 }
 
 .toggle {
