@@ -15,6 +15,7 @@ export default defineConfig({
     ],
     // https://vitest.dev/config/
     test: {
+        globals: true,
         environment: 'jsdom',
         setupFiles: './src/test/setup.ts',
         css: {
