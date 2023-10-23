@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import { PageId, type PageURL, type TableOfContent } from '../../../features/toc'
+import { type PageDescriptor, type PageURL, type TableOfContent } from '../../../features/toc'
 
 type LocationContextValue = {
     url: PageURL
-    topLevelHighlightedPage: PageId
+    breadcrumbs: PageDescriptor[]
 }
 
 const defaultToc: TableOfContent = {
@@ -12,10 +12,10 @@ const defaultToc: TableOfContent = {
 }
 
 const defaultUrl = '/'
-const defaultTopLevelHighlightedPage = ''
+const defaultBreadCrumbs: PageDescriptor[] = []
 
 export const TocContext = createContext<TableOfContent>(defaultToc)
 export const LocationContext = createContext<LocationContextValue>({
     url: defaultUrl,
-    topLevelHighlightedPage: defaultTopLevelHighlightedPage,
+    breadcrumbs: defaultBreadCrumbs,
 })
