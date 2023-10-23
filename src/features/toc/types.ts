@@ -30,4 +30,5 @@ export type MenuItem = {
     level: number
     highlight: PageHighlight
     hasChildren: boolean
+    defaultOpenState: boolean
 }

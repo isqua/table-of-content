@@ -17,7 +17,7 @@ describe('components/Menu', () => {
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
     })
 
-    it('should build a two-levels menu', async () => {
+    it('should build a two-levels menu and open all parents that contains current page', async () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar-install.html'
 
@@ -31,8 +31,6 @@ describe('components/Menu', () => {
         const currentUrl = '/bar-install.html'
 
         renderInApp(<Menu toc={toc} />, { url: currentUrl })
-
-        fireEvent.click(screen.getByRole('button', { expanded: false }))
 
         expect(await screen.findByRole('navigation')).toMatchSnapshot()
 
