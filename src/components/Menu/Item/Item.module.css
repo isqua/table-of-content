@@ -28,6 +28,22 @@
     background-color: var(--color-secondary-background);
 }
 
+.link.parent {
+    background-color: var(--color-secondary-background);
+}
+
+.link.parent:hover {
+    background-color: var(--color-tertiary-background);
+}
+
+.link.child {
+    background-color: var(--color-tertiary-background);
+}
+
+.link.child:hover {
+    background-color: var(--color-secondary-background);
+}
+
 .link.active {
     background-color: var(--color-active-background);
     color: var(--color-active-text);
