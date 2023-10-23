@@ -1,27 +1,18 @@
 import clsx from 'clsx'
+import { useState, type PropsWithChildren } from 'react'
 
-import { MenuItem } from '../../../features/toc'
+import type { MenuItem } from '../../../features/toc'
 import { Chevron } from '../../Chevron'
 import { OptionalLink } from '../../OptionalLink'
 import { Skeleton } from '../../Skeleton'
 
 import styles from './Item.module.css'
-import { PropsWithChildren, useState } from 'react'
 
-type BaseItemProps = {
+type ItemProps = PropsWithChildren<{
     item: MenuItem
     isLoading?: boolean
-}
-
-type LeafItemProps = BaseItemProps
-
-type SubMenuItemProps = BaseItemProps & {
-    hasChildren: true
-    open?: boolean
-    onToggle?: () => void
-}
-
-type ItemProps = LeafItemProps | SubMenuItemProps
+    onClick?: () => void
+}>
 
 type ItemToggleProps = PropsWithChildren<{
     item: MenuItem
@@ -34,10 +25,6 @@ const highlightStyles = {
     child: styles.child,
 }
 
-function isSubMenuItemProps(props: ItemProps): props is SubMenuItemProps {
-    return (props as SubMenuItemProps).hasChildren
-}
-
 function getItemHighlightStyles(item: MenuItem): string | undefined {
     return item.highlight && highlightStyles[item.highlight]
 }
@@ -45,7 +32,7 @@ function getItemHighlightStyles(item: MenuItem): string | undefined {
 const INDENT_LEVEL_LIMIT = 6
 
 export function Item(props: ItemProps): JSX.Element {
-    const { item, isLoading } = props
+    const { item, isLoading, children, onClick } = props
 
     const linkClassName = clsx(
         styles.link,
@@ -59,21 +46,15 @@ export function Item(props: ItemProps): JSX.Element {
 
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
 
-    const onLinkClick = isSubMenuItemProps(props) && !isLoading && !props.open ?
-        props.onToggle : undefined
-
     const itemUrl = isLoading ? '' : item.url
 
     return (
         <li className={styles.item} aria-level={ariaLevel}>
-            <OptionalLink to={itemUrl} className={linkClassName} onClick={onLinkClick}>
+            <OptionalLink to={itemUrl} className={linkClassName} onClick={onClick}>
                 <span className={textClassName}>
-                    {isSubMenuItemProps(props) && !isLoading && (
-                        <Chevron className={styles.toggle} open={props.open} onClick={props.onToggle} />
-                    )}
                     {isLoading ?
                         <Skeleton className={styles.loader} /> :
-                        item.title
+                        children
                     }
                 </span>
             </OptionalLink>
@@ -88,15 +69,14 @@ export function ItemToggle({ item, children, isLoading }: ItemToggleProps): JSX.
         setOpen(value => !value)
     }
 
+    const onLinkClick = !isLoading && !isOpen ? onToggle : undefined
+
     return (
         <>
-            <Item
-                hasChildren
-                isLoading={isLoading}
-                item={item}
-                open={isOpen}
-                onToggle={onToggle}
-            />
+            <Item isLoading={isLoading} item={item} onClick={onLinkClick}>
+                <Chevron className={styles.toggle} open={isOpen} onClick={onToggle} />
+                {item.title}
+            </Item>
             {isOpen && children}
         </>
     )
