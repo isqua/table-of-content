@@ -341,7 +341,7 @@ exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
         class="_link_daf4a6"
       >
         <span
-          class="_text_daf4a6 _skeleton_daf4a6"
+          class="_text_daf4a6"
         >
           <span
             class="_skeleton_2cc9eb _loader_daf4a6"
@@ -357,7 +357,7 @@ exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
         class="_link_daf4a6"
       >
         <span
-          class="_text_daf4a6 _skeleton_daf4a6"
+          class="_text_daf4a6"
         >
           <span
             class="_skeleton_2cc9eb _loader_daf4a6"
@@ -373,7 +373,7 @@ exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
         class="_link_daf4a6"
       >
         <span
-          class="_text_daf4a6 _skeleton_daf4a6"
+          class="_text_daf4a6"
         >
           <span
             class="_skeleton_2cc9eb _loader_daf4a6"
@@ -389,7 +389,7 @@ exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
         class="_link_daf4a6"
       >
         <span
-          class="_text_daf4a6 _skeleton_daf4a6"
+          class="_text_daf4a6"
         >
           <span
             class="_skeleton_2cc9eb _loader_daf4a6"
@@ -405,7 +405,7 @@ exports[`components/Menu > should render skeletons while TOC is loading 1`] = `
         class="_link_daf4a6"
       >
         <span
-          class="_text_daf4a6 _skeleton_daf4a6"
+          class="_text_daf4a6"
         >
           <span
             class="_skeleton_2cc9eb _loader_daf4a6"
