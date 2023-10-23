@@ -1,9 +1,9 @@
-import { Layout } from '../Layout'
-import { Menu } from '../Menu'
+import { Layout } from '../../components/Layout'
+import { Menu } from '../../components/Menu'
 
 import { useGetTocQuery } from '../../features/toc'
-import { DocPage } from '../DocPage'
-import { Error } from '../Error'
+import { DocPage } from '../../components/DocPage'
+import { Error } from '../../components/Error'
 import tocUrl from '/toc.json?url'
 
 export function Root() {
