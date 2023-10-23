@@ -18,6 +18,8 @@ type ItemToggleProps = PropsWithChildren<{
     item: MenuItem
 }>
 
+const INDENT_LEVEL_LIMIT = 6
+
 const highlightStyles = {
     active: styles.active,
     parent: styles.parent,
@@ -28,20 +30,16 @@ function getItemHighlightStyles(item: MenuItem): string | undefined {
     return item.highlight && highlightStyles[item.highlight]
 }
 
-const INDENT_LEVEL_LIMIT = 6
-
 export function Item(props: ItemProps): JSX.Element {
-    const isLoading = useIsLoading()
     const { item, children, onClick } = props
+    const isLoading = useIsLoading()
+    const itemUrl = isLoading ? '' : item.url
+    const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
 
     const linkClassName = clsx(
         styles.link,
         !isLoading && getItemHighlightStyles(item),
     )
-
-    const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
-
-    const itemUrl = isLoading ? '' : item.url
 
     return (
         <li className={styles.item} aria-level={ariaLevel}>
