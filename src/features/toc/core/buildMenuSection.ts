@@ -3,6 +3,7 @@ import type { MenuItem, PageDescriptor, PageHighlight, PageId, PageURL, SectionH
 type BuildMenuBaseOptions = {
     url: PageURL
     breadcrumbs: PageDescriptor[]
+    filter?: Set<PageDescriptor> | null
 }
 
 type BuildMenuTopLevelOptions = BuildMenuBaseOptions
@@ -44,6 +45,18 @@ const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => 
     return toc.entities.pages[parentId]?.pages ?? []
 }
 
+const getPageFilter = (filter?: Set<PageDescriptor> | null) => {
+    if (!filter) {
+        return function(page: PageDescriptor | undefined): page is PageDescriptor {
+            return page !== undefined
+        }
+    }
+
+    return function(page: PageDescriptor | undefined): page is PageDescriptor {
+        return page !== undefined && filter.has(page)
+    }
+}
+
 export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
     const {
         url,
@@ -51,15 +64,18 @@ export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions)
         breadcrumbs = [],
         level = 0,
         highlight: sectionHighlight,
+        filter,
     } = options as BuildMenuNestingOptions
 
     const menu: MenuItem[] = []
     const pagesIds = getPagesForParent(toc, parentId)
+    const shouldAddPage = getPageFilter(filter)
+    const hasFilter = Boolean(filter)
 
     for (const pageId of pagesIds) {
         const page = toc.entities.pages[pageId]
 
-        if (page) {
+        if (shouldAddPage(page)) {
             let highlight: PageHighlight = sectionHighlight
             let defaultOpenState = false
 
@@ -68,6 +84,10 @@ export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions)
                 defaultOpenState = Boolean(page.pages?.length)
             } else if (breadcrumbs[level] === page) {
                 highlight = 'parent'
+                defaultOpenState = true
+            }
+
+            if (hasFilter && page.pages?.length) {
                 defaultOpenState = true
             }
 
