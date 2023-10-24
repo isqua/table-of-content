@@ -1,5 +1,6 @@
 import { createContext } from 'react'
 
+import { initialFilterState, noopFilterActions, type UseFilterResult } from '../../../../../hooks/useFilter'
 import type { PageDescriptor, PageURL, TableOfContent } from '../../../types'
 
 type TocContextValue = {
@@ -28,4 +29,9 @@ export const TocContext = createContext<TocContextValue>({
 export const LocationContext = createContext<LocationContextValue>({
     url: defaultUrl,
     breadcrumbs: defaultBreadCrumbs,
+})
+
+export const FilterContext = createContext<UseFilterResult<Set<PageDescriptor>>>({
+    state: initialFilterState,
+    actions: noopFilterActions,
 })

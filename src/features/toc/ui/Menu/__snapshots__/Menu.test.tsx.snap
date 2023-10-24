@@ -1,9 +1,105 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
+<nav
+  class="_menu_f33640"
+>
+  <div
+    class="_filter_daddd4"
+  >
+    <div
+      class="_input_98f327"
+    >
+      <input
+        class="_control_98f327"
+        placeholder="Filter menu"
+        type="text"
+      />
+    </div>
+  </div>
+  <ul
+    class="_list_f33640"
+  >
+    <li
+      aria-level="1"
+      class="_item_c21f54"
+    >
+      <a
+        class="_link_c21f54"
+        href="/bar.html"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <svg
+            aria-expanded="true"
+            class="_chevron_eafbf3 _toggle_c21f54 _open_eafbf3"
+            fill="none"
+            height="16"
+            role="button"
+            width="16"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M6 13 11 8 6 3v9Z"
+              fill="currentColor"
+            />
+          </svg>
+          Bar
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_c21f54"
+    >
+      <a
+        class="_link_c21f54"
+        href="/bar-install.html"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          Bar: Install
+        </span>
+      </a>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_c21f54"
+    >
+      <a
+        class="_link_c21f54"
+        href="/bar-features.html"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          Bar: Features
+        </span>
+      </a>
+    </li>
+  </ul>
+</nav>
+`;
+
 exports[`features/toc/ui/Menu > should build a menu and highlight current page 1`] = `
 <nav
   class="_menu_f33640"
 >
+  <div
+    class="_filter_daddd4"
+  >
+    <div
+      class="_input_98f327"
+    >
+      <input
+        class="_control_98f327"
+        placeholder="Filter menu"
+        type="text"
+      />
+    </div>
+  </div>
   <ul
     class="_list_f33640"
   >
@@ -60,6 +156,19 @@ exports[`features/toc/ui/Menu > should build a two-levels menu and open all pare
 <nav
   class="_menu_f33640"
 >
+  <div
+    class="_filter_daddd4"
+  >
+    <div
+      class="_input_98f327"
+    >
+      <input
+        class="_control_98f327"
+        placeholder="Filter menu"
+        type="text"
+      />
+    </div>
+  </div>
   <ul
     class="_list_f33640"
   >
@@ -160,6 +269,19 @@ exports[`features/toc/ui/Menu > should close a submenu when clicking on a chevro
 <nav
   class="_menu_f33640"
 >
+  <div
+    class="_filter_daddd4"
+  >
+    <div
+      class="_input_98f327"
+    >
+      <input
+        class="_control_98f327"
+        placeholder="Filter menu"
+        type="text"
+      />
+    </div>
+  </div>
   <ul
     class="_list_f33640"
   >
@@ -260,6 +382,19 @@ exports[`features/toc/ui/Menu > should close a submenu when clicking on a chevro
 <nav
   class="_menu_f33640"
 >
+  <div
+    class="_filter_daddd4"
+  >
+    <div
+      class="_input_98f327"
+    >
+      <input
+        class="_control_98f327"
+        placeholder="Filter menu"
+        type="text"
+      />
+    </div>
+  </div>
   <ul
     class="_list_f33640"
   >
