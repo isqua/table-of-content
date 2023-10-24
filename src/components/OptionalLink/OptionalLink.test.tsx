@@ -13,8 +13,8 @@ describe('components/OptionalLink', () => {
         renderInApp(<OptionalLink className={className} to={href}>{text}</OptionalLink>)
 
         expect(screen.getByText(text).tagName).toEqual('A')
-        expect(screen.getByText(text).getAttribute('href')).toEqual(href)
-        expect(Array.from(screen.getByText(text).classList)).toContain(className)
+        expect(screen.getByText(text)).toHaveAttribute('href')
+        expect(screen.getByText(text)).toHaveClass(className)
     })
 
     it('should render a text if to prop is empty string', () => {
@@ -24,8 +24,8 @@ describe('components/OptionalLink', () => {
         renderInApp(<OptionalLink className={className} to="">{text}</OptionalLink>)
 
         expect(screen.getByText(text).tagName).not.toEqual('A')
-        expect(screen.getByText(text).getAttribute('href')).toBeNull()
-        expect(Array.from(screen.getByText(text).classList)).toContain(className)
+        expect(screen.getByText(text)).not.toHaveAttribute('href')
+        expect(screen.getByText(text)).toHaveClass(className)
     })
 
     it('should render a text if to prop is undefined', () => {
@@ -34,7 +34,7 @@ describe('components/OptionalLink', () => {
         renderInApp(<OptionalLink>{text}</OptionalLink>)
 
         expect(screen.getByText(text).tagName).not.toEqual('A')
-        expect(screen.getByText(text).getAttribute('href')).toBeNull()
+        expect(screen.getByText(text)).not.toHaveAttribute('href')
     })
 
     it('should call an onClick callback for text', () => {
