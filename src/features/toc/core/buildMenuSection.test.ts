@@ -1,18 +1,18 @@
 import { describe, expect, it } from 'vitest'
 
 import type { TableOfContent } from '../types'
-import { buildMenu } from './buildMenu'
+import { buildMenuSection } from './buildMenuSection'
 import { getBreadCrumbs } from './getBreadCrumbs'
 
 import tocFlat from '../../../test/fixtures/toc/flat.json'
 import tocTwoLevels from '../../../test/fixtures/toc/two-levels.json'
 
-describe('toc/buildMenu', () => {
+describe('toc/buildMenuSection', () => {
     it('should build a menu and highlight current page', () => {
         const toc: TableOfContent = tocFlat
         const currentUrl = 'bar.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs })
+        const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
         expect(menu).toMatchSnapshot()
     })
@@ -21,7 +21,7 @@ describe('toc/buildMenu', () => {
         const toc: TableOfContent = tocFlat
         const currentUrl = ''
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs })
+        const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
         expect(menu).toMatchSnapshot()
     })
@@ -31,7 +31,7 @@ describe('toc/buildMenu', () => {
         const currentUrl = ''
         const parentId = 'this-id-does-not-exist'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs, parentId })
+        const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs, parentId })
 
         expect(menu).toEqual([])
     })
@@ -43,7 +43,7 @@ describe('toc/buildMenu', () => {
         }
         const currentUrl = ''
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs })
+        const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
         expect(menu).toMatchSnapshot()
     })
@@ -52,7 +52,7 @@ describe('toc/buildMenu', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = 'bar.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, breadcrumbs })
+        const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
         expect(menu).toMatchSnapshot()
     })
@@ -61,7 +61,7 @@ describe('toc/buildMenu', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = 'bar-features.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
-        const menu = buildMenu(toc, { url: currentUrl, parentId: 'bar', breadcrumbs })
+        const menu = buildMenuSection(toc, { url: currentUrl, parentId: 'bar', breadcrumbs })
 
         expect(menu).toMatchSnapshot()
     })

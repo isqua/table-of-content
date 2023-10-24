@@ -1,5 +1,5 @@
 import type { PageId, SectionHighlight } from '../../../types'
-import { useMenuItems } from '../Context/hooks'
+import { useSectionItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
 
 type SectionProps = {
@@ -9,7 +9,7 @@ type SectionProps = {
 }
 
 export function Section({ parentId, level, highlight }: SectionProps): JSX.Element {
-    const items = useMenuItems(parentId, level, highlight)
+    const items = useSectionItems(parentId, level, highlight)
 
     return (
         <>
