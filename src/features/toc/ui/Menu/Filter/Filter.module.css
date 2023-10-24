@@ -1,0 +1,5 @@
+.filter {
+    padding:
+        calc(var(--menu-item-block-padding) * 2)
+        var(--menu-item-inline-start-padding);
+}

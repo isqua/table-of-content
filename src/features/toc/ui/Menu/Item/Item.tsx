@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useRef, useState, type PropsWithChildren } from 'react'
+import { useEffect, useRef, useState, type PropsWithChildren } from 'react'
 
 import { Chevron } from '../../../../../components/Chevron'
 import { OptionalLink } from '../../../../../components/OptionalLink'
@@ -86,6 +86,10 @@ export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.
     }
 
     const onLinkClick = !isLoading && !isOpen ? onToggle : undefined
+
+    useEffect(() => {
+        setOpen(item.defaultOpenState)
+    }, [item.defaultOpenState])
 
     return (
         <>
