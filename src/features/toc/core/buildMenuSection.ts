@@ -44,7 +44,7 @@ const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => 
     return toc.entities.pages[parentId]?.pages ?? []
 }
 
-export const buildMenu = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
+export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
     const {
         url,
         parentId,
