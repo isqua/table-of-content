@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
+exports[`toc/buildMenuSection > should build a menu and highlight current page 1`] = `
 [
   {
     "defaultOpenState": false,
@@ -35,7 +35,7 @@ exports[`toc/buildMenu > should build a menu and highlight current page 1`] = `
 ]
 `;
 
-exports[`toc/buildMenu > should build a menu even if there are no current page 1`] = `
+exports[`toc/buildMenuSection > should build a menu even if there are no current page 1`] = `
 [
   {
     "defaultOpenState": false,
@@ -70,7 +70,7 @@ exports[`toc/buildMenu > should build a menu even if there are no current page 1
 ]
 `;
 
-exports[`toc/buildMenu > should build a nested menu 1`] = `
+exports[`toc/buildMenuSection > should build a nested menu 1`] = `
 [
   {
     "defaultOpenState": false,
@@ -95,9 +95,9 @@ exports[`toc/buildMenu > should build a nested menu 1`] = `
 ]
 `;
 
-exports[`toc/buildMenu > should build an empty menu if there are no top level ids  1`] = `[]`;
+exports[`toc/buildMenuSection > should build an empty menu if there are no top level ids  1`] = `[]`;
 
-exports[`toc/buildMenu > should show page children 1`] = `
+exports[`toc/buildMenuSection > should show page children 1`] = `
 [
   {
     "defaultOpenState": true,

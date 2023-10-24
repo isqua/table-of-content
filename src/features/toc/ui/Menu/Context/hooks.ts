@@ -1,14 +1,14 @@
 import { useContext } from 'react'
 
-import { buildMenu } from '../../../core/buildMenu'
+import { buildMenuSection } from '../../../core/buildMenuSection'
 import type { PageId, SectionHighlight } from '../../../types'
 import { LocationContext, TocContext } from './contexts'
 
-export const useMenuItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
+export const useSectionItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
     const { toc } = useContext(TocContext)
     const currentLocation = useContext(LocationContext)
 
-    const items = buildMenu(toc, {
+    const items = buildMenuSection(toc, {
         url: currentLocation.url,
         breadcrumbs: currentLocation.breadcrumbs,
         parentId,
