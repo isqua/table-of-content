@@ -1,11 +1,34 @@
 import { act, fireEvent, screen, waitFor } from '@testing-library/react'
-import { describe, expect, it } from 'vitest'
+import type { PropsWithChildren } from 'react'
+import { describe, expect, it, vi } from 'vitest'
 
 import { renderInApp } from '../../../../test'
 import tocFlat from '../../../../test/fixtures/toc/flat.json'
 import tocTwoLevels from '../../../../test/fixtures/toc/two-levels.json'
 import type { TableOfContent } from '../../types'
 import { Menu } from './Menu'
+
+vi.mock('react-transition-group', () => {
+    const FakeTransitionGroup = vi.fn(
+        ({ children }: PropsWithChildren) => children
+    )
+
+    const FakeTransition = vi.fn(
+        ({ children }: PropsWithChildren) => children
+    )
+
+    const FakeCSSTransition = vi.fn(
+        (props: PropsWithChildren<{ in: boolean }>) => props.in ?
+            <FakeTransition>{props.children}</FakeTransition> :
+            null,
+    )
+
+    return {
+        TransitionGroup: FakeTransitionGroup,
+        CSSTransition: FakeCSSTransition,
+        Transition: FakeTransition,
+    }
+})
 
 describe('features/toc/ui/Menu', () => {
     it('should render skeletons while TOC is loading', async () => {

@@ -66,6 +66,42 @@
     background-color: var(--color-active-secondary-background);
 }
 
+.transition-enter {
+    overflow: hidden;
+    max-height: 0;
+}
+
+.transition-enter .text {
+    opacity: 0;
+}
+
+.transition-enter-active {
+    max-height: 200px;
+    transition: max-height 1.5s ease-out;
+}
+
+.transition-enter-active .text {
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+}
+
+.transition-exit .text {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
+.transition-exit-active {
+    overflow: hidden;
+    /* We have to use important because we set max-height in a style attribute of a node */
+    max-height: 0 !important;
+    transition: max-height 0.3s ease-out;
+}
+
+.transition-exit-active .text {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+}
+
 .item[aria-level="1"] .text {
     margin-inline-start: var(--menu-item-level-padding);
 }
