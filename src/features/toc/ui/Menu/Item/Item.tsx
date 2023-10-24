@@ -1,9 +1,10 @@
 import clsx from 'clsx'
-import { useState, type PropsWithChildren } from 'react'
+import { useRef, useState, type PropsWithChildren } from 'react'
 
 import { Chevron } from '../../../../../components/Chevron'
 import { OptionalLink } from '../../../../../components/OptionalLink'
 import { Skeleton } from '../../../../../components/Skeleton'
+import { HeightTransition } from '../../../../../components/Transitions'
 import type { MenuItem } from '../../../types'
 import { useIsLoading } from '../Context/hooks'
 
@@ -12,13 +13,19 @@ import styles from './Item.module.css'
 type ItemProps = PropsWithChildren<{
     item: MenuItem
     onClick?: () => void
+    isVisible?: boolean
 }>
 
-type ItemToggleProps = PropsWithChildren<{
+type ItemToggleProps = {
     item: MenuItem
-}>
+    children: (isOpen: boolean) => JSX.Element
+    isVisible?: boolean
+}
 
 const INDENT_LEVEL_LIMIT = 6
+
+// the height of a one-line menu item
+const MIN_ITEM_HEIGHT = 38
 
 const highlightStyles = {
     active: styles.active,
@@ -26,15 +33,23 @@ const highlightStyles = {
     child: styles.child,
 }
 
+const transitionClassNames = {
+    enter: styles['transition-enter'],
+    enterActive: styles['transition-enter-active'],
+    exit: styles['transition-exit'],
+    exitActive: styles['transition-exit-active'],
+}
+
 function getItemHighlightStyles(item: MenuItem): string | undefined {
     return item.highlight && highlightStyles[item.highlight]
 }
 
 export function Item(props: ItemProps): JSX.Element {
-    const { item, children, onClick } = props
+    const { item, children, onClick, isVisible = true } = props
     const isLoading = useIsLoading()
     const itemUrl = isLoading ? '' : item.url
     const ariaLevel = Math.min(item.level + 1, INDENT_LEVEL_LIMIT)
+    const itemRef = useRef<HTMLLIElement>(null)
 
     const linkClassName = clsx(
         styles.link,
@@ -42,20 +57,27 @@ export function Item(props: ItemProps): JSX.Element {
     )
 
     return (
-        <li className={styles.item} aria-level={ariaLevel}>
-            <OptionalLink to={itemUrl} className={linkClassName} onClick={onClick}>
-                <span className={styles.text}>
-                    {isLoading ?
-                        <Skeleton className={styles.loader} /> :
-                        children
-                    }
-                </span>
-            </OptionalLink>
-        </li>
+        <HeightTransition
+            nodeRef={itemRef}
+            isVisible={isVisible}
+            minHeight={MIN_ITEM_HEIGHT}
+            classNames={transitionClassNames}
+        >
+            <li ref={itemRef} className={styles.item} aria-level={ariaLevel}>
+                <OptionalLink to={itemUrl} className={linkClassName} onClick={onClick}>
+                    <span className={styles.text}>
+                        {isLoading ?
+                            <Skeleton className={styles.loader} /> :
+                            children
+                        }
+                    </span>
+                </OptionalLink>
+            </li>
+        </HeightTransition>
     )
 }
 
-export function ItemToggle({ item, children }: ItemToggleProps): JSX.Element {
+export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.Element {
     const isLoading = useIsLoading()
     const [ isOpen, setOpen ]  = useState(isLoading ? true : item.defaultOpenState)
 
@@ -67,11 +89,11 @@ export function ItemToggle({ item, children }: ItemToggleProps): JSX.Element {
 
     return (
         <>
-            <Item item={item} onClick={onLinkClick}>
+            <Item item={item} onClick={onLinkClick} isVisible={isVisible}>
                 <Chevron className={styles.toggle} open={isOpen} onClick={onToggle} />
                 {item.title}
             </Item>
-            {isOpen && children}
+            {children(Boolean(isOpen && isVisible))}
         </>
     )
 }

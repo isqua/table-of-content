@@ -6,9 +6,10 @@ type SectionProps = {
     parentId: PageId
     level: number
     highlight?: SectionHighlight
+    isVisible?: boolean
 }
 
-export function Section({ parentId, level, highlight }: SectionProps): JSX.Element {
+export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): JSX.Element {
     const items = useSectionItems(parentId, level, highlight)
 
     return (
@@ -16,7 +17,7 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
             {items.map((item) => {
                 if (!item.hasChildren) {
                     return (
-                        <Item key={item.id} item={item}>
+                        <Item key={item.id} item={item} isVisible={isVisible}>
                             {item.title}
                         </Item>
                     )
@@ -25,8 +26,15 @@ export function Section({ parentId, level, highlight }: SectionProps): JSX.Eleme
                 const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
 
                 return (
-                    <ItemToggle key={item.id} item={item}>
-                        <Section highlight={subMenuHighlight} parentId={item.id} level={level + 1} />
+                    <ItemToggle key={item.id} item={item} isVisible={isVisible}>
+                        {(isOpen: boolean) => (
+                            <Section
+                                isVisible={isOpen}
+                                highlight={subMenuHighlight}
+                                parentId={item.id}
+                                level={level + 1}
+                            />
+                        )}
                     </ItemToggle>
                 )
             })}
