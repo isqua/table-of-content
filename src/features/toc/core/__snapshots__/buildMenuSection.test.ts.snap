@@ -97,6 +97,66 @@ exports[`toc/buildMenuSection > should build a nested menu 1`] = `
 
 exports[`toc/buildMenuSection > should build an empty menu if there are no top level ids  1`] = `[]`;
 
+exports[`toc/buildMenuSection > should expand all sections while filtering 1`] = `
+[
+  {
+    "defaultOpenState": true,
+    "hasChildren": true,
+    "highlight": undefined,
+    "id": "bar",
+    "level": 0,
+    "parentId": "root",
+    "title": "Bar",
+    "url": "bar.html",
+  },
+  {
+    "defaultOpenState": true,
+    "hasChildren": true,
+    "highlight": undefined,
+    "id": "bar_features",
+    "level": 0,
+    "parentId": "bar",
+    "title": "Bar: Features",
+    "url": "bar-features.html",
+  },
+  {
+    "defaultOpenState": false,
+    "hasChildren": false,
+    "highlight": undefined,
+    "id": "bar_features_beer",
+    "level": 0,
+    "parentId": "bar_features",
+    "title": "Bar Features: Beer",
+    "url": "bar-features-beer.html",
+  },
+]
+`;
+
+exports[`toc/buildMenuSection > should filter pages 1`] = `
+[
+  {
+    "defaultOpenState": false,
+    "hasChildren": false,
+    "highlight": "active",
+    "id": "bar",
+    "level": 0,
+    "parentId": "root",
+    "title": "Bar",
+    "url": "bar.html",
+  },
+  {
+    "defaultOpenState": false,
+    "hasChildren": false,
+    "highlight": undefined,
+    "id": "baz",
+    "level": 0,
+    "parentId": "root",
+    "title": "Baz",
+    "url": "baz.html",
+  },
+]
+`;
+
 exports[`toc/buildMenuSection > should show page children 1`] = `
 [
   {
