@@ -1,27 +1,47 @@
-# React + TypeScript + Vite
+# Table of Content
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a react app I created as a test assignment to show my front-end skills.
 
-Currently, two official plugins are available:
+## Available Scripts
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+In the project directory, you can run:
 
-## Expanding the ESLint configuration
+### `npm run dev`
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Runs the app in the development mode.\
+Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-- Configure the top-level `parserOptions` property like this:
+The page will reload if you make edits.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+Uses [Vite](https://vitejs.dev/).
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### `npm run preview`
+
+Serves the app in the production mode.\
+Open [http://localhost:4173](http://localhost:4173) to view it in the browser.
+
+Uses [Vite](https://vitejs.dev/).
+
+### `npm test`
+
+Launches the test runner in the interactive watch mode.
+
+Uses [Vitest](https://vitest.dev/) and [React Testing Library](https://www.npmjs.com/package/@testing-library/react).
+
+### `npm run build`
+
+Builds the app for production to the `build` folder.
+
+Uses [Vite](https://vitejs.dev/).
+
+### `npm run lint`
+
+Runs code linters to check dumb errors and code style.
+
+Uses [eslint](https://www.npmjs.com/package/eslint) and [stylelint](https://stylelint.io/).
+
+### `npm run lint:fix`
+
+Fixes code issues and style.
+
+Uses [eslint](https://www.npmjs.com/package/eslint) and [stylelint](https://stylelint.io/).
