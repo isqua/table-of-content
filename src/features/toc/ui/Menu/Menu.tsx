@@ -8,7 +8,7 @@ import { Section } from './Section/Section'
 
 import styles from './Menu.module.css'
 
-type MenuProps = {
+export type MenuProps = {
     toc: TableOfContent
     isLoading?: boolean
 }
