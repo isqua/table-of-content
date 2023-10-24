@@ -29,6 +29,12 @@
                 "url": "bar-install.html",
                 "parentId": "bar"
             },
+            "bar_install_child": {
+                "id": "bar_install_child",
+                "title": "Bar: How to find entrance",
+                "url": "bar-entrance.html",
+                "parentId": "bar_install"
+            },
             "bar_features": {
                 "id": "bar_features",
                 "title": "Bar: Features",
