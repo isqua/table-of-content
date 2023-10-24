@@ -1,4 +1,4 @@
-import { act, fireEvent, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, screen } from '@testing-library/react'
 import type { PropsWithChildren } from 'react'
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
@@ -6,7 +6,7 @@ import { renderInApp } from '../../../../test'
 import tocFlat from '../../../../test/fixtures/toc/flat.json'
 import tocTwoLevels from '../../../../test/fixtures/toc/two-levels.json'
 import type { TableOfContent } from '../../types'
-import { Menu } from './Menu'
+import { Menu, MenuProps } from './Menu'
 
 const spinnerText = 'Loading'
 
@@ -16,6 +16,16 @@ const updateFilter = (value: string) => {
     fireEvent.change(screen.getByRole('textbox'), {
         target: { value },
     })
+}
+
+const renderMenu = (props: MenuProps, currentUrl?: string) => {
+    act(() => {
+        renderInApp(<Menu {...props} />, { url: currentUrl })
+    })
+}
+
+const assertMenuSnapshot = () => {
+    expect(screen.getByRole('navigation')).toMatchSnapshot()
 }
 
 vi.mock('react-transition-group', () => {
@@ -41,73 +51,61 @@ vi.mock('react-transition-group', () => {
 })
 
 describe('features/toc/ui/Menu', () => {
-    it('should render skeletons while TOC is loading', async () => {
+    it('should render skeletons while TOC is loading', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar.html'
 
-        act(() => {
-            renderInApp(<Menu isLoading toc={toc} />, { url: currentUrl })
-        })
+        renderMenu({ toc, isLoading: true }, currentUrl)
 
-        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+        assertMenuSnapshot()
     })
 
-    it('should build a menu and highlight current page', async () => {
+    it('should build a menu and highlight current page', () => {
         const toc: TableOfContent = tocFlat
         const currentUrl = '/bar.html'
 
-        act(() => {
-            renderInApp(<Menu toc={toc} />, { url: currentUrl })
-        })
+        renderMenu({ toc }, currentUrl)
 
-        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+        assertMenuSnapshot()
     })
 
-    it('should build a two-levels menu and open all parents that contains current page', async () => {
+    it('should build a two-levels menu and open all parents that contains current page', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar-install.html'
 
-        act(() => {
-            renderInApp(<Menu toc={toc} />, { url: currentUrl })
-        })
+        renderMenu({ toc }, currentUrl)
 
-        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+        assertMenuSnapshot()
     })
 
-    it('should close a submenu when clicking on a chevron', async () => {
+    it('should close a submenu when clicking on a chevron', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/bar-install.html'
 
-        act(() => {
-            renderInApp(<Menu toc={toc} />, { url: currentUrl })
-        })
+        renderMenu({ toc }, currentUrl)
 
-        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+        expect(screen.getByRole('navigation')).toMatchSnapshot()
 
         act(() => {
             fireEvent.click(screen.getByRole('button', { expanded: true }))
         })
 
-        expect(await screen.findByRole('navigation')).toMatchSnapshot()
+        assertMenuSnapshot()
     })
 
-    it('should open a submenu when clicking on an item with children', async () => {
+    it('should open a submenu when clicking on an item with children', () => {
         const toc: TableOfContent = tocTwoLevels
         const currentUrl = '/foo.html'
 
-        act(() => {
-            renderInApp(<Menu toc={toc} />, { url: currentUrl })
-        })
+        renderMenu({ toc }, currentUrl)
 
         act(() => {
             fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
         })
 
-        await waitFor(() => {
-            expect(screen.getByRole('button', { expanded: true })).not.toBeNull()
-        })
+        expect(screen.getByRole('button', { expanded: true })).toBeInTheDocument()
 
-        expect(screen.getByText('Bar: Install')).not.toBeNull()
+        expect(screen.getByText('Bar: Install')).toBeInTheDocument()
     })
 
     describe('filtering', () => {
@@ -124,9 +122,7 @@ describe('features/toc/ui/Menu', () => {
             const currentUrl = ''
             const searchText = 'bar'
 
-            act(() => {
-                renderInApp(<Menu toc={toc} />, { url: currentUrl })
-            })
+            renderMenu({ toc }, currentUrl)
 
             act(() => {
                 updateFilter(searchText)
@@ -144,9 +140,7 @@ describe('features/toc/ui/Menu', () => {
             const currentUrl = ''
             const searchText = 'bar'
 
-            act(() => {
-                renderInApp(<Menu toc={toc} />, { url: currentUrl })
-            })
+            renderMenu({ toc }, currentUrl)
 
             act(() => {
                 updateFilter(searchText)
@@ -154,7 +148,8 @@ describe('features/toc/ui/Menu', () => {
             })
 
             expect(screen.queryByLabelText(spinnerText)).not.toBeInTheDocument()
-            expect(screen.getByRole('navigation')).toMatchSnapshot()
+
+            assertMenuSnapshot()
         })
     })
 })
