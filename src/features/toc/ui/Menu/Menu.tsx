@@ -16,7 +16,7 @@ export function Menu({ toc, activeUrl, isLoading }: MenuProps): JSX.Element {
     return (
         <nav className={styles.menu}>
             <MenuProvider toc={toc} url={activeUrl} isLoading={isLoading}>
-                {!isLoading && <Filter />}
+                <Filter />
                 <List />
             </MenuProvider>
         </nav>
