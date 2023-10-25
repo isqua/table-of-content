@@ -83,6 +83,97 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
 </nav>
 `;
 
+exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC is loading 1`] = `
+<nav
+  class="_menu_f33640"
+>
+  <ul
+    class="_list_f33640"
+  >
+    <li
+      aria-level="1"
+      class="_item_c21f54"
+    >
+      <span
+        class="_link_c21f54 _disabled_c21f54"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_c21f54"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_c21f54"
+    >
+      <span
+        class="_link_c21f54 _disabled_c21f54"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_c21f54"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="2"
+      class="_item_c21f54"
+    >
+      <span
+        class="_link_c21f54 _disabled_c21f54"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_c21f54"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_c21f54"
+    >
+      <span
+        class="_link_c21f54 _disabled_c21f54"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_c21f54"
+          />
+        </span>
+      </span>
+    </li>
+    <li
+      aria-level="1"
+      class="_item_c21f54"
+    >
+      <span
+        class="_link_c21f54 _disabled_c21f54"
+      >
+        <span
+          class="_text_c21f54"
+        >
+          <span
+            class="_skeleton_2cc9eb _loader_c21f54"
+          />
+        </span>
+      </span>
+    </li>
+  </ul>
+</nav>
+`;
+
 exports[`features/toc/ui/Menu > render > should build a menu and highlight the current page 1`] = `
 <nav
   class="_menu_f33640"
@@ -456,97 +547,6 @@ exports[`features/toc/ui/Menu > toggling > should close a submenu when clicking 
           Foo
         </span>
       </a>
-    </li>
-  </ul>
-</nav>
-`;
-
-exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC is loading 1`] = `
-<nav
-  class="_menu_f33640"
->
-  <ul
-    class="_list_f33640"
-  >
-    <li
-      aria-level="1"
-      class="_item_c21f54"
-    >
-      <span
-        class="_link_c21f54 _disabled_c21f54"
-      >
-        <span
-          class="_text_c21f54"
-        >
-          <span
-            class="_skeleton_2cc9eb _loader_c21f54"
-          />
-        </span>
-      </span>
-    </li>
-    <li
-      aria-level="2"
-      class="_item_c21f54"
-    >
-      <span
-        class="_link_c21f54 _disabled_c21f54"
-      >
-        <span
-          class="_text_c21f54"
-        >
-          <span
-            class="_skeleton_2cc9eb _loader_c21f54"
-          />
-        </span>
-      </span>
-    </li>
-    <li
-      aria-level="2"
-      class="_item_c21f54"
-    >
-      <span
-        class="_link_c21f54 _disabled_c21f54"
-      >
-        <span
-          class="_text_c21f54"
-        >
-          <span
-            class="_skeleton_2cc9eb _loader_c21f54"
-          />
-        </span>
-      </span>
-    </li>
-    <li
-      aria-level="1"
-      class="_item_c21f54"
-    >
-      <span
-        class="_link_c21f54 _disabled_c21f54"
-      >
-        <span
-          class="_text_c21f54"
-        >
-          <span
-            class="_skeleton_2cc9eb _loader_c21f54"
-          />
-        </span>
-      </span>
-    </li>
-    <li
-      aria-level="1"
-      class="_item_c21f54"
-    >
-      <span
-        class="_link_c21f54 _disabled_c21f54"
-      >
-        <span
-          class="_text_c21f54"
-        >
-          <span
-            class="_skeleton_2cc9eb _loader_c21f54"
-          />
-        </span>
-      </span>
     </li>
   </ul>
 </nav>
