@@ -10,7 +10,7 @@ type SectionProps = {
 }
 
 export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): JSX.Element {
-    const items = useSectionItems(parentId, level, highlight)
+    const { items, isFiltered } = useSectionItems(parentId, level, highlight)
 
     return (
         <>
@@ -26,7 +26,7 @@ export function Section({ parentId, level, highlight, isVisible = true }: Sectio
                 const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
 
                 return (
-                    <ItemToggle key={item.id} item={item} isVisible={isVisible}>
+                    <ItemToggle key={item.id} item={item} isVisible={isVisible} isDisabled={isFiltered}>
                         {(isOpen: boolean) => (
                             <Section
                                 isVisible={isOpen}
