@@ -1,5 +1,9 @@
 .filter {
+    position: sticky;
+    z-index: 1;
+    top: 0;
     padding:
         calc(var(--menu-item-block-padding) * 2)
         var(--menu-item-inline-start-padding);
+    background-image: linear-gradient(to bottom, var(--color-general-background) 70%, transparent 100%);
 }
