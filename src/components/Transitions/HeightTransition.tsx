@@ -2,7 +2,7 @@ import type { PropsWithChildren, RefObject } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import type { CSSTransitionClassNames } from 'react-transition-group/CSSTransition'
 
-type ItemTransitionProps = PropsWithChildren<{
+type HeightTransitionProps = PropsWithChildren<{
     isVisible: boolean
     nodeRef: RefObject<HTMLElement>
     classNames: CSSTransitionClassNames
@@ -27,16 +27,16 @@ function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement>, minHei
             const height = ref.current.offsetHeight
 
             if (height > 0) {
-                // Create transition from actual item height
-                // if item is outside the viewport, height must be not precise,
-                // then fallback to minimum item height
+                // Create transition from actual element height
+                // if element is outside the viewport, height must be not precise,
+                // then fallback to minimum element height
                 ref.current.style.maxHeight = `${Math.max(height, minHeight)}px`
             }
         }
     }
 }
 
-export function HeightTransition(props: ItemTransitionProps): JSX.Element {
+export function HeightTransition(props: HeightTransitionProps): JSX.Element {
     const { isVisible, children, nodeRef, classNames, minHeight } = props
 
     return (
