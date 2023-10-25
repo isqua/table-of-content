@@ -14,6 +14,22 @@ describe('toc/getCurrentPage', () => {
         expect(page).toHaveProperty('url', currentUrl)
     })
 
+    it('should return main page if url is empty', () => {
+        const toc: TableOfContent = tocFlat
+        const currentUrl = ''
+        const page = getCurrentPage(toc, currentUrl)
+
+        expect(page).toHaveProperty('title', 'Table of Content Demo')
+    })
+
+    it('should return main page if url is root', () => {
+        const toc: TableOfContent = tocFlat
+        const currentUrl = '/'
+        const page = getCurrentPage(toc, currentUrl)
+
+        expect(page).toHaveProperty('title', 'Table of Content Demo')
+    })
+
     it('should return 404 page if page is not found by url', () => {
         const toc: TableOfContent = tocFlat
         const currentUrl = 'quux.html'
