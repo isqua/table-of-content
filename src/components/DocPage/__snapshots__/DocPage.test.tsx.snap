@@ -4,6 +4,20 @@ exports[`components/DocPage > should render an article by url 1`] = `
 <article
   class="_article_a23c90"
 >
+  <ol
+    class="_breadcrumbs_19b8d7"
+  >
+    <li
+      class="_item_19b8d7"
+    >
+      <a
+        class="_link_19b8d7"
+        href="/bar.html"
+      >
+        Bar
+      </a>
+    </li>
+  </ol>
   <h1
     class="_title_a23c90"
   >
