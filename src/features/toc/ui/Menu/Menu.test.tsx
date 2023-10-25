@@ -49,57 +49,63 @@ vi.mock('react-transition-group', () => {
 })
 
 describe('features/toc/ui/Menu', () => {
-    it('should render skeletons while TOC is loading', () => {
-        const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/bar.html'
+    describe('loading', () => {
+        it('should render skeletons while the TOC is loading', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const currentUrl = '/bar.html'
 
-        renderMenu({ toc, isLoading: true }, currentUrl)
+            renderMenu({ toc, isLoading: true }, currentUrl)
 
-        assertMenuSnapshot()
+            assertMenuSnapshot()
+        })
     })
 
-    it('should build a menu and highlight current page', () => {
-        const toc: TableOfContent = tocFlat
-        const currentUrl = '/bar.html'
+    describe('render', () => {
+        it('should build a menu and highlight the current page', () => {
+            const toc: TableOfContent = tocFlat
+            const currentUrl = '/bar.html'
 
-        renderMenu({ toc }, currentUrl)
+            renderMenu({ toc }, currentUrl)
 
-        assertMenuSnapshot()
+            assertMenuSnapshot()
+        })
+
+        it('should build a two-levels menu and open all parents containing the current page', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const currentUrl = '/bar-install.html'
+
+            renderMenu({ toc }, currentUrl)
+
+            assertMenuSnapshot()
+        })
     })
 
-    it('should build a two-levels menu and open all parents that contains current page', () => {
-        const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/bar-install.html'
+    describe('toggling', () => {
+        it('should close a submenu when clicking on a chevron', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const currentUrl = '/bar-install.html'
 
-        renderMenu({ toc }, currentUrl)
+            renderMenu({ toc }, currentUrl)
 
-        assertMenuSnapshot()
-    })
+            expect(screen.getByRole('navigation')).toMatchSnapshot()
 
-    it('should close a submenu when clicking on a chevron', () => {
-        const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/bar-install.html'
+            fireEvent.click(screen.getByRole('button', { expanded: true }))
 
-        renderMenu({ toc }, currentUrl)
+            assertMenuSnapshot()
+        })
 
-        expect(screen.getByRole('navigation')).toMatchSnapshot()
+        it('should open a submenu when clicking on an item with children', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const currentUrl = '/foo.html'
 
-        fireEvent.click(screen.getByRole('button', { expanded: true }))
+            renderMenu({ toc }, currentUrl)
 
-        assertMenuSnapshot()
-    })
+            fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
 
-    it('should open a submenu when clicking on an item with children', () => {
-        const toc: TableOfContent = tocTwoLevels
-        const currentUrl = '/foo.html'
+            expect(screen.getByRole('button', { expanded: true })).toBeInTheDocument()
 
-        renderMenu({ toc }, currentUrl)
-
-        fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
-
-        expect(screen.getByRole('button', { expanded: true })).toBeInTheDocument()
-
-        expect(screen.getByText('Bar: Install')).toBeInTheDocument()
+            expect(screen.getByText('Bar: Install')).toBeInTheDocument()
+        })
     })
 
     describe('filtering', () => {
@@ -111,7 +117,7 @@ describe('features/toc/ui/Menu', () => {
             vi.useRealTimers()
         })
 
-        it('should show loader when filtering', () => {
+        it('should show a loader when filtering', () => {
             const toc: TableOfContent = tocTwoLevels
             const currentUrl = ''
             const searchText = 'bar'
