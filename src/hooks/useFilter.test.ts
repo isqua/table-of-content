@@ -9,40 +9,28 @@ describe('hooks/useFilter', () => {
 
         const { result } = renderHook(() => useFilter(filter))
 
-        expect(result.current.state).toEqual({
-            isLoading: false,
-            text: '',
-            data: null,
-        })
+        expect(result.current.data).toEqual(null)
+        expect(result.current.manager.isFiltering).toEqual(false)
 
         act(() => {
-            result.current.actions.onFilterStart()
+            result.current.manager.onFilterStart()
         })
 
-        expect(result.current.state).toEqual({
-            isLoading: true,
-            text: '',
-            data: null,
-        })
+        expect(result.current.data).toEqual(null)
+        expect(result.current.manager.isFiltering).toEqual(true)
 
         act(() => {
-            result.current.actions.onChange('hello')
+            result.current.manager.onChange('hello')
         })
 
-        expect(result.current.state).toEqual({
-            isLoading: false,
-            text: 'hello',
-            data: 'text: hello',
-        })
+        expect(result.current.data).toEqual('text: hello')
+        expect(result.current.manager.isFiltering).toEqual(false)
 
         act(() => {
-            result.current.actions.onReset()
+            result.current.manager.onReset()
         })
 
-        expect(result.current.state).toEqual({
-            isLoading: false,
-            text: '',
-            data: null,
-        })
+        expect(result.current.data).toEqual(null)
+        expect(result.current.manager.isFiltering).toEqual(false)
     })
 })
