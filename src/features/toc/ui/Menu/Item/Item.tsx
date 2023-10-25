@@ -86,7 +86,9 @@ export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.
         setOpen(value => !value)
     }
 
-    const onLinkClick = !isLoading && !isOpen ? onToggle : undefined
+    const hasUrl = Boolean(item.url)
+    const shouldPreventClose = isLoading || hasUrl && isOpen
+    const onLinkClick = shouldPreventClose ? undefined : onToggle
 
     useEffect(() => {
         setOpen(item.defaultOpenState)
