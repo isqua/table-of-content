@@ -79,7 +79,7 @@ export function Item(props: ItemProps): JSX.Element {
 
 export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.Element {
     const isLoading = useIsLoading()
-    const [ isOpen, setOpen ]  = useState(isLoading ? true : item.defaultOpenState)
+    const [ isOpen, setOpen ]  = useState(item.defaultOpenState)
 
     const onToggle = () => {
         setOpen(value => !value)
@@ -91,13 +91,15 @@ export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.
         setOpen(item.defaultOpenState)
     }, [item.defaultOpenState])
 
+    const shouldShowChildren = isLoading || Boolean(isOpen && isVisible)
+
     return (
         <>
             <Item item={item} onClick={onLinkClick} isVisible={isVisible}>
                 <Chevron className={styles.toggle} open={isOpen} onClick={onToggle} />
                 {item.title}
             </Item>
-            {children(Boolean(isOpen && isVisible))}
+            {children(shouldShowChildren)}
         </>
     )
 }
