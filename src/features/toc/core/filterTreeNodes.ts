@@ -1,8 +1,6 @@
 import type { PageDescriptor, TableOfContent } from '../types'
 
-const isTextMatch = (value: string, search: string) => {
-    return value.toLowerCase().includes(search)
-}
+import { isTextMatch } from './isTextMatch'
 
 export const filterTreeNodes = (toc: TableOfContent, search: string): Set<PageDescriptor> => {
     const filterResult = new Set<PageDescriptor>()
