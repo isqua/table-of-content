@@ -13,11 +13,3 @@
     --menu-chevron-vertical-correction: 2px;
     --menu-chevron-horizontal-correction: -20px;
 }
-
-.list {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-}

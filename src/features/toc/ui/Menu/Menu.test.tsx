@@ -181,5 +181,24 @@ describe('features/toc/ui/Menu', () => {
 
             assertMenuSnapshot()
         })
+
+        it('should show not found message when there is no results', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const activeUrl = ''
+            const searchText = 'rrrrrrr'
+
+            renderMenu({ toc, activeUrl })
+
+            updateFilter(searchText)
+
+            act(() => {
+                vi.runAllTimers()
+            })
+
+            expect(screen.queryByLabelText(spinnerText)).not.toBeInTheDocument()
+
+            expect(screen.getByText('No pages found by your request')).toBeInTheDocument()
+            expect(screen.queryByRole('link')).not.toBeInTheDocument()
+        })
     })
 })

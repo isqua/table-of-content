@@ -1,9 +1,8 @@
-import { TransitionGroup } from 'react-transition-group'
 
 import type { TableOfContent } from '../../types'
 import { MenuProvider } from './Context/MenuProvider'
 import { Filter } from './Filter/Filter'
-import { Section } from './Section/Section'
+import { List } from './List/List'
 
 import styles from './Menu.module.css'
 
@@ -18,14 +17,7 @@ export function Menu({ toc, activeUrl, isLoading }: MenuProps): JSX.Element {
         <nav className={styles.menu}>
             <MenuProvider toc={toc} url={activeUrl} isLoading={isLoading}>
                 {!isLoading && <Filter />}
-                <ul className={styles.list}>
-                    {isLoading && (<Section parentId='' level={0} />)}
-                    {!isLoading && (
-                        <TransitionGroup component={null}>
-                            <Section parentId='' level={0} />
-                        </TransitionGroup>
-                    )}
-                </ul>
+                <List />
             </MenuProvider>
         </nav>
     )
