@@ -18,7 +18,7 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     </div>
   </div>
   <ul
-    class="_list_f33640"
+    class="_list_ae4333"
   >
     <li
       aria-level="1"
@@ -88,7 +88,7 @@ exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC 
   class="_menu_f33640"
 >
   <ul
-    class="_list_f33640"
+    class="_list_ae4333"
   >
     <li
       aria-level="1"
@@ -192,7 +192,7 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     </div>
   </div>
   <ul
-    class="_list_f33640"
+    class="_list_ae4333"
   >
     <li
       aria-level="1"
