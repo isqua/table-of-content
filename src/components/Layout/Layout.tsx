@@ -10,7 +10,7 @@ export function Layout({ children }: PropsWithChildren): JSX.Element {
     )
 }
 
-Layout.Main = function Sidebar({ children }: PropsWithChildren): JSX.Element {
+Layout.Main = function Main({ children }: PropsWithChildren): JSX.Element {
     return (
         <main className={styles.main}>
             {children}
