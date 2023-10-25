@@ -87,6 +87,13 @@ exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC 
 <nav
   class="_menu_f33640"
 >
+  <div
+    class="_filter_daddd4"
+  >
+    <span
+      class="_skeleton_2cc9eb"
+    />
+  </div>
   <ul
     class="_list_ae4333"
   >
