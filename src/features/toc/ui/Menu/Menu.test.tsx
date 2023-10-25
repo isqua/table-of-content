@@ -18,8 +18,8 @@ const updateFilter = (value: string) => {
     })
 }
 
-const renderMenu = (props: MenuProps, currentUrl?: string) => {
-    renderInApp(<Menu {...props} />, { url: currentUrl })
+const renderMenu = (props: MenuProps) => {
+    renderInApp(<Menu {...props} />)
 }
 
 const assertMenuSnapshot = () => {
@@ -52,10 +52,10 @@ describe('features/toc/ui/Menu', () => {
     describe('loading', () => {
         it('should render skeletons while the TOC is loading', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = '/bar.html'
+            const activeUrl = 'bar.html'
             const entitiesCount = Object.keys(tocTwoLevels.entities.pages).length
 
-            renderMenu({ toc, isLoading: true }, currentUrl)
+            renderMenu({ toc, isLoading: true, activeUrl })
 
             // Menu should not build links when loading
             expect(screen.queryByRole('link')).not.toBeInTheDocument()
@@ -70,9 +70,9 @@ describe('features/toc/ui/Menu', () => {
     describe('render', () => {
         it('should build a menu and highlight the current page', () => {
             const toc: TableOfContent = tocFlat
-            const currentUrl = `/${tocFlat.entities.pages.bar.url}`
+            const activeUrl = tocFlat.entities.pages.bar.url
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             assertMenuSnapshot()
         })
@@ -80,9 +80,9 @@ describe('features/toc/ui/Menu', () => {
         it('should build a two-levels menu and open the current page submenu if it has children', () => {
             const toc: TableOfContent = tocTwoLevels
             const pages = tocTwoLevels.entities.pages
-            const currentUrl = `/${pages.bar.url}`
+            const activeUrl = pages.bar.url
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             expect(screen.getByText(pages.bar_install.title)).toBeInTheDocument()
             expect(screen.getByText(pages.bar_features.title)).toBeInTheDocument()
@@ -91,9 +91,9 @@ describe('features/toc/ui/Menu', () => {
         it('should build a two-levels menu and open all parents containing the current page', () => {
             const toc: TableOfContent = tocTwoLevels
             const pages = tocTwoLevels.entities.pages
-            const currentUrl = `/${pages.bar_install.url}`
+            const activeUrl = pages.bar_install.url
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             expect(screen.getByText(pages.bar.title)).toContainElement(
                 screen.getByRole('button', { expanded: true })
@@ -107,9 +107,9 @@ describe('features/toc/ui/Menu', () => {
         it('should close a submenu when clicking on a chevron', () => {
             const toc: TableOfContent = tocTwoLevels
             const pages = tocTwoLevels.entities.pages
-            const currentUrl = `/${pages.bar_install.url}`
+            const activeUrl = pages.bar_install.url
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             expect(screen.getByText(pages.bar.title)).toContainElement(
                 screen.getByRole('button', { expanded: true })
@@ -127,9 +127,9 @@ describe('features/toc/ui/Menu', () => {
         it('should open a submenu when clicking on an item with children', () => {
             const toc: TableOfContent = tocTwoLevels
             const pages = tocTwoLevels.entities.pages
-            const currentUrl = `/${pages.foo.url}`
+            const activeUrl = pages.foo.url
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
 
@@ -150,10 +150,10 @@ describe('features/toc/ui/Menu', () => {
 
         it('should show a loader when filtering', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = ''
+            const activeUrl = ''
             const searchText = 'bar'
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             updateFilter(searchText)
 
@@ -166,10 +166,10 @@ describe('features/toc/ui/Menu', () => {
 
         it('should filter items by text', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = ''
+            const activeUrl = ''
             const searchText = 'bar'
 
-            renderMenu({ toc }, currentUrl)
+            renderMenu({ toc, activeUrl })
 
             updateFilter(searchText)
 

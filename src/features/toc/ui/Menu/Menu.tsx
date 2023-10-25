@@ -1,6 +1,5 @@
 import { TransitionGroup } from 'react-transition-group'
 
-import { useCurrentPageUrl } from '../../../../hooks/useCurrentPageUrl'
 import type { TableOfContent } from '../../types'
 import { MenuProvider } from './Context/MenuProvider'
 import { Filter } from './Filter/Filter'
@@ -10,15 +9,14 @@ import styles from './Menu.module.css'
 
 export type MenuProps = {
     toc: TableOfContent
+    activeUrl: string
     isLoading?: boolean
 }
 
-export function Menu({ toc, isLoading }: MenuProps): JSX.Element {
-    const currentUrl = useCurrentPageUrl()
-
+export function Menu({ toc, activeUrl, isLoading }: MenuProps): JSX.Element {
     return (
         <nav className={styles.menu}>
-            <MenuProvider toc={toc} url={currentUrl} isLoading={isLoading}>
+            <MenuProvider toc={toc} url={activeUrl} isLoading={isLoading}>
                 {!isLoading && <Filter />}
                 <ul className={styles.list}>
                     {isLoading && (<Section parentId='' level={0} />)}
