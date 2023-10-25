@@ -1,4 +1,4 @@
-import { useReducer, type Reducer } from 'react'
+import { useReducer, type Reducer, useMemo } from 'react'
 
 interface DataFilter<T> {
     (text: string): T
@@ -11,11 +11,11 @@ export type FilterActions = {
 }
 
 export type UseFilterResult<T> = {
-    state: FilterState<T>
-    actions: FilterActions
+    data: null | T
+    manager: FilterActions & { isFiltering: boolean }
 }
 
-type FilterState<T> = {
+export type FilterState<T> = {
     isLoading: boolean
     text: string
     data: null | T
@@ -75,26 +75,23 @@ export function useFilter<T>(fn: DataFilter<T>): UseFilterResult<T> {
         initialFilterState,
     )
 
-    const onFilterStart = () => {
-        dispatch({ type: 'start' })
-    }
+    const manager = useMemo(() => ({
+        isFiltering: state.isLoading,
+        onFilterStart: () => {
+            dispatch({ type: 'start' })
+        },
+        onChange: (text: string) => {
+            const data = fn(text)
 
-    const onChange = (text: string) => {
-        const data = fn(text)
-
-        dispatch({ type: 'change', text, data })
-    }
-
-    const onReset = () => {
-        dispatch({ type: 'reset' })
-    }
+            dispatch({ type: 'change', text, data })
+        },
+        onReset: () => {
+            dispatch({ type: 'reset' })
+        },
+    }), [fn, state.isLoading])
 
     return {
-        state,
-        actions: {
-            onFilterStart,
-            onChange,
-            onReset,
-        }
+        data: state.data,
+        manager,
     }
 }

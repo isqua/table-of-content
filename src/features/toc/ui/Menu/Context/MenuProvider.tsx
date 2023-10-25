@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react'
+import { useCallback, useMemo, type PropsWithChildren } from 'react'
 import { useFilter } from '../../../../../hooks/useFilter'
 import { filterTreeNodes } from '../../../core/filterTreeNodes'
 import { getBreadCrumbs } from '../../../core/getBreadCrumbs'
@@ -12,10 +12,22 @@ type MenuProviderProps = PropsWithChildren<{
 }>
 
 export function MenuProvider({ toc, url, children, isLoading = false }: MenuProviderProps): JSX.Element {
-    const breadcrumbs = getBreadCrumbs(toc, url)
-    const tocContextValue = { toc, isLoading }
-    const locationContextValue = { url, breadcrumbs }
-    const filterContextValue = useFilter((text) => filterTreeNodes(toc, text))
+    const filterCallback = useCallback(
+        (text: string) => filterTreeNodes(toc, text),
+        [toc]
+    )
+
+    const { data, manager: filterContextValue } = useFilter(filterCallback)
+
+    const tocContextValue = useMemo(
+        () => ({ toc, filter: data, isLoading }),
+        [toc, data, isLoading],
+    )
+
+    const locationContextValue = useMemo(
+        () => ({ url, breadcrumbs: getBreadCrumbs(toc, url) }),
+        [toc, url]
+    )
 
     return (
         <TocContext.Provider value={tocContextValue}>
