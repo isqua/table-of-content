@@ -11,7 +11,7 @@ describe('components/Article', () => {
             title: 'Foo Article'
         }
 
-        render(<Article page={page} />)
+        render(<Article breadcrumbs={[page]} page={page} />)
 
         expect(screen.getByRole('article')).toMatchSnapshot()
     })

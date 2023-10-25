@@ -1,0 +1,34 @@
+.breadcrumbs {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 0 20px;
+    gap: 6px;
+    list-style: none;
+}
+
+.item:not(:last-child)::after {
+    color: var(--color-border);
+    content: "/";
+    padding-inline-start: 8px;
+    user-select: none;
+}
+
+.link {
+    text-decoration: none;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.link,
+.link:visited {
+    color: var(--color-secondary-text);
+}
+
+.link[href] {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.link[href]:hover {
+    border-bottom-color: var(--color-secondary-text);
+    color: var(--color-general-text);
+}
