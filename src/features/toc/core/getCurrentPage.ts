@@ -7,7 +7,18 @@ const NotFoundPage: PageDescriptor = {
     parentId: 'root',
 }
 
+const MainPage: PageDescriptor = {
+    id: '',
+    url: '/',
+    title: 'Table of Content Demo',
+    parentId: '',
+}
+
 export const getCurrentPage = (toc: TableOfContent, url: PageURL) => {
+    if (url === '/' || url === '') {
+        return MainPage
+    }
+
     for (const page of Object.values(toc.entities.pages)) {
         if (page?.url === url) {
             return page
