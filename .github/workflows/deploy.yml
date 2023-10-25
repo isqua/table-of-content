@@ -22,16 +22,17 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: install dependencies
         run: npm ci
+      - name: setup pages
+        id: pages
+        uses: actions/configure-pages@v3
       - name: build app
         run: npm run build && npm run gh-pages:404
         env:
-          PUBLIC_URL: /table-of-content
-      - name: setup pages
-        uses: actions/configure-pages@v2
+          PUBLIC_URL: ${{ steps.pages.outputs.base_path }}
       - name: upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: ./dist
       - name: deploy to github pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2
