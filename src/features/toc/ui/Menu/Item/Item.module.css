@@ -92,6 +92,7 @@
 
 .transition-exit-active {
     overflow: hidden;
+
     /* We have to use important because we set max-height in a style attribute of a node */
     max-height: 0 !important;
     transition: max-height 0.3s ease-out;
