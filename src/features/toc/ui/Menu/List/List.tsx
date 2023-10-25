@@ -1,13 +1,13 @@
 import { TransitionGroup } from 'react-transition-group'
 
-import { useIsEmpty, useIsLoading } from '../Context/hooks'
+import { useIsLoading, useListRenderModes } from '../Context/hooks'
 import { Section } from '../Section/Section'
 
 import styles from './List.module.css'
 
 export function List() {
     const isLoading = useIsLoading()
-    const isEmpty = useIsEmpty()
+    const { isEmpty, isFiltered } = useListRenderModes()
 
     if (isEmpty) {
         return (
@@ -15,7 +15,7 @@ export function List() {
         )
     }
 
-    if (isLoading) {
+    if (isLoading || isFiltered) {
         return (
             <ul className={styles.list}>
                 <Section parentId='' level={0} />
