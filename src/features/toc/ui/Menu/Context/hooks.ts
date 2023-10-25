@@ -4,18 +4,11 @@ import { buildMenuSection } from '../../../core/buildMenuSection'
 import type { PageId, SectionHighlight } from '../../../types'
 import { FilterContext, LocationContext, TocContext } from './contexts'
 
-const useFilterData = () => {
-    const { state: { data } } = useContext(FilterContext)
-
-    return data
-}
-
 const FILTER_DELAY_IN_MS = 1000
 
 export const useSectionItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
-    const { toc } = useContext(TocContext)
+    const { toc, filter } = useContext(TocContext)
     const currentLocation = useContext(LocationContext)
-    const filter = useFilterData()
 
     const items = buildMenuSection(toc, {
         url: currentLocation.url,
@@ -36,8 +29,7 @@ export const useIsLoading = () => {
 }
 
 export const useFilterInput = () => {
-    const { actions, state: { isLoading } } = useContext(FilterContext)
-    const { onChange, onFilterStart, onReset } = actions
+    const { isFiltering, onChange, onFilterStart, onReset } = useContext(FilterContext)
     const timeout = useRef<number>(0)
 
     const onChangeHandler = useCallback((value: string) => {
@@ -48,7 +40,7 @@ export const useFilterInput = () => {
             return
         }
 
-        if (!isLoading) {
+        if (!isFiltering) {
             onFilterStart()
         }
 
@@ -59,11 +51,11 @@ export const useFilterInput = () => {
         timeout.current = window.setTimeout(() => {
             onChange(text)
         }, FILTER_DELAY_IN_MS)
-    }, [isLoading, onChange, onFilterStart, onReset])
+    }, [isFiltering, onChange, onFilterStart, onReset])
 
     useEffect(() => () => {
         clearTimeout(timeout.current)
     }, [])
 
-    return { onChange: onChangeHandler, isLoading }
+    return { onChange: onChangeHandler, isFiltering }
 }
