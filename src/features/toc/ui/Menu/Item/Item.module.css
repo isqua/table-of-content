@@ -32,37 +32,37 @@
     left: var(--menu-chevron-horizontal-correction);
 }
 
-.link:hover {
+.link:not(.disabled):hover {
     background-color: var(--color-secondary-background);
 }
 
-.link:focus {
+.link:not(.disabled):focus {
     border-color: var(--color-active-background);
     outline: none;
 }
 
-.link.parent {
+.link:not(.disabled).parent {
     background-color: var(--color-secondary-background);
 }
 
-.link.parent:hover {
+.link:not(.disabled).parent:hover {
     background-color: var(--color-tertiary-background);
 }
 
-.link.child {
+.link:not(.disabled).child {
     background-color: var(--color-tertiary-background);
 }
 
-.link.child:hover {
+.link:not(.disabled).child:hover {
     background-color: var(--color-secondary-background);
 }
 
-.link.active {
+.link:not(.disabled).active {
     background-color: var(--color-active-background);
     color: var(--color-active-text);
 }
 
-.link.active:hover {
+.link:not(.disabled).active:hover {
     background-color: var(--color-active-secondary-background);
 }
 

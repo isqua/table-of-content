@@ -53,6 +53,7 @@ export function Item(props: ItemProps): JSX.Element {
 
     const linkClassName = clsx(
         styles.link,
+        isLoading && styles.disabled,
         !isLoading && getItemHighlightStyles(item),
     )
 
