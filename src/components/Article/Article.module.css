@@ -1,8 +1,9 @@
 .article {
-    padding: 48px 32px;
+    padding: 40px 80px;
 }
 
 .title {
     margin: 0;
     font-size: 42px;
+    line-height: 50px;
 }
