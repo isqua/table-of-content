@@ -22,10 +22,18 @@ export const useSectionItems = (parentId: PageId = '', level: number = 0, highli
     return { items, isFiltered: filter !== null }
 }
 
-export const useIsEmpty = () => {
+export const useListRenderModes = () => {
+    const { filter } = useContext(TocContext)
+    const isFiltered = filter !== null
+    const isEmpty = isFiltered && filter.size === 0
+
+    return { isFiltered, isEmpty }
+}
+
+export const useIsFiltered = () => {
     const { filter } = useContext(TocContext)
 
-    return filter !== null && filter.size === 0
+    return filter !== null
 }
 
 export const useIsLoading = () => {
