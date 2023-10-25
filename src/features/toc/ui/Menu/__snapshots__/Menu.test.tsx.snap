@@ -473,7 +473,7 @@ exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`]
       class="_item_c21f54"
     >
       <span
-        class="_link_c21f54"
+        class="_link_c21f54 _disabled_c21f54"
       >
         <span
           class="_text_c21f54"
@@ -489,7 +489,7 @@ exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`]
       class="_item_c21f54"
     >
       <span
-        class="_link_c21f54"
+        class="_link_c21f54 _disabled_c21f54"
       >
         <span
           class="_text_c21f54"
@@ -505,7 +505,7 @@ exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`]
       class="_item_c21f54"
     >
       <span
-        class="_link_c21f54"
+        class="_link_c21f54 _disabled_c21f54"
       >
         <span
           class="_text_c21f54"
@@ -521,7 +521,7 @@ exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`]
       class="_item_c21f54"
     >
       <span
-        class="_link_c21f54"
+        class="_link_c21f54 _disabled_c21f54"
       >
         <span
           class="_text_c21f54"
@@ -537,7 +537,7 @@ exports[`features/toc/ui/Menu > should render skeletons while TOC is loading 1`]
       class="_item_c21f54"
     >
       <span
-        class="_link_c21f54"
+        class="_link_c21f54 _disabled_c21f54"
       >
         <span
           class="_text_c21f54"
