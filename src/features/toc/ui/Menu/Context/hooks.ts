@@ -19,7 +19,7 @@ export const useSectionItems = (parentId: PageId = '', level: number = 0, highli
         filter,
     })
 
-    return items
+    return { items, isFiltered: filter !== null }
 }
 
 export const useIsEmpty = () => {

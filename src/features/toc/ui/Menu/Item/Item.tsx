@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useEffect, useRef, useState, type PropsWithChildren } from 'react'
+import { useRef, useState, type PropsWithChildren } from 'react'
 
 import { Chevron } from '../../../../../components/Chevron'
 import { OptionalLink } from '../../../../../components/OptionalLink'
@@ -19,7 +19,8 @@ type ItemProps = PropsWithChildren<{
 type ItemToggleProps = {
     item: MenuItem
     children: (isOpen: boolean) => JSX.Element
-    isVisible?: boolean
+    isVisible: boolean
+    isDisabled?: boolean
 }
 
 const INDENT_LEVEL_LIMIT = 6
@@ -78,7 +79,7 @@ export function Item(props: ItemProps): JSX.Element {
     )
 }
 
-export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.Element {
+export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggleProps): JSX.Element {
     const isLoading = useIsLoading()
     const [ isOpen, setOpen ]  = useState(item.defaultOpenState)
 
@@ -87,19 +88,15 @@ export function ItemToggle({ item, children, isVisible }: ItemToggleProps): JSX.
     }
 
     const hasUrl = Boolean(item.url)
-    const shouldPreventClose = isLoading || hasUrl && isOpen
+    const shouldBeForciblyOpened = isLoading || isDisabled
+    const shouldShowChildren = shouldBeForciblyOpened || isOpen && isVisible
+    const shouldPreventClose = shouldBeForciblyOpened || isOpen && hasUrl
     const onLinkClick = shouldPreventClose ? undefined : onToggle
-
-    useEffect(() => {
-        setOpen(item.defaultOpenState)
-    }, [item.defaultOpenState])
-
-    const shouldShowChildren = isLoading || Boolean(isOpen && isVisible)
 
     return (
         <>
             <Item item={item} onClick={onLinkClick} isVisible={isVisible}>
-                <Chevron className={styles.toggle} open={isOpen} onClick={onToggle} />
+                <Chevron className={styles.toggle} open={shouldShowChildren} onClick={onToggle} />
                 {item.title}
             </Item>
             {children(shouldShowChildren)}
