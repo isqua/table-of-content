@@ -22,6 +22,12 @@ export const useSectionItems = (parentId: PageId = '', level: number = 0, highli
     return items
 }
 
+export const useIsEmpty = () => {
+    const { filter } = useContext(TocContext)
+
+    return filter !== null && filter.size === 0
+}
+
 export const useIsLoading = () => {
     const { isLoading } = useContext(TocContext)
 
