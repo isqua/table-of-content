@@ -9,7 +9,7 @@ export const filterTreeNodes = (toc: TableOfContent, search: string): Set<PageDe
     const normalizedSearch = search.toLocaleLowerCase()
 
     for (const page of Object.values(toc.entities.pages)) {
-        if (page && isTextMatch(page.title.toLocaleLowerCase(), normalizedSearch)) {
+        if (page && isTextMatch(page.title, normalizedSearch)) {
 
             let currentPage: PageDescriptor | undefined = page
 
