@@ -53,8 +53,15 @@ describe('features/toc/ui/Menu', () => {
         it('should render skeletons while the TOC is loading', () => {
             const toc: TableOfContent = tocTwoLevels
             const currentUrl = '/bar.html'
+            const entitiesCount = Object.keys(tocTwoLevels.entities.pages).length
 
             renderMenu({ toc, isLoading: true }, currentUrl)
+
+            // Menu should not build links when loading
+            expect(screen.queryByRole('link')).not.toBeInTheDocument()
+
+            // And should render all nested items
+            expect(screen.getAllByRole('listitem')).toHaveLength(entitiesCount)
 
             assertMenuSnapshot()
         })
@@ -63,40 +70,64 @@ describe('features/toc/ui/Menu', () => {
     describe('render', () => {
         it('should build a menu and highlight the current page', () => {
             const toc: TableOfContent = tocFlat
-            const currentUrl = '/bar.html'
+            const currentUrl = `/${tocFlat.entities.pages.bar.url}`
 
             renderMenu({ toc }, currentUrl)
 
             assertMenuSnapshot()
         })
 
-        it('should build a two-levels menu and open all parents containing the current page', () => {
+        it('should build a two-levels menu and open the current page submenu if it has children', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = '/bar-install.html'
+            const pages = tocTwoLevels.entities.pages
+            const currentUrl = `/${pages.bar.url}`
 
             renderMenu({ toc }, currentUrl)
 
-            assertMenuSnapshot()
+            expect(screen.getByText(pages.bar_install.title)).toBeInTheDocument()
+            expect(screen.getByText(pages.bar_features.title)).toBeInTheDocument()
+        })
+
+        it('should build a two-levels menu and open all parents containing the current page', () => {
+            const toc: TableOfContent = tocTwoLevels
+            const pages = tocTwoLevels.entities.pages
+            const currentUrl = `/${pages.bar_install.url}`
+
+            renderMenu({ toc }, currentUrl)
+
+            expect(screen.getByText(pages.bar.title)).toContainElement(
+                screen.getByRole('button', { expanded: true })
+            )
+            expect(screen.getByText(pages.bar_install.title)).toBeInTheDocument()
+            expect(screen.getByText(pages.bar_features.title)).toBeInTheDocument()
         })
     })
 
     describe('toggling', () => {
         it('should close a submenu when clicking on a chevron', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = '/bar-install.html'
+            const pages = tocTwoLevels.entities.pages
+            const currentUrl = `/${pages.bar_install.url}`
 
             renderMenu({ toc }, currentUrl)
 
-            expect(screen.getByRole('navigation')).toMatchSnapshot()
+            expect(screen.getByText(pages.bar.title)).toContainElement(
+                screen.getByRole('button', { expanded: true })
+            )
 
             fireEvent.click(screen.getByRole('button', { expanded: true }))
 
-            assertMenuSnapshot()
+            expect(screen.getByText(pages.bar.title)).toContainElement(
+                screen.getByRole('button', { expanded: false })
+            )
+
+            expect(screen.queryByText(pages.bar_install.title)).not.toBeInTheDocument()
         })
 
         it('should open a submenu when clicking on an item with children', () => {
             const toc: TableOfContent = tocTwoLevels
-            const currentUrl = '/foo.html'
+            const pages = tocTwoLevels.entities.pages
+            const currentUrl = `/${pages.foo.url}`
 
             renderMenu({ toc }, currentUrl)
 
