@@ -1,6 +1,14 @@
-# Table of Content
+# Table of Content Demo Application
 
-This is a react app I created as a test assignment to show my front-end skills.
+This is a react app I created as a test assignment to show my front-end skills. The application demonstrates working with a tree menu, which is often used in documentation sites. It displays navigation, switches links and shows selected page (for now the app shows only page title).
+
+How to start application locally:
+
+```bash
+nvm use
+npm ci
+npm run dev
+```
 
 ## Available Scripts
 
