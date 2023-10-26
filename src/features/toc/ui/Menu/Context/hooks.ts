@@ -47,6 +47,10 @@ export const useFilterInput = () => {
     const timeout = useRef<number>(0)
 
     const onChangeHandler = useCallback((value: string) => {
+        if (timeout.current) {
+            clearTimeout(timeout.current)
+        }
+
         const text = value.trim()
 
         if (text === '') {
@@ -58,12 +62,8 @@ export const useFilterInput = () => {
             onFilterStart()
         }
 
-        if (timeout.current) {
-            clearTimeout(timeout.current)
-        }
-
         timeout.current = window.setTimeout(() => {
-            onChange(text)
+            onChange(text.trim())
         }, FILTER_DELAY_IN_MS)
     }, [isFiltering, onChange, onFilterStart, onReset])
 
