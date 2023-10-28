@@ -1,24 +1,36 @@
 import type { MenuItem, PageDescriptor, PageHighlight, PageId, PageURL, SectionHighlight, TableOfContent } from '../types'
 
 type BuildMenuBaseOptions = {
+    /**
+     * Current page URL to highlight in the menu
+     * If it is necessary to pass ID instead of URL, then we will need to replace this field with ID
+     */
     url: PageURL
+    /** Current page ancestors */
     breadcrumbs: PageDescriptor[]
+    /** Items that match the search filter and its ancestors */
     filter?: Set<PageDescriptor> | null
 }
 
 type BuildMenuTopLevelOptions = BuildMenuBaseOptions
 
 type BuildMenuNestingOptions = BuildMenuBaseOptions & {
+    /** ID of the page whose children we want to render */
     parentId: string
+    /** The level of current menu items */
     level: number
+    /** The relation of pages to the active page for proper highlighting */
     highlight: SectionHighlight
 }
 
 type BuildMenuOptions = BuildMenuTopLevelOptions | BuildMenuNestingOptions
 
 type PageProps = {
+    /** The relation of the page to the active page for proper highlighting */
     highlight: PageHighlight
+    /** Should the page be opened by default */
     defaultOpenState: boolean
+    /** The level of the current page */
     level: number
 }
 
@@ -79,6 +91,10 @@ export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions)
             let highlight: PageHighlight = sectionHighlight
             let defaultOpenState = false
 
+            /**
+             * If it is necessary to pass ID instead of URL, then we will need to replace this check with
+             * page.id === options.id
+             */
             if (page.url === url) {
                 highlight = 'active'
                 defaultOpenState = Boolean(page.pages?.length)

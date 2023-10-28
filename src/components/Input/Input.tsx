@@ -5,6 +5,7 @@ import styles from './Input.module.css'
 type InputProps = {
     onChange?: (text: string) => void
     placeholder?: string
+    /** Should show spinner */
     isLoading?: boolean
 }
 
