@@ -11,15 +11,22 @@ import { useIsLoading } from '../Context/hooks'
 import styles from './Item.module.css'
 
 type ItemProps = PropsWithChildren<{
+    /** The item :) */
     item: MenuItem
+    /** OnClick handler, e.g. expand/collapse the section */
     onClick?: () => void
+    /** Show the component; triggers the enter or exit states for the animation */
     isVisible?: boolean
 }>
 
 type ItemToggleProps = {
+    /** The item */
     item: MenuItem
+    /** ReactChildren to show when item is opened */
     children: (isOpen: boolean) => JSX.Element
+    /** Show the component; triggers the enter or exit states for the animation */
     isVisible: boolean
+    /** Is it allowed to change the toggle state */
     isDisabled?: boolean
 }
 
@@ -88,6 +95,11 @@ export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggle
     }
 
     const hasUrl = Boolean(item.url)
+    /**
+     * While the menu is loading, it makes no sense to collapse and expand the items. So forbid them to collapse.
+     * Also, when using the search, it is not necessary to collapse the items, because the search result may be
+     * a leaf of the tree. So forbid collapsing items in search mode too.
+     */
     const shouldBeForciblyOpened = isLoading || isDisabled
     const shouldShowChildren = shouldBeForciblyOpened || isOpen && isVisible
     const shouldPreventClose = shouldBeForciblyOpened || isOpen && hasUrl

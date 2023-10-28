@@ -3,9 +3,13 @@ import { useSectionItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
 
 type SectionProps = {
+    /** ID of the page whose children we want to render */
     parentId: PageId
+    /** The level of the current section */
     level: number
+    /** The relation of the section to the active page for proper highlighting */
     highlight?: SectionHighlight
+    /** Show the component; triggers the enter or exit states for the animation */
     isVisible?: boolean
 }
 
