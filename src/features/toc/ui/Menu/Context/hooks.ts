@@ -46,6 +46,10 @@ export const useFilterInput = () => {
     const { isFiltering, onChange, onFilterStart, onReset } = useContext(FilterContext)
     const timeout = useRef<number>(0)
 
+    /**
+     * Filter results should appear when the user enters the whole query.
+     * So waiting for FILTER_DELAY_IN_MS until the user stops typing
+     */
     const onChangeHandler = useCallback((value: string) => {
         if (timeout.current) {
             clearTimeout(timeout.current)

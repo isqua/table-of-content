@@ -6,8 +6,11 @@ import type { PageURL, TableOfContent } from '../../../types'
 import { FilterContext, LocationContext, TocContext } from './contexts'
 
 type MenuProviderProps = PropsWithChildren<{
+    /** The whole TOC tree */
     toc: TableOfContent
+    /** Current URL */
     url: PageURL
+    /** Is the TOC loading */
     isLoading?: boolean
 }>
 

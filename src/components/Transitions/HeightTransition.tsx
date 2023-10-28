@@ -3,9 +3,13 @@ import { CSSTransition } from 'react-transition-group'
 import type { CSSTransitionClassNames } from 'react-transition-group/CSSTransition'
 
 type HeightTransitionProps = PropsWithChildren<{
+    /** Show the component; triggers the enter or exit states */
     isVisible: boolean
+    /** A React reference to DOM element that need to transition */
     nodeRef: RefObject<HTMLElement>
+    /** The animation `classNames` applied to the component as it enters or exits */
     classNames: CSSTransitionClassNames
+    /** Minimum expected height of the element, in case the element is not visible */
     minHeight: number
 }>
 

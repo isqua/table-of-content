@@ -4,7 +4,9 @@ import { BreadCrumbs } from '../BreadCrumbs'
 import styles from './Article.module.css'
 
 type ArticleProps = {
+    /** A page to display */
     page: PageDescriptor
+    /** Array of its ancestors including the page itself */
     breadcrumbs: PageDescriptor[]
 }
 

@@ -2,6 +2,7 @@ import { PropsWithChildren } from 'react'
 import { RouterProvider, createMemoryRouter } from 'react-router-dom'
 
 type TestRouterProps = PropsWithChildren<{
+    /** Current URL */
     url?: string
 }>
 

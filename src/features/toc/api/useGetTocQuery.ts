@@ -37,6 +37,7 @@ async function fetchToc(url: string): Promise<TableOfContent> {
     return res.json() as Promise<TableOfContent>
 }
 
+/** Fetches the TableOfContent data from URL */
 export function useGetTocQuery(url: string) {
     const callback = useCallback(() => fetchToc(url), [url])
 

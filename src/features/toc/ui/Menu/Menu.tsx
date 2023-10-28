@@ -7,8 +7,11 @@ import { List } from './List/List'
 import styles from './Menu.module.css'
 
 export type MenuProps = {
+    /** The whole TOC tree */
     toc: TableOfContent
+    /** Current URL */
     activeUrl: string
+    /** Is the TOC loading */
     isLoading?: boolean
 }
 
