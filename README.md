@@ -35,7 +35,7 @@ So, from a bird's eye view, the structure is as follows:
     - [useFilter](./src/hooks/useFilter.ts) holds shared logic for filter inputs
 1. [toc.json](./public/toc.json) is a data structure that API sends to the client. The structure was defined by the task requirements
 
-## Deep Dive into TOC Builder
+## Deep Dive into ToC Builder
 
 Components composition:
 
@@ -72,6 +72,8 @@ Filtering tree:
 1. The [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) uses [useFilter](./src/hooks/useFilter.ts) hook to manage search results. So, when user types a text, the `useFilter` hook calls the `filterTreeNodes` method and store its results. The `MenuProvider` holds the results in its context.
 1. So, when the `Section` component is rendered, it passes data from the MenuContext to the `buildMenuSection`, including the set of filtered pages.
 1. And the [buildMenuSection](./src/features/toc/core/buildMenuSection.ts) simply checks the section pages if they are in the filtered set.
+
+![ToC Scheme](./docs/ToC.drawio.svg)
 
 ## Available Scripts
 
