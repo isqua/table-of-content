@@ -37,7 +37,7 @@ type ResetFilterAction = {
 
 type RequestAction<T> = StartFilterAction | ChangeFilterAction<T> | ResetFilterAction
 
-function requestReducer<T>(state: FilterState<T>, action: RequestAction<T>): FilterState<T> {
+function filterReducer<T>(state: FilterState<T>, action: RequestAction<T>): FilterState<T> {
     switch (action.type) {
     case 'start':
         return {
@@ -71,7 +71,7 @@ export const initialFilterState = {
 
 export function useFilter<T>(fn: DataFilter<T>): UseFilterResult<T> {
     const [state, dispatch] = useReducer<Reducer<FilterState<T>, RequestAction<T>>>(
-        requestReducer,
+        filterReducer,
         initialFilterState,
     )
 
