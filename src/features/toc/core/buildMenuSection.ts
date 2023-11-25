@@ -103,6 +103,10 @@ export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions)
                 defaultOpenState = true
             }
 
+            /**
+             * When filtering, open all items, as deep item may contains the search result,
+             * so it is important to show all
+             */
             if (hasFilter && page.pages?.length) {
                 defaultOpenState = true
             }

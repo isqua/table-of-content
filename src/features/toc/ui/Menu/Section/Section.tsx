@@ -13,6 +13,11 @@ type SectionProps = {
     isVisible?: boolean
 }
 
+/**
+ * Displays a list of menu items at one level. If the element has children,
+ * will display it with a chevron (ItemToggle) and pass the child items to it,
+ * rendering a nested Section recursively.
+ */
 export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): JSX.Element {
     const { items, isFiltered } = useSectionItems(parentId, level, highlight)
 
@@ -27,18 +32,23 @@ export function Section({ parentId, level, highlight, isVisible = true }: Sectio
                     )
                 }
 
-                const subMenuHighlight = item.highlight === 'active' ? 'child' : item.highlight
-
                 return (
                     <ItemToggle key={item.id} item={item} isVisible={isVisible} isDisabled={isFiltered}>
-                        {(isOpen: boolean) => (
-                            <Section
-                                isVisible={isOpen}
-                                highlight={subMenuHighlight}
-                                parentId={item.id}
-                                level={level + 1}
-                            />
-                        )}
+                        {
+                            /**
+                             * The HeightTransition component manage element mount/unmount itself,
+                             * based on the isVisible flag. So we do not need to conditionally rerender component,
+                             * instead we have to just pass the isVisible flag
+                             */
+                            (isOpen: boolean, highlight: SectionHighlight) => (
+                                <Section
+                                    isVisible={isOpen}
+                                    highlight={highlight}
+                                    parentId={item.id}
+                                    level={level + 1}
+                                />
+                            )
+                        }
                     </ItemToggle>
                 )
             })}
