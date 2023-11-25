@@ -14,6 +14,15 @@ type MenuProviderProps = PropsWithChildren<{
     isLoading?: boolean
 }>
 
+/**
+ * Takes the data needed to render the menu and creates two contexts:
+ *
+ * * `TocContext` contains data for the menu tree, and changing it causes the menu to rerender.
+ * This is only needed when filtering or switching a page.
+ *
+ * * `FilterContext` contains methods and data for the filter input.
+ * Changing the context only causes the input to rerender.
+ */
 export function MenuProvider({ toc, url, children, isLoading = false }: MenuProviderProps): JSX.Element {
     const filterCallback = useCallback(
         (text: string) => filterTreeNodes(toc, text),
