@@ -73,6 +73,8 @@ Filtering tree:
 1. So, when the `Section` component is rendered, it passes data from the MenuContext to the `buildMenuSection`, including the set of filtered pages.
 1. And the [buildMenuSection](./src/features/toc/core/buildMenuSection.ts) simply checks the section pages if they are in the filtered set.
 
+Here is a diagram of the components:
+
 ![ToC Scheme](./docs/ToC.drawio.svg)
 
 ## Available Scripts
