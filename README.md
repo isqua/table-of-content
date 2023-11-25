@@ -34,6 +34,18 @@ So, from a bird's eye view, the structure is as follows:
     - [useRequestWithPlaceholder](./src/hooks/useRequestWithPlaceholder.ts) to fetch data. It works like an extremely simplified idea of react-query, that hook returns state of a query with some placeholders and flags
     - [useFilter](./src/hooks/useFilter.ts) holds shared logic for filter inputs
 
+## Deep Dive into TOC Builder
+
+1. So, the [Root](./src/app/Root/Root.tsx) component fetches the data from “API” (a static JSON file, actually), detects current url and renders the `Menu` by passing props to it.
+1. The [Menu](./src/features/toc/ui/Menu/Menu.tsx) component wraps all its content to the [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) that holds menu data, filtering state and methods.
+1. Then the [Menu](./src/features/toc/ui/Menu/Menu.tsx) renders menu `Filter` and menu `List` components.
+1. The [Filter](./src/features/toc/ui/Menu/Filter/Filter.tsx) component just extracts data and methods from the menu context through hooks and render the [Input](./src/components/Input/Input.tsx) presenter.
+1. The [List](./src/features/toc/ui/Menu/List/List.tsx) component render the menu tree from the top level using `Section` component.
+1. The [Section](./src/features/toc/ui/Menu/Section/Section.tsx) render items on a specific level with `Item` component, and, if an item has children, renders nested sections recursively.
+1. The [Item](./src/features/toc/ui/Menu/Item/Item.tsx) component has two modifications:
+    - plain `Item` simply renders a single page in the menu with the desired styles and attributes
+    - the `ItemToggle` renders an `Item` with a chevron and nested section. Independently manages the open/closed state so that only this subtree is rerendered when the state changes
+
 ## Available Scripts
 
 In the project directory, you can run:
