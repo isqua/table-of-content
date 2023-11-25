@@ -2,17 +2,16 @@ import { useCallback, useContext, useEffect, useRef } from 'react'
 
 import { buildMenuSection } from '../../../core/buildMenuSection'
 import type { PageId, SectionHighlight } from '../../../types'
-import { FilterContext, LocationContext, TocContext } from './contexts'
+import { FilterContext, TocContext } from './contexts'
 
 const FILTER_DELAY_IN_MS = 1000
 
 export const useSectionItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
-    const { toc, filter } = useContext(TocContext)
-    const currentLocation = useContext(LocationContext)
+    const { toc, filter, url, breadcrumbs } = useContext(TocContext)
 
     const items = buildMenuSection(toc, {
-        url: currentLocation.url,
-        breadcrumbs: currentLocation.breadcrumbs,
+        url,
+        breadcrumbs,
         parentId,
         level,
         highlight,
