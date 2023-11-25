@@ -64,6 +64,15 @@ Finding ancestors of a current page:
 1. The [getBreadCrumbs](./src/features/toc/core/getBreadCrumbs.ts) methods takes the current page URL and ToC data, and simply traverse from the current page up to the root, collecting all visited pages in a breadcrumbs array.
 1. [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) takes current page URL and all ToC data from the API, calls `getBreadCrumbs` method and store the result in the context. If the current URL changes, we need to rebuild the breadcrumbs as well. And vice versa, if the path remains the same, we don't need to rebuild the breadcrumbs. So, we can store computed breadcrumbs in context to reuse them when highlighting menu sections.
 
+Filtering tree:
+
+1. When a user types text, we should find all the pages suitable for the input. Even if they are somewhere deep in the tree. So we have to inspect all pages in the tree.
+1. We can’t draw items “hanging in the air”, so if we render a page, we have to render all its ancestors as well.
+1. The [filterTreeNodes](./src/features/toc/core/filterTreeNodes.ts) method takes the ToC data and the filter text, and checks each page if it matches. If so, adds the page to the result set, and walks the tree up to the root, adding all parents pages to the result set as well.
+1. The [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) uses [useFilter](./src/hooks/useFilter.ts) hook to manage search results. So, when user types a text, the `useFilter` hook calls the `filterTreeNodes` method and store its results. The `MenuProvider` holds the results in its context.
+1. So, when the `Section` component is rendered, it passes data from the MenuContext to the `buildMenuSection`, including the set of filtered pages.
+1. And the [buildMenuSection](./src/features/toc/core/buildMenuSection.ts) simply checks the section pages if they are in the filtered set.
+
 ## Available Scripts
 
 In the project directory, you can run:
