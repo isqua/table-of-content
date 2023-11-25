@@ -2,6 +2,9 @@ import type { PageDescriptor, PageURL, PageId, TableOfContent } from '../types'
 import { getCurrentPage } from './getCurrentPage'
 
 /**
+ * Traverse the ToC data from the active page node to the root,
+ * collecting all visited pages in the breadcrumbs array
+ *
  * @param toc The TOC data
  * @param url Page URL
  * @returns Current page and the array of its ancestors from top to bottom

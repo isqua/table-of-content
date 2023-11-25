@@ -33,8 +33,11 @@ So, from a bird's eye view, the structure is as follows:
 1. [hooks/](./src/hooks) contains any general logic shared between components, like:
     - [useRequestWithPlaceholder](./src/hooks/useRequestWithPlaceholder.ts) to fetch data. It works like an extremely simplified idea of react-query, that hook returns state of a query with some placeholders and flags
     - [useFilter](./src/hooks/useFilter.ts) holds shared logic for filter inputs
+1. [toc.json](./public/toc.json) is a data structure that API sends to the client. The structure was defined by the task requirements
 
 ## Deep Dive into TOC Builder
+
+Components composition:
 
 1. So, the [Root](./src/app/Root/Root.tsx) component fetches the data from “API” (a static JSON file, actually), detects current url and renders the `Menu` by passing props to it.
 1. The [Menu](./src/features/toc/ui/Menu/Menu.tsx) component wraps all its content to the [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) that holds menu data, filtering state and methods.
@@ -45,6 +48,21 @@ So, from a bird's eye view, the structure is as follows:
 1. The [Item](./src/features/toc/ui/Menu/Item/Item.tsx) component has two modifications:
     - plain `Item` simply renders a single page in the menu with the desired styles and attributes
     - the `ItemToggle` renders an `Item` with a chevron and nested section. Independently manages the open/closed state so that only this subtree is rerendered when the state changes
+
+Core logic:
+
+1. So how does the [Section](./src/features/toc/ui/Menu/Section/Section.tsx) know which items need to be rendered? The top `Section` is rendered by the [List](./src/features/toc/ui/Menu/List/List.tsx) component, which passes the `parentId=''` property to the `Section`.
+1. Then, `Section` uses the [useSectionItems](./src/features/toc/ui/Menu/Context/hooks.ts) hook, which extracts data from the MenuContext and passes it to the `buildMenuSection` method, gets items from it, and returns them back to the `Section`.
+1. The [buildMenuSection](./src/features/toc/core/buildMenuSection.ts) is as plain as its name:
+    - it takes `parentId` and finds its direct children in the API data
+    - is takes `filter`, it sifts out mismatched pages
+    - it takes `breadcrumbs` (path to the active page in a tree) and adjust item highlight mode based on active page url and its ancestors
+
+Finding ancestors of a current page:
+
+1. To properly highlight menu sections we have to know current page, and its ancestors up to the root. The path to the current page from the root of the tree is called “breadcrumbs”.
+1. The [getBreadCrumbs](./src/features/toc/core/getBreadCrumbs.ts) methods takes the current page URL and ToC data, and simply traverse from the current page up to the root, collecting all visited pages in a breadcrumbs array.
+1. [MenuProvider](./src/features/toc/ui/Menu/Context/MenuProvider.tsx) takes current page URL and all ToC data from the API, calls `getBreadCrumbs` method and store the result in the context. If the current URL changes, we need to rebuild the breadcrumbs as well. And vice versa, if the path remains the same, we don't need to rebuild the breadcrumbs. So, we can store computed breadcrumbs in context to reuse them when highlighting menu sections.
 
 ## Available Scripts
 
