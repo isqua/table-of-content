@@ -4,7 +4,7 @@ import type { MouseEvent } from 'react'
 import styles from './Chevron.module.css'
 import ChevronIcon from './Chevron.svg?react'
 
-type ChevronProps = {
+interface ChevronProps {
     className?: string
     open?: boolean
     onClick?: () => void

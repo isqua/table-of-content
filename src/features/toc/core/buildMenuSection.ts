@@ -1,6 +1,6 @@
 import type { MenuItem, PageDescriptor, PageHighlight, PageId, PageURL, SectionHighlight, TableOfContent } from '../types'
 
-type BuildMenuBaseOptions = {
+interface BuildMenuBaseOptions {
     /**
      * Current page URL to highlight in the menu
      * If it is necessary to pass ID instead of URL, then we will need to replace this field with ID
@@ -14,7 +14,7 @@ type BuildMenuBaseOptions = {
 
 type BuildMenuTopLevelOptions = BuildMenuBaseOptions
 
-type BuildMenuNestingOptions = BuildMenuBaseOptions & {
+interface BuildMenuNestingOptions extends BuildMenuBaseOptions {
     /** ID of the page whose children we want to render */
     parentId: string
     /** The level of current menu items */
@@ -25,7 +25,7 @@ type BuildMenuNestingOptions = BuildMenuBaseOptions & {
 
 type BuildMenuOptions = BuildMenuTopLevelOptions | BuildMenuNestingOptions
 
-type PageProps = {
+interface PageProps {
     /** The relation of the page to the active page for proper highlighting */
     highlight: PageHighlight
     /** Should the page be opened by default */

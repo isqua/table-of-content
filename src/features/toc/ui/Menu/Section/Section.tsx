@@ -3,7 +3,7 @@ import type { PageId, SectionHighlight } from '../../../types'
 import { useSectionItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
 
-type SectionProps = {
+interface SectionProps {
     /** ID of the page whose children we want to render */
     parentId: PageId
     /** The level of the current section */

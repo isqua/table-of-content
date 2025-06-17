@@ -3,7 +3,7 @@ import { createContext } from 'react'
 import { FilterActions, noopFilterActions } from '../../../../../hooks/useFilter'
 import type { PageDescriptor, PageURL, TableOfContent } from '../../../types'
 
-type TocContextValue = {
+interface TocContextValue {
     url: PageURL
     toc: TableOfContent
     breadcrumbs: PageDescriptor[]
@@ -11,7 +11,7 @@ type TocContextValue = {
     isLoading: boolean
 }
 
-type FilterContextValue = FilterActions & {
+interface FilterContextValue extends FilterActions {
     isFiltering: boolean
 }
 

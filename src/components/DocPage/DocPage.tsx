@@ -4,7 +4,7 @@ import { getBreadCrumbs, getCurrentPage, type TableOfContent } from '../../featu
 import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
 import { Article } from '../Article'
 
-type DocPageProps = {
+interface DocPageProps {
     toc: TableOfContent
 }
 

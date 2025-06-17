@@ -2,7 +2,7 @@ import clsx from 'clsx'
 
 import styles from './Skeleton.module.css'
 
-type SkeletonProps = {
+interface SkeletonProps {
     className?: string
 }
 
