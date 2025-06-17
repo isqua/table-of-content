@@ -40,7 +40,6 @@ export default tseslint.config(
   },
   {
     rules: {
-      '@typescript-eslint/no-deprecated': ['off'],
       '@typescript-eslint/no-empty-function': ['off'],
       '@typescript-eslint/no-unused-vars': [
         'error',
