@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useRef, useState, type PropsWithChildren } from 'react'
+import { useRef, useState, type PropsWithChildren, type ReactNode } from 'react'
 
 import { Chevron } from '../../../../../components/Chevron'
 import { OptionalLink } from '../../../../../components/OptionalLink'
@@ -23,7 +23,7 @@ type ItemToggleProps = {
     /** The item */
     item: MenuItem
     /** ReactChildren to show when item is opened */
-    children: (isOpen: boolean, highlight?: SectionHighlight) => JSX.Element
+    children: (isOpen: boolean, highlight?: SectionHighlight) => ReactNode
     /** Show the component; triggers the enter or exit states for the animation */
     isVisible: boolean
     /** Is it allowed to change the toggle state */
@@ -58,7 +58,7 @@ function getItemHighlightStyles(item: MenuItem): string | undefined {
  * OptionalLink would wrap a page in an anchor if it has URL,
  * otherwise a whole page would be clickable for toggling nested tree
  */
-export function Item(props: ItemProps): JSX.Element {
+export function Item(props: ItemProps): ReactNode {
     const { item, children, onClick, isVisible = true } = props
     const isLoading = useIsLoading()
     const itemUrl = isLoading ? '' : item.url
@@ -99,7 +99,7 @@ export function Item(props: ItemProps): JSX.Element {
  * Takes care about highlighting. Ancestors of the active item should be
  * highlighted in one color and its descendants in another.
  */
-export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggleProps): JSX.Element {
+export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggleProps): ReactNode {
     const isLoading = useIsLoading()
     const [ isOpen, setOpen ]  = useState(item.defaultOpenState)
 

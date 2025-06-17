@@ -1,8 +1,8 @@
-import type { PropsWithChildren } from 'react'
+import type { PropsWithChildren, ReactNode } from 'react'
 
 import styles from './Layout.module.css'
 
-export function Layout({ children }: PropsWithChildren): JSX.Element {
+export function Layout({ children }: PropsWithChildren): ReactNode {
     return (
         <div className={styles.layout}>
             {children}
@@ -10,7 +10,7 @@ export function Layout({ children }: PropsWithChildren): JSX.Element {
     )
 }
 
-Layout.Main = function Main({ children }: PropsWithChildren): JSX.Element {
+Layout.Main = function Main({ children }: PropsWithChildren): ReactNode {
     return (
         <main className={styles.main}>
             {children}
@@ -18,7 +18,7 @@ Layout.Main = function Main({ children }: PropsWithChildren): JSX.Element {
     )
 }
 
-Layout.Sidebar = function Sidebar({ children }: PropsWithChildren): JSX.Element {
+Layout.Sidebar = function Sidebar({ children }: PropsWithChildren): ReactNode {
     return (
         <div className={styles.sidebar}>
             {children}

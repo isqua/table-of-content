@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import { type ReactNode } from 'react'
 
 import { Input } from '../../../../../components/Input'
 import { Skeleton } from '../../../../../components/Skeleton'
@@ -6,7 +7,7 @@ import { useFilterInput, useIsLoading } from '../Context/hooks'
 
 import styles from './Filter.module.css'
 
-export function Filter(): JSX.Element {
+export function Filter(): ReactNode {
     const isLoading = useIsLoading()
     const { onChange, isFiltering } = useFilterInput()
 

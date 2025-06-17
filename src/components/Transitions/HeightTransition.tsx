@@ -1,4 +1,4 @@
-import type { PropsWithChildren, RefObject } from 'react'
+import type { PropsWithChildren, ReactNode, RefObject } from 'react'
 import { CSSTransition } from 'react-transition-group'
 import type { CSSTransitionClassNames } from 'react-transition-group/CSSTransition'
 
@@ -40,7 +40,7 @@ function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement>, minHei
     }
 }
 
-export function HeightTransition(props: HeightTransitionProps): JSX.Element {
+export function HeightTransition(props: HeightTransitionProps): ReactNode {
     const { isVisible, children, nodeRef, classNames, minHeight } = props
 
     return (

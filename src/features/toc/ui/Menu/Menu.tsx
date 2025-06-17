@@ -1,4 +1,5 @@
 
+import type { ReactNode } from 'react'
 import type { TableOfContent } from '../../types'
 import { MenuProvider } from './Context/MenuProvider'
 import { Filter } from './Filter/Filter'
@@ -15,7 +16,7 @@ export type MenuProps = {
     isLoading?: boolean
 }
 
-export function Menu({ toc, activeUrl, isLoading }: MenuProps): JSX.Element {
+export function Menu({ toc, activeUrl, isLoading }: MenuProps): ReactNode {
     return (
         <nav className={styles.menu}>
             <MenuProvider toc={toc} url={activeUrl} isLoading={isLoading}>
