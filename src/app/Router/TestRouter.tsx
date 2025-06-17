@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import { RouterProvider, createMemoryRouter } from 'react-router-dom'
+import { RouterProvider, createMemoryRouter } from 'react-router'
 
 type TestRouterProps = PropsWithChildren<{
     /** Current URL */

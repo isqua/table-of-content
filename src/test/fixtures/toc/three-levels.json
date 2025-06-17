@@ -4,13 +4,13 @@
             "foo": {
                 "id": "foo",
                 "title": "Foo",
-                "url": "foo.html",
+                "url": "/foo.html",
                 "parentId": "root"
             },
             "bar": {
                 "id": "bar",
                 "title": "Bar",
-                "url": "bar.html",
+                "url": "/bar.html",
                 "parentId": "root",
                 "pages": [
                     "bar_install",
@@ -20,25 +20,25 @@
             "baz": {
                 "id": "baz",
                 "title": "Baz",
-                "url": "baz.html",
+                "url": "/baz.html",
                 "parentId": "root"
             },
             "bar_install": {
                 "id": "bar_install",
                 "title": "Bar: Install",
-                "url": "bar-install.html",
+                "url": "/bar-install.html",
                 "parentId": "bar"
             },
             "bar_install_child": {
                 "id": "bar_install_child",
                 "title": "Bar: How to find entrance",
-                "url": "bar-entrance.html",
+                "url": "/bar-entrance.html",
                 "parentId": "bar_install"
             },
             "bar_features": {
                 "id": "bar_features",
                 "title": "Bar: Features",
-                "url": "bar-features.html",
+                "url": "/bar-features.html",
                 "parentId": "bar",
                 "pages": [
                     "bar_features_beer"
@@ -47,7 +47,7 @@
             "bar_features_beer": {
                 "id": "bar_features_beer",
                 "title": "Bar Features: Beer",
-                "url": "bar-features-beer.html",
+                "url": "/bar-features-beer.html",
                 "parentId": "bar_features"
             }
         }

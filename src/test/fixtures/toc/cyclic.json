@@ -4,19 +4,19 @@
             "foo": {
                 "id": "foo",
                 "title": "Foo",
-                "url": "foo.html",
+                "url": "/foo.html",
                 "parentId": "baz"
             },
             "bar": {
                 "id": "bar",
                 "title": "Bar",
-                "url": "bar.html",
+                "url": "/bar.html",
                 "parentId": "foo"
             },
             "baz": {
                 "id": "baz",
                 "title": "Baz",
-                "url": "baz.html",
+                "url": "/baz.html",
                 "parentId": "bar"
             }
         }

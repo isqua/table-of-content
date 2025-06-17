@@ -12,7 +12,7 @@ import tocThreeLevels from '../../../test/fixtures/toc/three-levels.json'
 describe('toc/buildMenuSection', () => {
     it('should build a menu and highlight current page', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = 'bar.html'
+        const currentUrl = '/bar.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
@@ -21,7 +21,7 @@ describe('toc/buildMenuSection', () => {
 
     it('should build a menu even if there are no current page', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = ''
+        const currentUrl = '/'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
@@ -30,7 +30,7 @@ describe('toc/buildMenuSection', () => {
 
     it('should build an empty menu if page with parent id does not exists', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = ''
+        const currentUrl = '/'
         const parentId = 'this-id-does-not-exist'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs, parentId })
@@ -43,7 +43,7 @@ describe('toc/buildMenuSection', () => {
             entities: { pages: {} },
             topLevelIds: [],
         }
-        const currentUrl = ''
+        const currentUrl = '/'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
@@ -52,7 +52,7 @@ describe('toc/buildMenuSection', () => {
 
     it('should show page children', () => {
         const toc: TableOfContent = tocTwoLevels
-        const currentUrl = 'bar.html'
+        const currentUrl = '/bar.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs })
 
@@ -61,7 +61,7 @@ describe('toc/buildMenuSection', () => {
 
     it('should build a nested menu', () => {
         const toc: TableOfContent = tocTwoLevels
-        const currentUrl = 'bar-features.html'
+        const currentUrl = '/bar-features.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const menu = buildMenuSection(toc, { url: currentUrl, parentId: 'bar', breadcrumbs })
 
@@ -70,7 +70,7 @@ describe('toc/buildMenuSection', () => {
 
     it('should filter pages', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = 'bar.html'
+        const currentUrl = '/bar.html'
         const breadcrumbs = getBreadCrumbs(toc, currentUrl)
         const filter = filterTreeNodes(toc, 'ba')
         const menu = buildMenuSection(toc, { url: currentUrl, breadcrumbs, filter })
