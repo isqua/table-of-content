@@ -15,9 +15,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "clsx": "^2.0.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "clsx": "^2.1.1",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
     "react-router-dom": "^6.17.0",
     "react-transition-group": "^4.4.5"
   },
@@ -27,9 +27,10 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^14.6.1",
-    "@types/react": "^18.2.15",
-    "@types/react-dom": "^18.2.7",
-    "@types/react-transition-group": "^4.4.8",
+    "@types/node": "^24.0.3",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@types/react-transition-group": "^4.4.12",
     "@vitejs/plugin-react-swc": "^3.10.2",
     "eslint": "9.29.0",
     "eslint-plugin-react": "^7.37.5",
