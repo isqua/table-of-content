@@ -1,8 +1,6 @@
 import { useReducer, type Reducer, useMemo } from 'react'
 
-interface DataFilter<T> {
-    (text: string): T
-}
+type DataFilter<T> = (text: string) => T
 
 export interface FilterActions {
     onFilterStart: () => void
@@ -39,19 +37,19 @@ type RequestAction<T> = StartFilterAction | ChangeFilterAction<T> | ResetFilterA
 
 function filterReducer<T>(state: FilterState<T>, action: RequestAction<T>): FilterState<T> {
     switch (action.type) {
-    case 'start':
-        return {
-            ...state,
-            isLoading: true
-        }
-    case 'change':
-        return {
-            isLoading: false,
-            text: action.text,
-            data: action.data,
-        }
-    case 'reset':
-        return initialFilterState
+        case 'start':
+            return {
+                ...state,
+                isLoading: true
+            }
+        case 'change':
+            return {
+                isLoading: false,
+                text: action.text,
+                data: action.data,
+            }
+        case 'reset':
+            return initialFilterState
     }
 }
 

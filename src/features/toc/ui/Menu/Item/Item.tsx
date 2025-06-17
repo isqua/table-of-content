@@ -113,7 +113,7 @@ export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggle
      * Also, when using the search, it is not necessary to collapse the items, because the search result may be
      * a leaf of the tree. So forbid collapsing items in search mode too.
      */
-    const shouldBeForciblyOpened = isLoading || isDisabled
+    const shouldBeForciblyOpened = Boolean(isLoading || isDisabled)
     const shouldShowChildren = shouldBeForciblyOpened || isOpen && isVisible
     const shouldPreventClose = shouldBeForciblyOpened || isOpen && hasUrl
     const onLinkClick = shouldPreventClose ? undefined : onToggle

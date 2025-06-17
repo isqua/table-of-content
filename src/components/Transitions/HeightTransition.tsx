@@ -34,7 +34,7 @@ function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement>, minHei
                 // Create transition from actual element height
                 // if element is outside the viewport, height must be not precise,
                 // then fallback to minimum element height
-                ref.current.style.maxHeight = `${Math.max(height, minHeight)}px`
+                ref.current.style.maxHeight = `${String(Math.max(height, minHeight))}px`
             }
         }
     }

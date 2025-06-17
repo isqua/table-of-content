@@ -6,7 +6,7 @@ import { FilterContext, TocContext } from './contexts'
 
 const FILTER_DELAY_IN_MS = 1000
 
-export const useSectionItems = (parentId: PageId = '', level: number = 0, highlight: SectionHighlight) => {
+export const useSectionItems = (parentId: PageId = '', level = 0, highlight: SectionHighlight) => {
     const { toc, filter, url, breadcrumbs } = useContext(TocContext)
 
     const items = buildMenuSection(toc, {

@@ -11,7 +11,7 @@ describe('hooks/useRequestWithPlaceholder', () => {
             }, 200)
         })
 
-        const placeholder: number = 1
+        const placeholder = 1
 
         const useTestHook = () => {
             return useRequestWithPlaceholder(fetchData, placeholder)
@@ -30,7 +30,7 @@ describe('hooks/useRequestWithPlaceholder', () => {
     it('should return a callback result after resolving', async () => {
         const fetchData = () => Promise.resolve(42)
 
-        const placeholder: number = 1
+        const placeholder = 1
 
         const useTestHook = () => {
             return useRequestWithPlaceholder(fetchData, placeholder)
@@ -49,9 +49,9 @@ describe('hooks/useRequestWithPlaceholder', () => {
     })
 
     it('should set isError flag if the promise was rejected', async () => {
-        const fetchData = () => Promise.reject()
+        const fetchData = () => Promise.reject(new Error('request failed'))
 
-        const placeholder: number = 1
+        const placeholder = 1
 
         const useTestHook = () => {
             return useRequestWithPlaceholder(fetchData, placeholder)
