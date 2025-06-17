@@ -12,6 +12,7 @@ exports[`components/DocPage > should render an article by url 1`] = `
     >
       <a
         class="_link_296507"
+        data-discover="true"
         href="/bar.html"
       >
         Bar

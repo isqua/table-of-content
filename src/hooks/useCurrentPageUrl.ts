@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router'
 
 /**
  * Extract current page url from the router, and correct it to the TOC format
@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom'
  */
 export function useCurrentPageUrl() {
     const location = useLocation()
-    const currentUrl = location.pathname.replace(/^\//, '')
+    const currentUrl = location.pathname
 
     return currentUrl
 }

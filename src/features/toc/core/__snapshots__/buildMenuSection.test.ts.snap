@@ -10,7 +10,7 @@ exports[`toc/buildMenuSection > should build a menu and highlight current page 1
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "bar.html",
+    "url": "/bar.html",
   },
   {
     "defaultOpenState": false,
@@ -20,7 +20,7 @@ exports[`toc/buildMenuSection > should build a menu and highlight current page 1
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "baz.html",
+    "url": "/baz.html",
   },
   {
     "defaultOpenState": false,
@@ -30,7 +30,7 @@ exports[`toc/buildMenuSection > should build a menu and highlight current page 1
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "foo.html",
+    "url": "/foo.html",
   },
 ]
 `;
@@ -45,7 +45,7 @@ exports[`toc/buildMenuSection > should build a menu even if there are no current
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "bar.html",
+    "url": "/bar.html",
   },
   {
     "defaultOpenState": false,
@@ -55,7 +55,7 @@ exports[`toc/buildMenuSection > should build a menu even if there are no current
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "baz.html",
+    "url": "/baz.html",
   },
   {
     "defaultOpenState": false,
@@ -65,7 +65,7 @@ exports[`toc/buildMenuSection > should build a menu even if there are no current
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "foo.html",
+    "url": "/foo.html",
   },
 ]
 `;
@@ -80,7 +80,7 @@ exports[`toc/buildMenuSection > should build a nested menu 1`] = `
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Install",
-    "url": "bar-install.html",
+    "url": "/bar-install.html",
   },
   {
     "defaultOpenState": false,
@@ -90,7 +90,7 @@ exports[`toc/buildMenuSection > should build a nested menu 1`] = `
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Features",
-    "url": "bar-features.html",
+    "url": "/bar-features.html",
   },
 ]
 `;
@@ -107,7 +107,7 @@ exports[`toc/buildMenuSection > should expand all sections while filtering 1`] =
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "bar.html",
+    "url": "/bar.html",
   },
   {
     "defaultOpenState": true,
@@ -117,7 +117,7 @@ exports[`toc/buildMenuSection > should expand all sections while filtering 1`] =
     "level": 0,
     "parentId": "bar",
     "title": "Bar: Features",
-    "url": "bar-features.html",
+    "url": "/bar-features.html",
   },
   {
     "defaultOpenState": false,
@@ -127,7 +127,7 @@ exports[`toc/buildMenuSection > should expand all sections while filtering 1`] =
     "level": 0,
     "parentId": "bar_features",
     "title": "Bar Features: Beer",
-    "url": "bar-features-beer.html",
+    "url": "/bar-features-beer.html",
   },
 ]
 `;
@@ -142,7 +142,7 @@ exports[`toc/buildMenuSection > should filter pages 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "bar.html",
+    "url": "/bar.html",
   },
   {
     "defaultOpenState": false,
@@ -152,7 +152,7 @@ exports[`toc/buildMenuSection > should filter pages 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "baz.html",
+    "url": "/baz.html",
   },
 ]
 `;
@@ -167,7 +167,7 @@ exports[`toc/buildMenuSection > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Bar",
-    "url": "bar.html",
+    "url": "/bar.html",
   },
   {
     "defaultOpenState": false,
@@ -177,7 +177,7 @@ exports[`toc/buildMenuSection > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Baz",
-    "url": "baz.html",
+    "url": "/baz.html",
   },
   {
     "defaultOpenState": false,
@@ -187,7 +187,7 @@ exports[`toc/buildMenuSection > should show page children 1`] = `
     "level": 0,
     "parentId": "root",
     "title": "Foo",
-    "url": "foo.html",
+    "url": "/foo.html",
   },
 ]
 `;

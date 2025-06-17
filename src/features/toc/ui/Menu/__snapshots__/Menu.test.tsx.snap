@@ -26,6 +26,7 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     >
       <a
         class="_link_3b5340"
+        data-discover="true"
         href="/bar.html"
       >
         <span
@@ -55,6 +56,7 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     >
       <a
         class="_link_3b5340"
+        data-discover="true"
         href="/bar-install.html"
       >
         <span
@@ -70,6 +72,7 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     >
       <a
         class="_link_3b5340"
+        data-discover="true"
         href="/bar-features.html"
       >
         <span
@@ -207,6 +210,7 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     >
       <a
         class="_link_3b5340 _active_3b5340"
+        data-discover="true"
         href="/bar.html"
       >
         <span
@@ -222,6 +226,7 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     >
       <a
         class="_link_3b5340"
+        data-discover="true"
         href="/baz.html"
       >
         <span
@@ -237,6 +242,7 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     >
       <a
         class="_link_3b5340"
+        data-discover="true"
         href="/foo.html"
       >
         <span

@@ -9,7 +9,7 @@ describe('hooks/useCurrentPageUrl', () => {
 
         const { result } = renderHookInApp(useCurrentPageUrl, { url: currentUrl })
 
-        expect(result.current).toEqual('hello/its/me.html')
+        expect(result.current).toEqual('/hello/its/me.html')
     })
 
     it('should return current page path if current url contains some search parameters', () => {
@@ -17,7 +17,7 @@ describe('hooks/useCurrentPageUrl', () => {
 
         const { result } = renderHookInApp(useCurrentPageUrl, { url: currentUrl })
 
-        expect(result.current).toEqual('search.html')
+        expect(result.current).toEqual('/search.html')
     })
 
     it('should return an empty string for the site root', () => {
@@ -25,6 +25,6 @@ describe('hooks/useCurrentPageUrl', () => {
 
         const { result } = renderHookInApp(useCurrentPageUrl, { url: currentUrl })
 
-        expect(result.current).toEqual('')
+        expect(result.current).toEqual('/')
     })
 })

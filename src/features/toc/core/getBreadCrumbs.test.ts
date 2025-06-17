@@ -10,7 +10,7 @@ import type { TableOfContent } from '../types'
 describe('toc/getBreadCrumbs', () => {
     it('should return current page if it is found by url', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = 'bar.html'
+        const currentUrl = '/bar.html'
         const breadCrumbs = getBreadCrumbs(toc, currentUrl)
 
         expect(breadCrumbs).toEqual([
@@ -20,7 +20,7 @@ describe('toc/getBreadCrumbs', () => {
 
     it('should return 404 if page is not found by url', () => {
         const toc: TableOfContent = tocFlat
-        const currentUrl = 'quux.html'
+        const currentUrl = '/quux.html'
         const breadCrumbs = getBreadCrumbs(toc, currentUrl)
 
         expect(breadCrumbs).toEqual([])
@@ -28,7 +28,7 @@ describe('toc/getBreadCrumbs', () => {
 
     it('should found a top level page for deep page', () => {
         const toc: TableOfContent = tocThreeLevels
-        const currentUrl = 'bar-features-beer.html'
+        const currentUrl = '/bar-features-beer.html'
         const breadCrumbs = getBreadCrumbs(toc, currentUrl)
 
         expect(breadCrumbs).toEqual([
@@ -40,7 +40,7 @@ describe('toc/getBreadCrumbs', () => {
 
     it('should not hang in a loop if the data is cyclic', () => {
         const toc: TableOfContent = tocCyclic
-        const currentUrl = 'foo.html'
+        const currentUrl = '/foo.html'
         const breadCrumbs = getBreadCrumbs(toc, currentUrl)
 
         expect(breadCrumbs).toEqual([

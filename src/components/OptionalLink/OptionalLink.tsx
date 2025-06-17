@@ -1,5 +1,5 @@
 import type { KeyboardEvent, PropsWithChildren } from 'react'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router'
 
 type OptionalLinkProps = PropsWithChildren<{
     to?: string
