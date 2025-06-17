@@ -2,16 +2,16 @@
 
 exports[`components/DocPage > should render an article by url 1`] = `
 <article
-  class="_article_a23c90"
+  class="_article_4ca611"
 >
   <ol
-    class="_breadcrumbs_19b8d7"
+    class="_breadcrumbs_296507"
   >
     <li
-      class="_item_19b8d7"
+      class="_item_296507"
     >
       <a
-        class="_link_19b8d7"
+        class="_link_296507"
         href="/bar.html"
       >
         Bar
@@ -19,7 +19,7 @@ exports[`components/DocPage > should render an article by url 1`] = `
     </li>
   </ol>
   <h1
-    class="_title_a23c90"
+    class="_title_4ca611"
   >
     Bar
   </h1>

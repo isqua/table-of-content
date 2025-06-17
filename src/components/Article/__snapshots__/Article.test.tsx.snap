@@ -2,23 +2,23 @@
 
 exports[`components/Article > should render an article 1`] = `
 <article
-  class="_article_a23c90"
+  class="_article_4ca611"
 >
   <ol
-    class="_breadcrumbs_19b8d7"
+    class="_breadcrumbs_296507"
   >
     <li
-      class="_item_19b8d7"
+      class="_item_296507"
     >
       <span
-        class="_link_19b8d7"
+        class="_link_296507"
       >
         Foo Article
       </span>
     </li>
   </ol>
   <h1
-    class="_title_a23c90"
+    class="_title_4ca611"
   >
     Foo Article
   </h1>
