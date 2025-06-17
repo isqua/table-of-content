@@ -20,8 +20,8 @@ export default tseslint.config(
       globals: {...globals.browser, ...globals.node}
     }
   },
-  tseslint.configs.strictTypeChecked,
-  tseslint.configs.stylisticTypeChecked,
+  ...tseslint.configs.strictTypeChecked,
+  ...tseslint.configs.stylisticTypeChecked,
   reactPlugin.configs.flat.recommended,
   reactPlugin.configs.flat['jsx-runtime'],
   reactHooks.configs['recommended-latest'],
