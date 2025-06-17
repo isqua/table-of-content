@@ -1,4 +1,4 @@
-import { useCallback, type PropsWithChildren } from 'react'
+import { useCallback, type PropsWithChildren, type ReactNode } from 'react'
 import { useFilter } from '../../../../../hooks/useFilter'
 import { filterTreeNodes } from '../../../core/filterTreeNodes'
 import { getBreadCrumbs } from '../../../core/getBreadCrumbs'
@@ -23,7 +23,7 @@ type MenuProviderProps = PropsWithChildren<{
  * * `FilterContext` contains methods and data for the filter input.
  * Changing the context only causes the input to rerender.
  */
-export function MenuProvider({ toc, url, children, isLoading = false }: MenuProviderProps): JSX.Element {
+export function MenuProvider({ toc, url, children, isLoading = false }: MenuProviderProps): ReactNode {
     const filterCallback = useCallback(
         (text: string) => filterTreeNodes(toc, text),
         [toc]

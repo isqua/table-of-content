@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react'
 import type { PageId, SectionHighlight } from '../../../types'
 import { useSectionItems } from '../Context/hooks'
 import { Item, ItemToggle } from '../Item/Item'
@@ -18,7 +19,7 @@ type SectionProps = {
  * will display it with a chevron (ItemToggle) and pass the child items to it,
  * rendering a nested Section recursively.
  */
-export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): JSX.Element {
+export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): ReactNode {
     const { items, isFiltered } = useSectionItems(parentId, level, highlight)
 
     return (
