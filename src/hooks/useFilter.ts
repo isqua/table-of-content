@@ -1,4 +1,4 @@
-import { useReducer, type Reducer, useMemo } from 'react'
+import { useMemo, useReducer } from 'react'
 
 type DataFilter<T> = (text: string) => T
 
@@ -68,7 +68,7 @@ export const initialFilterState = {
 }
 
 export function useFilter<T>(fn: DataFilter<T>): UseFilterResult<T> {
-    const [state, dispatch] = useReducer<Reducer<FilterState<T>, RequestAction<T>>>(
+    const [state, dispatch] = useReducer<FilterState<T>, [RequestAction<T>]>(
         filterReducer,
         initialFilterState,
     )

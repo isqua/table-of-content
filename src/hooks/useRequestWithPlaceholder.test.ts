@@ -38,7 +38,7 @@ describe('hooks/useRequestWithPlaceholder', () => {
 
         const { result } = renderHook(useTestHook)
 
-        await waitFor(() => !result.current.isLoading)
+        await waitFor(() => { expect(result.current.isLoading).toBe(false) })
 
         expect(result.current).toEqual({
             data: 42,
@@ -59,7 +59,7 @@ describe('hooks/useRequestWithPlaceholder', () => {
 
         const { result } = renderHook(useTestHook)
 
-        await waitFor(() => !result.current.isLoading)
+        await waitFor(() => { expect(result.current.isLoading).toBe(false) })
 
         expect(result.current).toEqual({
             data: 1,
