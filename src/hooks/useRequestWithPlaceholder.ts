@@ -1,4 +1,4 @@
-import { useEffect, useReducer, type Reducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 type DataFetcher<T> = () => Promise<T>
 
@@ -48,7 +48,7 @@ function getInitialState<T>(placeholder: T): RequestState<T> {
 }
 
 export function useRequestWithPlaceholder<T>(fn: DataFetcher<T>, placeholder: T) {
-    const [state, dispatch] = useReducer<Reducer<RequestState<T>, RequestAction<T>>>(
+    const [state, dispatch] = useReducer<RequestState<T>, [RequestAction<T>]>(
         requestReducer,
         getInitialState<T>(placeholder)
     )

@@ -6,14 +6,14 @@ type HeightTransitionProps = PropsWithChildren<{
     /** Show the component; triggers the enter or exit states */
     isVisible: boolean
     /** A React reference to DOM element that need to transition */
-    nodeRef: RefObject<HTMLElement>
+    nodeRef: RefObject<HTMLElement | null>
     /** The animation `classNames` applied to the component as it enters or exits */
     classNames: CSSTransitionClassNames
     /** Minimum expected height of the element, in case the element is not visible */
     minHeight: number
 }>
 
-function addEndListener(ref: RefObject<HTMLElement>) {
+function addEndListener(ref: RefObject<HTMLElement | null>) {
     return function (done: () => void) {
         const node = ref.current
 
@@ -25,7 +25,7 @@ function addEndListener(ref: RefObject<HTMLElement>) {
     }
 }
 
-function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement>, minHeight: number) {
+function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement | null>, minHeight: number) {
     return function() {
         if (ref.current) {
             const height = ref.current.offsetHeight
