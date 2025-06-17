@@ -2,38 +2,38 @@
 
 exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
 <nav
-  class="_menu_f33640"
+  class="_menu_39d40b"
 >
   <div
-    class="_filter_daddd4"
+    class="_filter_53599d"
   >
     <div
-      class="_input_98f327"
+      class="_input_0d9f86"
     >
       <input
-        class="_control_98f327"
+        class="_control_0d9f86"
         placeholder="Filter menu"
         type="text"
       />
     </div>
   </div>
   <ul
-    class="_list_ae4333"
+    class="_list_7ad75b"
   >
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54"
+        class="_link_3b5340"
         href="/bar.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <svg
             aria-expanded="true"
-            class="_chevron_eafbf3 _toggle_c21f54 _open_eafbf3"
+            class="_chevron_c80889 _toggle_3b5340 _open_c80889"
             fill="none"
             height="16"
             role="button"
@@ -51,14 +51,14 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     </li>
     <li
       aria-level="2"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54"
+        class="_link_3b5340"
         href="/bar-install.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           Bar: Install
         </span>
@@ -66,14 +66,14 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
     </li>
     <li
       aria-level="2"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54"
+        class="_link_3b5340"
         href="/bar-features.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           Bar: Features
         </span>
@@ -85,94 +85,94 @@ exports[`features/toc/ui/Menu > filtering > should filter items by text 1`] = `
 
 exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC is loading 1`] = `
 <nav
-  class="_menu_f33640"
+  class="_menu_39d40b"
 >
   <div
-    class="_filter_daddd4"
+    class="_filter_53599d"
   >
     <span
-      class="_skeleton_2cc9eb"
+      class="_skeleton_8ca799"
     />
   </div>
   <ul
-    class="_list_ae4333"
+    class="_list_7ad75b"
   >
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <span
-        class="_link_c21f54 _disabled_c21f54"
+        class="_link_3b5340 _disabled_3b5340"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <span
-            class="_skeleton_2cc9eb _loader_c21f54"
+            class="_skeleton_8ca799 _loader_3b5340"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="2"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <span
-        class="_link_c21f54 _disabled_c21f54"
+        class="_link_3b5340 _disabled_3b5340"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <span
-            class="_skeleton_2cc9eb _loader_c21f54"
+            class="_skeleton_8ca799 _loader_3b5340"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="2"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <span
-        class="_link_c21f54 _disabled_c21f54"
+        class="_link_3b5340 _disabled_3b5340"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <span
-            class="_skeleton_2cc9eb _loader_c21f54"
+            class="_skeleton_8ca799 _loader_3b5340"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <span
-        class="_link_c21f54 _disabled_c21f54"
+        class="_link_3b5340 _disabled_3b5340"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <span
-            class="_skeleton_2cc9eb _loader_c21f54"
+            class="_skeleton_8ca799 _loader_3b5340"
           />
         </span>
       </span>
     </li>
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <span
-        class="_link_c21f54 _disabled_c21f54"
+        class="_link_3b5340 _disabled_3b5340"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           <span
-            class="_skeleton_2cc9eb _loader_c21f54"
+            class="_skeleton_8ca799 _loader_3b5340"
           />
         </span>
       </span>
@@ -183,34 +183,34 @@ exports[`features/toc/ui/Menu > loading > should render skeletons while the TOC 
 
 exports[`features/toc/ui/Menu > render > should build a menu and highlight the current page 1`] = `
 <nav
-  class="_menu_f33640"
+  class="_menu_39d40b"
 >
   <div
-    class="_filter_daddd4"
+    class="_filter_53599d"
   >
     <div
-      class="_input_98f327"
+      class="_input_0d9f86"
     >
       <input
-        class="_control_98f327"
+        class="_control_0d9f86"
         placeholder="Filter menu"
         type="text"
       />
     </div>
   </div>
   <ul
-    class="_list_ae4333"
+    class="_list_7ad75b"
   >
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54 _active_c21f54"
+        class="_link_3b5340 _active_3b5340"
         href="/bar.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           Bar
         </span>
@@ -218,14 +218,14 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     </li>
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54"
+        class="_link_3b5340"
         href="/baz.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           Baz
         </span>
@@ -233,14 +233,14 @@ exports[`features/toc/ui/Menu > render > should build a menu and highlight the c
     </li>
     <li
       aria-level="1"
-      class="_item_c21f54"
+      class="_item_3b5340"
     >
       <a
-        class="_link_c21f54"
+        class="_link_3b5340"
         href="/foo.html"
       >
         <span
-          class="_text_c21f54"
+          class="_text_3b5340"
         >
           Foo
         </span>
