@@ -7,7 +7,7 @@ import { List } from './List/List'
 
 import styles from './Menu.module.css'
 
-export type MenuProps = {
+export interface MenuProps {
     /** The whole TOC tree */
     toc: TableOfContent
     /** Current URL */

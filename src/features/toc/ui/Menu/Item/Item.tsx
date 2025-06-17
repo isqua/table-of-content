@@ -19,7 +19,7 @@ type ItemProps = PropsWithChildren<{
     isVisible?: boolean
 }>
 
-type ItemToggleProps = {
+interface ItemToggleProps {
     /** The item */
     item: MenuItem
     /** ReactChildren to show when item is opened */

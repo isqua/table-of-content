@@ -4,7 +4,7 @@ export type PageURL = string
 /**
  * Page descriptor from the API data
  */
-export type PageDescriptor = {
+export interface PageDescriptor {
     id: PageId
     title: string
     parentId: PageId
@@ -24,7 +24,7 @@ export type PageHighlight = 'active' | SectionHighlight
 /**
  * The root object we take from the API
  */
-export type TableOfContent = {
+export interface TableOfContent {
     entities: {
         pages: PagesIndex,
     },
@@ -34,7 +34,7 @@ export type TableOfContent = {
 /**
  * The model of an item for the menu, containing all the data to render it
  */
-export type MenuItem = {
+export interface MenuItem {
     id: PageId
     parentId: PageId
     url: PageURL

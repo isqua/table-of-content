@@ -3,7 +3,7 @@ import { OptionalLink } from '../OptionalLink'
 
 import styles from './BreadCrumbs.module.css'
 
-type BreadCrumbsProps = {
+interface BreadCrumbsProps {
     items: PageDescriptor[]
 }
 

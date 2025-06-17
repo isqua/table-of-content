@@ -4,34 +4,34 @@ interface DataFilter<T> {
     (text: string): T
 }
 
-export type FilterActions = {
+export interface FilterActions {
     onFilterStart: () => void
     onReset: () => void
     onChange: (text: string) => void
 }
 
-export type UseFilterResult<T> = {
+export interface UseFilterResult<T> {
     data: null | T
     manager: FilterActions & { isFiltering: boolean }
 }
 
-export type FilterState<T> = {
+export interface FilterState<T> {
     isLoading: boolean
     text: string
     data: null | T
 }
 
-type StartFilterAction = {
+interface StartFilterAction {
     type: 'start'
 }
 
-type ChangeFilterAction<T> = {
+interface ChangeFilterAction<T> {
     type: 'change'
     text: string
     data: T
 }
 
-type ResetFilterAction = {
+interface ResetFilterAction {
     type: 'reset'
 }
 

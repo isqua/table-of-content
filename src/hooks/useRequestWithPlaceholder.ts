@@ -4,19 +4,19 @@ interface DataFetcher<T> {
     (): Promise<T>
 }
 
-type RequestState<T> = {
+interface RequestState<T> {
     isLoading: boolean
     isError: boolean
     isSuccess: boolean
     data: T
 }
 
-type RequestSuccessAction<T> = {
+interface RequestSuccessAction<T> {
     type: 'success'
     data: T
 }
 
-type RequestErrorAction = {
+interface RequestErrorAction {
     type: 'error'
 }
 
