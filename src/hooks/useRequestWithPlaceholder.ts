@@ -1,8 +1,6 @@
 import { useEffect, useReducer, type Reducer } from 'react'
 
-interface DataFetcher<T> {
-    (): Promise<T>
-}
+type DataFetcher<T> = () => Promise<T>
 
 interface RequestState<T> {
     isLoading: boolean
