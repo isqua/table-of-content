@@ -1,4 +1,4 @@
-import { PageDescriptor } from '../../features/toc'
+import type { PageDescriptor } from '../../features/toc'
 import { OptionalLink } from '../OptionalLink'
 
 import styles from './BreadCrumbs.module.css'

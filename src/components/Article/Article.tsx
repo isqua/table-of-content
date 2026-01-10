@@ -1,4 +1,4 @@
-import { type PageDescriptor } from '../../features/toc'
+import type { PageDescriptor } from '../../features/toc'
 import { BreadCrumbs } from '../BreadCrumbs'
 
 import styles from './Article.module.css'

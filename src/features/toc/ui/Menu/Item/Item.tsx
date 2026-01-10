@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { useRef, useState, type PropsWithChildren, type ReactNode } from 'react'
+import { type PropsWithChildren, type ReactNode, useRef, useState } from 'react'
 
 import { Chevron } from '../../../../../components/Chevron'
 import { OptionalLink } from '../../../../../components/OptionalLink'
@@ -78,13 +78,19 @@ export function Item(props: ItemProps): ReactNode {
             minHeight={MIN_ITEM_HEIGHT}
             classNames={transitionClassNames}
         >
+            {/* biome-ignore lint/a11y/useAriaPropsSupportedByRole: need for styles */}
             <li ref={itemRef} className={styles.item} aria-level={ariaLevel}>
-                <OptionalLink to={itemUrl} className={linkClassName} onClick={onClick}>
+                <OptionalLink
+                    to={itemUrl}
+                    className={linkClassName}
+                    onClick={onClick}
+                >
                     <span className={styles.text}>
-                        {isLoading ?
-                            <Skeleton className={styles.loader} /> :
+                        {isLoading ? (
+                            <Skeleton className={styles.loader} />
+                        ) : (
                             children
-                        }
+                        )}
                     </span>
                 </OptionalLink>
             </li>
@@ -99,12 +105,17 @@ export function Item(props: ItemProps): ReactNode {
  * Takes care about highlighting. Ancestors of the active item should be
  * highlighted in one color and its descendants in another.
  */
-export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggleProps): ReactNode {
+export function ItemToggle({
+    item,
+    children,
+    isDisabled,
+    isVisible,
+}: ItemToggleProps): ReactNode {
     const isLoading = useIsLoading()
-    const [ isOpen, setOpen ]  = useState(item.defaultOpenState)
+    const [isOpen, setOpen] = useState(item.defaultOpenState)
 
     const onToggle = () => {
-        setOpen(value => !value)
+        setOpen((value) => !value)
     }
 
     const hasUrl = Boolean(item.url)
@@ -114,20 +125,25 @@ export function ItemToggle({ item, children, isDisabled, isVisible }: ItemToggle
      * a leaf of the tree. So forbid collapsing items in search mode too.
      */
     const shouldBeForciblyOpened = Boolean(isLoading || isDisabled)
-    const shouldShowChildren = shouldBeForciblyOpened || isOpen && isVisible
-    const shouldPreventClose = shouldBeForciblyOpened || isOpen && hasUrl
+    const shouldShowChildren = shouldBeForciblyOpened || (isOpen && isVisible)
+    const shouldPreventClose = shouldBeForciblyOpened || (isOpen && hasUrl)
     const onLinkClick = shouldPreventClose ? undefined : onToggle
 
     /**
      * If the current item is the active one, we should switch the highlight mode
      * and color all its descendants as children. Otherwise, use the same highlight mode ("parent" or none)
      */
-    const childrenHighlight = item.highlight === 'active' ? 'child' : item.highlight
+    const childrenHighlight =
+        item.highlight === 'active' ? 'child' : item.highlight
 
     return (
         <>
             <Item item={item} onClick={onLinkClick} isVisible={isVisible}>
-                <Chevron className={styles.toggle} open={shouldShowChildren} onClick={onToggle} />
+                <Chevron
+                    className={styles.toggle}
+                    open={shouldShowChildren}
+                    onClick={onToggle}
+                />
                 {item.title}
             </Item>
             {children(shouldShowChildren, childrenHighlight)}

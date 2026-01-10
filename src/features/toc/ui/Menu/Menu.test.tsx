@@ -6,11 +6,11 @@ import { renderInApp } from '../../../../test'
 import tocFlat from '../../../../test/fixtures/toc/flat.json'
 import tocTwoLevels from '../../../../test/fixtures/toc/two-levels.json'
 import type { TableOfContent } from '../../types'
-import { Menu, MenuProps } from './Menu'
+import { Menu, type MenuProps } from './Menu'
 
 const spinnerText = 'Loading'
 
-const getSpinner = () => screen.getByLabelText(spinnerText)
+const getSpinner = () => screen.getByTitle(spinnerText)
 
 const updateFilter = (value: string) => {
     fireEvent.change(screen.getByRole('textbox'), {
@@ -28,17 +28,14 @@ const assertMenuSnapshot = () => {
 
 vi.mock('react-transition-group', () => {
     const FakeTransitionGroup = vi.fn(
-        ({ children }: PropsWithChildren) => children
+        ({ children }: PropsWithChildren) => children,
     )
 
-    const FakeTransition = vi.fn(
-        ({ children }: PropsWithChildren) => children
-    )
+    const FakeTransition = vi.fn(({ children }: PropsWithChildren) => children)
 
     const FakeCSSTransition = vi.fn(
-        (props: PropsWithChildren<{ in: boolean }>) => props.in ?
-            <FakeTransition>{props.children}</FakeTransition> :
-            null,
+        (props: PropsWithChildren<{ in: boolean }>) =>
+            props.in ? <FakeTransition>{props.children}</FakeTransition> : null,
     )
 
     return {
@@ -53,7 +50,9 @@ describe('features/toc/ui/Menu', () => {
         it('should render skeletons while the TOC is loading', () => {
             const toc: TableOfContent = tocTwoLevels
             const activeUrl = 'bar.html'
-            const entitiesCount = Object.keys(tocTwoLevels.entities.pages).length
+            const entitiesCount = Object.keys(
+                tocTwoLevels.entities.pages,
+            ).length
 
             renderMenu({ toc, isLoading: true, activeUrl })
 
@@ -84,8 +83,12 @@ describe('features/toc/ui/Menu', () => {
 
             renderMenu({ toc, activeUrl })
 
-            expect(screen.getByText(pages.bar_install.title)).toBeInTheDocument()
-            expect(screen.getByText(pages.bar_features.title)).toBeInTheDocument()
+            expect(
+                screen.getByText(pages.bar_install.title),
+            ).toBeInTheDocument()
+            expect(
+                screen.getByText(pages.bar_features.title),
+            ).toBeInTheDocument()
         })
 
         it('should build a two-levels menu and open all parents containing the current page', () => {
@@ -96,10 +99,14 @@ describe('features/toc/ui/Menu', () => {
             renderMenu({ toc, activeUrl })
 
             expect(screen.getByText(pages.bar.title)).toContainElement(
-                screen.getByRole('button', { expanded: true })
+                screen.getByRole('button', { expanded: true }),
             )
-            expect(screen.getByText(pages.bar_install.title)).toBeInTheDocument()
-            expect(screen.getByText(pages.bar_features.title)).toBeInTheDocument()
+            expect(
+                screen.getByText(pages.bar_install.title),
+            ).toBeInTheDocument()
+            expect(
+                screen.getByText(pages.bar_features.title),
+            ).toBeInTheDocument()
         })
     })
 
@@ -112,16 +119,18 @@ describe('features/toc/ui/Menu', () => {
             renderMenu({ toc, activeUrl })
 
             expect(screen.getByText(pages.bar.title)).toContainElement(
-                screen.getByRole('button', { expanded: true })
+                screen.getByRole('button', { expanded: true }),
             )
 
             fireEvent.click(screen.getByRole('button', { expanded: true }))
 
             expect(screen.getByText(pages.bar.title)).toContainElement(
-                screen.getByRole('button', { expanded: false })
+                screen.getByRole('button', { expanded: false }),
             )
 
-            expect(screen.queryByText(pages.bar_install.title)).not.toBeInTheDocument()
+            expect(
+                screen.queryByText(pages.bar_install.title),
+            ).not.toBeInTheDocument()
         })
 
         it('should open a submenu when clicking on an item with children', () => {
@@ -133,7 +142,9 @@ describe('features/toc/ui/Menu', () => {
 
             fireEvent.click(screen.getByRole('link', { name: 'Bar' }))
 
-            expect(screen.getByRole('button', { expanded: true })).toBeInTheDocument()
+            expect(
+                screen.getByRole('button', { expanded: true }),
+            ).toBeInTheDocument()
 
             expect(screen.getByText('Bar: Install')).toBeInTheDocument()
         })
@@ -197,7 +208,9 @@ describe('features/toc/ui/Menu', () => {
 
             expect(screen.queryByLabelText(spinnerText)).not.toBeInTheDocument()
 
-            expect(screen.getByText('No pages found by your request')).toBeInTheDocument()
+            expect(
+                screen.getByText('No pages found by your request'),
+            ).toBeInTheDocument()
             expect(screen.queryByRole('link')).not.toBeInTheDocument()
         })
     })

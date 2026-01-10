@@ -1,4 +1,12 @@
-import type { MenuItem, PageDescriptor, PageHighlight, PageId, PageURL, SectionHighlight, TableOfContent } from '../types'
+import type {
+    MenuItem,
+    PageDescriptor,
+    PageHighlight,
+    PageId,
+    PageURL,
+    SectionHighlight,
+    TableOfContent,
+} from '../types'
 
 interface BuildMenuBaseOptions {
     /**
@@ -34,7 +42,10 @@ interface PageProps {
     level: number
 }
 
-const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => ({
+const mapPageToMenuItem = (
+    page: PageDescriptor,
+    props: PageProps,
+): MenuItem => ({
     id: page.id,
     parentId: page.parentId,
     title: page.title,
@@ -42,10 +53,13 @@ const mapPageToMenuItem = (page: PageDescriptor, props: PageProps): MenuItem => 
     highlight: props.highlight,
     level: props.level,
     hasChildren: Boolean(page.pages?.length),
-    defaultOpenState: props.defaultOpenState
+    defaultOpenState: props.defaultOpenState,
 })
 
-const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => {
+const getPagesForParent = (
+    toc: TableOfContent,
+    parentId?: PageId,
+): PageId[] => {
     if (!parentId) {
         return toc.topLevelIds
     }
@@ -59,17 +73,18 @@ const getPagesForParent = (toc: TableOfContent, parentId?: PageId): PageId[] => 
 
 const getPageFilter = (filter?: Set<PageDescriptor> | null) => {
     if (!filter) {
-        return function(page: PageDescriptor | undefined): page is PageDescriptor {
-            return page !== undefined
-        }
+        return (page: PageDescriptor | undefined): page is PageDescriptor =>
+            page !== undefined
     }
 
-    return function(page: PageDescriptor | undefined): page is PageDescriptor {
-        return page !== undefined && filter.has(page)
-    }
+    return (page: PageDescriptor | undefined): page is PageDescriptor =>
+        page !== undefined && filter.has(page)
 }
 
-export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions): MenuItem[] => {
+export const buildMenuSection = (
+    toc: TableOfContent,
+    options: BuildMenuOptions,
+): MenuItem[] => {
     const {
         url,
         parentId,
@@ -111,11 +126,13 @@ export const buildMenuSection = (toc: TableOfContent, options: BuildMenuOptions)
                 defaultOpenState = true
             }
 
-            menu.push(mapPageToMenuItem(page, {
-                highlight,
-                level,
-                defaultOpenState,
-            }))
+            menu.push(
+                mapPageToMenuItem(page, {
+                    highlight,
+                    level,
+                    defaultOpenState,
+                }),
+            )
         }
     }
 

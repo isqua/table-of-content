@@ -1,6 +1,9 @@
 import { createContext } from 'react'
 
-import { FilterActions, noopFilterActions } from '../../../../../hooks/useFilter'
+import {
+    type FilterActions,
+    noopFilterActions,
+} from '../../../../../hooks/useFilter'
 import type { PageDescriptor, PageURL, TableOfContent } from '../../../types'
 
 interface TocContextValue {
@@ -35,7 +38,7 @@ TocContext.displayName = 'TocContext'
 
 export const FilterContext = createContext<FilterContextValue>({
     isFiltering: false,
-    ...noopFilterActions
+    ...noopFilterActions,
 })
 
 FilterContext.displayName = 'FilterContext'

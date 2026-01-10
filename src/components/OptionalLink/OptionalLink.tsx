@@ -13,7 +13,7 @@ type ClickableLinkProps = PropsWithChildren<{
 }>
 
 function captureKey(key: string, callback: () => void) {
-    return function (event: KeyboardEvent) {
+    return (event: KeyboardEvent) => {
         if (event.key === key) {
             callback()
         }
@@ -22,6 +22,7 @@ function captureKey(key: string, callback: () => void) {
 
 function ClickableLink({ className, children, onClick }: ClickableLinkProps) {
     return (
+        // biome-ignore lint/a11y/useSemanticElements: todo
         <span
             tabIndex={0}
             role="button"
@@ -34,14 +35,27 @@ function ClickableLink({ className, children, onClick }: ClickableLinkProps) {
     )
 }
 
-export function OptionalLink({ to, className, children, onClick }: OptionalLinkProps) {
+export function OptionalLink({
+    to,
+    className,
+    children,
+    onClick,
+}: OptionalLinkProps) {
     if (to) {
-        return (<Link to={to} className={className} onClick={onClick}>{children}</Link>)
+        return (
+            <Link to={to} className={className} onClick={onClick}>
+                {children}
+            </Link>
+        )
     }
 
     if (onClick) {
-        return (<ClickableLink className={className} onClick={onClick}>{children}</ClickableLink>)
+        return (
+            <ClickableLink className={className} onClick={onClick}>
+                {children}
+            </ClickableLink>
+        )
     }
 
-    return (<span className={className}>{children}</span>)
+    return <span className={className}>{children}</span>
 }

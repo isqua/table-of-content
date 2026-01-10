@@ -1,15 +1,16 @@
-import { describe, expect, it } from 'vitest'
 import { renderHook, waitFor } from '@testing-library/react'
+import { describe, expect, it } from 'vitest'
 
 import { useRequestWithPlaceholder } from './useRequestWithPlaceholder'
 
 describe('hooks/useRequestWithPlaceholder', () => {
     it('should return a placeholder while the promise is pending', () => {
-        const fetchData = () => new Promise<number>((res) => {
-            setTimeout(() => {
-                res(42)
-            }, 200)
-        })
+        const fetchData = () =>
+            new Promise<number>((res) => {
+                setTimeout(() => {
+                    res(42)
+                }, 200)
+            })
 
         const placeholder = 1
 
@@ -38,7 +39,9 @@ describe('hooks/useRequestWithPlaceholder', () => {
 
         const { result } = renderHook(useTestHook)
 
-        await waitFor(() => { expect(result.current.isLoading).toBe(false) })
+        await waitFor(() => {
+            expect(result.current.isLoading).toBe(false)
+        })
 
         expect(result.current).toEqual({
             data: 42,
@@ -59,7 +62,9 @@ describe('hooks/useRequestWithPlaceholder', () => {
 
         const { result } = renderHook(useTestHook)
 
-        await waitFor(() => { expect(result.current.isLoading).toBe(false) })
+        await waitFor(() => {
+            expect(result.current.isLoading).toBe(false)
+        })
 
         expect(result.current).toEqual({
             data: 1,

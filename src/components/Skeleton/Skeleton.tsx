@@ -7,7 +7,5 @@ interface SkeletonProps {
 }
 
 export function Skeleton({ className }: SkeletonProps) {
-    return (
-        <span className={clsx(styles.skeleton, className)} />
-    )
+    return <span className={clsx(styles.skeleton, className)} />
 }

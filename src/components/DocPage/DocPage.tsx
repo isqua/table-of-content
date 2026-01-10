@@ -1,6 +1,10 @@
 import { useEffect } from 'react'
 
-import { getBreadCrumbs, getCurrentPage, type TableOfContent } from '../../features/toc'
+import {
+    getBreadCrumbs,
+    getCurrentPage,
+    type TableOfContent,
+} from '../../features/toc'
 import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
 import { Article } from '../Article'
 
@@ -17,7 +21,5 @@ export function DocPage({ toc }: DocPageProps) {
         window.document.title = page.title
     }, [page.title])
 
-    return (
-        <Article breadcrumbs={breadcrumbs} page={page} />
-    )
+    return <Article breadcrumbs={breadcrumbs} page={page} />
 }

@@ -1,5 +1,5 @@
+import { type RenderOptions, render, renderHook } from '@testing-library/react'
 import type { PropsWithChildren, ReactElement } from 'react'
-import { render, renderHook, type RenderOptions } from '@testing-library/react'
 
 import { TestRouter } from '../app/Router'
 
@@ -20,7 +20,7 @@ export const renderInApp = (
 
     render(ui, {
         wrapper: AllTheProviders,
-        ...options
+        ...options,
     })
 }
 
@@ -34,6 +34,6 @@ export const renderHookInApp = <Result, Props>(
 
     return renderHook(hook, {
         wrapper: AllTheProviders,
-        ...options
+        ...options,
     })
 }

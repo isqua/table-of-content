@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 import { Input } from '../../../../../components/Input'
 import { Skeleton } from '../../../../../components/Skeleton'
@@ -13,11 +13,13 @@ export function Filter(): ReactNode {
 
     return (
         <div className={clsx(styles.filter)}>
-            {isLoading ? (<Skeleton />) : (
+            {isLoading ? (
+                <Skeleton />
+            ) : (
                 <Input
                     onChange={onChange}
                     isLoading={isFiltering}
-                    placeholder='Filter menu'
+                    placeholder="Filter menu"
                 />
             )}
         </div>

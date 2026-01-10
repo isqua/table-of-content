@@ -14,19 +14,25 @@ type HeightTransitionProps = PropsWithChildren<{
 }>
 
 function addEndListener(ref: RefObject<HTMLElement | null>) {
-    return function (done: () => void) {
+    return (done: () => void) => {
         const node = ref.current
 
-        node?.addEventListener('transitionend', function onTransitionEnd(event) {
-            if (event.target === node) {
-                done()
-            }
-        })
+        node?.addEventListener(
+            'transitionend',
+            function onTransitionEnd(event) {
+                if (event.target === node) {
+                    done()
+                }
+            },
+        )
     }
 }
 
-function adjustMaximumHeightBeforeTransition(ref: RefObject<HTMLElement | null>, minHeight: number) {
-    return function() {
+function adjustMaximumHeightBeforeTransition(
+    ref: RefObject<HTMLElement | null>,
+    minHeight: number,
+) {
+    return () => {
         if (ref.current) {
             const height = ref.current.offsetHeight
 

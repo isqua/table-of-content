@@ -11,11 +11,7 @@ interface ChevronProps {
 }
 
 export function Chevron({ open, className, onClick }: ChevronProps) {
-    const classNames = clsx(
-        styles.chevron,
-        className,
-        open && styles.open
-    )
+    const classNames = clsx(styles.chevron, className, open && styles.open)
 
     const onClickHandler = (event: MouseEvent) => {
         event.stopPropagation()

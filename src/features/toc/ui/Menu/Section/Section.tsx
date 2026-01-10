@@ -19,7 +19,12 @@ interface SectionProps {
  * will display it with a chevron (ItemToggle) and pass the child items to it,
  * rendering a nested Section recursively.
  */
-export function Section({ parentId, level, highlight, isVisible = true }: SectionProps): ReactNode {
+export function Section({
+    parentId,
+    level,
+    highlight,
+    isVisible = true,
+}: SectionProps): ReactNode {
     const { items, isFiltered } = useSectionItems(parentId, level, highlight)
 
     return (
@@ -34,7 +39,12 @@ export function Section({ parentId, level, highlight, isVisible = true }: Sectio
                 }
 
                 return (
-                    <ItemToggle key={item.id} item={item} isVisible={isVisible} isDisabled={isFiltered}>
+                    <ItemToggle
+                        key={item.id}
+                        item={item}
+                        isVisible={isVisible}
+                        isDisabled={isFiltered}
+                    >
                         {
                             /**
                              * The HeightTransition component manage element mount/unmount itself,

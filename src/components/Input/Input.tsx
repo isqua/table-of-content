@@ -14,7 +14,7 @@ function buildOnChangeHandler(onChange: InputProps['onChange']) {
         return
     }
 
-    return function (event: ChangeEvent<HTMLInputElement>) {
+    return (event: ChangeEvent<HTMLInputElement>) => {
         onChange(event.target.value)
     }
 }
@@ -28,7 +28,7 @@ export function Input({ placeholder, isLoading, onChange }: InputProps) {
                 type="text"
                 onChange={buildOnChangeHandler(onChange)}
             />
-            {isLoading && (<span aria-label='Loading' className={styles.spinner} />)}
+            {isLoading && <span title="Loading" className={styles.spinner} />}
         </div>
     )
 }

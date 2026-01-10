@@ -3,9 +3,8 @@ import { describe, expect, it } from 'vitest'
 import tocCyclic from '../../../test/fixtures/toc/cyclic.json'
 import tocFlat from '../../../test/fixtures/toc/flat.json'
 import tocThreeLevels from '../../../test/fixtures/toc/three-levels.json'
-import { getBreadCrumbs } from './getBreadCrumbs'
-
 import type { TableOfContent } from '../types'
+import { getBreadCrumbs } from './getBreadCrumbs'
 
 describe('toc/getBreadCrumbs', () => {
     it('should return current page if it is found by url', () => {
@@ -13,9 +12,7 @@ describe('toc/getBreadCrumbs', () => {
         const currentUrl = '/bar.html'
         const breadCrumbs = getBreadCrumbs(toc, currentUrl)
 
-        expect(breadCrumbs).toEqual([
-            toc.entities.pages.bar
-        ])
+        expect(breadCrumbs).toEqual([toc.entities.pages.bar])
     })
 
     it('should return 404 if page is not found by url', () => {

@@ -11,7 +11,10 @@ export const isTextMatch = (value: string, search: string) => {
     let valuePointer = 0
     let searchPointer = 0
 
-    while (valuePointer < normalizedValue.length && searchPointer < search.length) {
+    while (
+        valuePointer < normalizedValue.length &&
+        searchPointer < search.length
+    ) {
         if (search[searchPointer] === ' ') {
             searchPointer++
             continue

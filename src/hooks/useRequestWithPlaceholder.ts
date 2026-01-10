@@ -20,7 +20,10 @@ interface RequestErrorAction {
 
 type RequestAction<T> = RequestErrorAction | RequestSuccessAction<T>
 
-function requestReducer<T>(state: RequestState<T>, action: RequestAction<T>): RequestState<T> {
+function requestReducer<T>(
+    state: RequestState<T>,
+    action: RequestAction<T>,
+): RequestState<T> {
     if (action.type === 'success') {
         return {
             isLoading: false,
@@ -47,10 +50,13 @@ function getInitialState<T>(placeholder: T): RequestState<T> {
     }
 }
 
-export function useRequestWithPlaceholder<T>(fn: DataFetcher<T>, placeholder: T) {
+export function useRequestWithPlaceholder<T>(
+    fn: DataFetcher<T>,
+    placeholder: T,
+) {
     const [state, dispatch] = useReducer<RequestState<T>, [RequestAction<T>]>(
         requestReducer,
-        getInitialState<T>(placeholder)
+        getInitialState<T>(placeholder),
     )
 
     useEffect(() => {
@@ -60,16 +66,15 @@ export function useRequestWithPlaceholder<T>(fn: DataFetcher<T>, placeholder: T)
 
                 dispatch({
                     type: 'success',
-                    data: result
+                    data: result,
                 })
             } catch (_e: unknown) {
                 dispatch({ type: 'error' })
             }
         }
 
-        // eslint-disable-next-line @typescript-eslint/no-floating-promises
         fetchData()
-    }, [fn, dispatch])
+    }, [fn])
 
     return state
 }

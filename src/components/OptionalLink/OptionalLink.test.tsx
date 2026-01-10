@@ -12,7 +12,11 @@ describe('components/OptionalLink', () => {
             const href = '/meow'
             const className = 'stylish'
 
-            renderInApp(<OptionalLink className={className} to={href}>{text}</OptionalLink>)
+            renderInApp(
+                <OptionalLink className={className} to={href}>
+                    {text}
+                </OptionalLink>,
+            )
 
             expect(screen.getByText(text).tagName).toEqual('A')
             expect(screen.getByText(text)).toHaveAttribute('href')
@@ -24,7 +28,11 @@ describe('components/OptionalLink', () => {
             const href = '/hello'
             const onClick = vi.fn()
 
-            renderInApp(<OptionalLink to={href} onClick={onClick}>{text}</OptionalLink>)
+            renderInApp(
+                <OptionalLink to={href} onClick={onClick}>
+                    {text}
+                </OptionalLink>,
+            )
 
             fireEvent.click(screen.getByText(text))
 
@@ -37,7 +45,11 @@ describe('components/OptionalLink', () => {
             const text = 'Stub'
             const className = 'textish'
 
-            renderInApp(<OptionalLink className={className} to="">{text}</OptionalLink>)
+            renderInApp(
+                <OptionalLink className={className} to="">
+                    {text}
+                </OptionalLink>,
+            )
 
             expect(screen.getByText(text).tagName).not.toEqual('A')
             expect(screen.getByText(text)).not.toHaveAttribute('href')

@@ -2,7 +2,11 @@ import { useCallback } from 'react'
 import { useRequestWithPlaceholder } from '../../../hooks/useRequestWithPlaceholder'
 import type { PageDescriptor, PageId, TableOfContent } from '../types'
 
-function getPagePlaceholder(id: PageId, parentId: PageId, pages: PageId[] = []): PageDescriptor {
+function getPagePlaceholder(
+    id: PageId,
+    parentId: PageId,
+    pages: PageId[] = [],
+): PageDescriptor {
     return {
         id,
         parentId,
@@ -22,13 +26,9 @@ const PLACEHOLDER: TableOfContent = {
             p03: getPagePlaceholder('p03', 'p0'),
             p1: getPagePlaceholder('p1', ''),
             p2: getPagePlaceholder('p2', ''),
-        }
+        },
     },
-    topLevelIds: [
-        'p0',
-        'p1',
-        'p2'
-    ]
+    topLevelIds: ['p0', 'p1', 'p2'],
 }
 
 async function fetchToc(url: string): Promise<TableOfContent> {

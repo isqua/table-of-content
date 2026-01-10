@@ -26,8 +26,8 @@ export type PageHighlight = 'active' | SectionHighlight
  */
 export interface TableOfContent {
     entities: {
-        pages: PagesIndex,
-    },
+        pages: PagesIndex
+    }
     topLevelIds: PageId[]
 }
 

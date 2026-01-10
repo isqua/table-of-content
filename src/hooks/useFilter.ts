@@ -33,14 +33,20 @@ interface ResetFilterAction {
     type: 'reset'
 }
 
-type RequestAction<T> = StartFilterAction | ChangeFilterAction<T> | ResetFilterAction
+type RequestAction<T> =
+    | StartFilterAction
+    | ChangeFilterAction<T>
+    | ResetFilterAction
 
-function filterReducer<T>(state: FilterState<T>, action: RequestAction<T>): FilterState<T> {
+function filterReducer<T>(
+    state: FilterState<T>,
+    action: RequestAction<T>,
+): FilterState<T> {
     switch (action.type) {
         case 'start':
             return {
                 ...state,
-                isLoading: true
+                isLoading: true,
             }
         case 'change':
             return {
@@ -53,6 +59,7 @@ function filterReducer<T>(state: FilterState<T>, action: RequestAction<T>): Filt
     }
 }
 
+// biome-ignore lint/suspicious/noEmptyBlockStatements: empty function is needed for the initial state
 function noop() {}
 
 export const noopFilterActions: FilterActions = {
@@ -73,20 +80,23 @@ export function useFilter<T>(fn: DataFilter<T>): UseFilterResult<T> {
         initialFilterState,
     )
 
-    const manager = useMemo(() => ({
-        isFiltering: state.isLoading,
-        onFilterStart: () => {
-            dispatch({ type: 'start' })
-        },
-        onChange: (text: string) => {
-            const data = fn(text)
+    const manager = useMemo(
+        () => ({
+            isFiltering: state.isLoading,
+            onFilterStart: () => {
+                dispatch({ type: 'start' })
+            },
+            onChange: (text: string) => {
+                const data = fn(text)
 
-            dispatch({ type: 'change', text, data })
-        },
-        onReset: () => {
-            dispatch({ type: 'reset' })
-        },
-    }), [fn, state.isLoading])
+                dispatch({ type: 'change', text, data })
+            },
+            onReset: () => {
+                dispatch({ type: 'reset' })
+            },
+        }),
+        [fn, state.isLoading],
+    )
 
     return {
         data: state.data,

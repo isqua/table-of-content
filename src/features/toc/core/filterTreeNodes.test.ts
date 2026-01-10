@@ -3,9 +3,8 @@ import { describe, expect, it } from 'vitest'
 import tocCyclic from '../../../test/fixtures/toc/cyclic.json'
 import tocFlat from '../../../test/fixtures/toc/flat.json'
 import tocThreeLevels from '../../../test/fixtures/toc/three-levels.json'
-import { filterTreeNodes } from './filterTreeNodes'
-
 import type { TableOfContent } from '../types'
+import { filterTreeNodes } from './filterTreeNodes'
 
 describe('toc/filterTreeNodes', () => {
     it('should return current page if it is found by url', () => {

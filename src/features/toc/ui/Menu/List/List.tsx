@@ -16,9 +16,7 @@ export function List() {
     const { isEmpty, isFiltered } = useListRenderModes()
 
     if (isEmpty) {
-        return (
-            <p className={styles.empty}>No pages found by your request</p>
-        )
+        return <p className={styles.empty}>No pages found by your request</p>
     }
 
     /**
@@ -29,7 +27,7 @@ export function List() {
     if (isLoading || isFiltered) {
         return (
             <ul className={styles.list}>
-                <Section parentId='' level={0} />
+                <Section parentId="" level={0} />
             </ul>
         )
     }
@@ -37,7 +35,7 @@ export function List() {
     return (
         <ul className={styles.list}>
             <TransitionGroup component={null}>
-                <Section parentId='' level={0} />
+                <Section parentId="" level={0} />
             </TransitionGroup>
         </ul>
     )

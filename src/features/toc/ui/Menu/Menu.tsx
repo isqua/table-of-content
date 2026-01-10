@@ -1,4 +1,3 @@
-
 import type { ReactNode } from 'react'
 import type { TableOfContent } from '../../types'
 import { MenuProvider } from './Context/MenuProvider'

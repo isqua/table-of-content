@@ -10,16 +10,22 @@ import { isTextMatch } from './isTextMatch'
  * @param search The string to find in pages titles
  * @returns Set of pages that should be presented in the search results
  */
-export const filterTreeNodes = (toc: TableOfContent, search: string): Set<PageDescriptor> => {
+export const filterTreeNodes = (
+    toc: TableOfContent,
+    search: string,
+): Set<PageDescriptor> => {
     const filterResult = new Set<PageDescriptor>()
     const normalizedSearch = search.toLocaleLowerCase()
 
     for (const page of Object.values(toc.entities.pages)) {
         if (page && isTextMatch(page.title, normalizedSearch)) {
-
             let currentPage: PageDescriptor | undefined = page
 
-            while (currentPage && toc.entities.pages[currentPage.id] && !filterResult.has(currentPage)) {
+            while (
+                currentPage &&
+                toc.entities.pages[currentPage.id] &&
+                !filterResult.has(currentPage)
+            ) {
                 filterResult.add(currentPage)
 
                 currentPage = toc.entities.pages[currentPage.parentId]

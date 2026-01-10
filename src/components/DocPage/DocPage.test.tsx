@@ -1,7 +1,7 @@
 import { screen } from '@testing-library/react'
 import { describe, expect, it } from 'vitest'
 
-import { type TableOfContent } from '../../features/toc'
+import type { TableOfContent } from '../../features/toc'
 import { renderInApp } from '../../test'
 import tocFlat from '../../test/fixtures/toc/flat.json'
 import { DocPage } from './DocPage'

@@ -8,7 +8,7 @@ describe('components/Article', () => {
         const page = {
             id: 'foo',
             parentId: '',
-            title: 'Foo Article'
+            title: 'Foo Article',
         }
 
         render(<Article breadcrumbs={[page]} page={page} />)
