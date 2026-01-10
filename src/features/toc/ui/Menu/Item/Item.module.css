@@ -5,15 +5,15 @@
 
 .link {
     display: flex;
-    padding:
-        var(--menu-item-block-padding)
-        var(--menu-item-inline-end-padding)
-        var(--menu-item-block-padding)
-        var(--menu-item-inline-start-padding);
-    border: 1px solid transparent;
+    padding: var(--menu-item-block-padding) var(--menu-item-inline-end-padding)
+        var(--menu-item-block-padding) var(--menu-item-inline-start-padding);
     color: var(--color-general-text);
     text-decoration: none;
-    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+    border: 1px solid transparent;
+    transition:
+        color 0.15s,
+        background-color 0.15s,
+        border-color 0.15s;
 }
 
 .text {
@@ -37,8 +37,8 @@
 }
 
 .link:not(.disabled):focus {
-    border-color: var(--color-active-background);
     outline: none;
+    border-color: var(--color-active-background);
 }
 
 .link:not(.disabled).parent {
@@ -58,8 +58,8 @@
 }
 
 .link:not(.disabled).active {
-    background-color: var(--color-active-background);
     color: var(--color-active-text);
+    background-color: var(--color-active-background);
 }
 
 .link:not(.disabled).active:hover {
@@ -67,8 +67,8 @@
 }
 
 .transition-enter {
-    overflow: hidden;
     max-height: 0;
+    overflow: hidden;
 }
 
 .transition-enter .text {
@@ -91,10 +91,9 @@
 }
 
 .transition-exit-active {
-    overflow: hidden;
-
-    /* We have to use important because we set max-height in a style attribute of a node */
+    /* biome-ignore lint/complexity/noImportantStyles: needed for transition override */
     max-height: 0 !important;
+    overflow: hidden;
     transition: max-height 0.3s ease-out;
 }
 

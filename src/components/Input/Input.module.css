@@ -1,27 +1,26 @@
 .input {
+    --input-spinner-width: 20px;
     position: relative;
     display: flex;
     font-size: 13px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
-
-    --input-spinner-width: 20px;
 }
 
 .control {
     flex-grow: 1;
     padding: 0 5px;
     padding-right: var(--input-spinner-width);
-    border: 1px solid var(--color-border);
     font-size: inherit;
     line-height: inherit;
+    border: 1px solid var(--color-border);
     transition: border-color 0.15s;
 }
 
 .control:focus {
-    border-color: var(--color-active-background);
     outline: none;
+    border-color: var(--color-active-background);
 }
 
 .spinner {
@@ -36,19 +35,19 @@
     display: block;
     width: 10px;
     height: 10px;
+    content: "\00a0";
     border: 2px solid var(--color-active-background);
-    border-radius: 50%;
     border-top-color: transparent;
+    border-radius: 50%;
     animation: spin 1s linear infinite;
-    content: '\00a0';
 }
 
 @keyframes spin {
     0% {
-        transform: rotate(0deg)
+        transform: rotate(0deg);
     }
 
     100% {
-        transform: rotate(360deg)
+        transform: rotate(360deg);
     }
 }

@@ -1,15 +1,15 @@
 :root {
     /* Base Palette */
-    --base-color-grey-0: #FFF;
-    --base-color-grey-5: #F4F4F4;
-    --base-color-grey-10: #E8E8E8;
-    --base-color-grey-20: #D1D1D2;
+    --base-color-grey-0: #fff;
+    --base-color-grey-5: #f4f4f4;
+    --base-color-grey-10: #e8e8e8;
+    --base-color-grey-20: #d1d1d2;
     --base-color-grey-80: #474749;
     --base-color-grey-90: #303033;
     --base-color-grey-95: #252527;
-    --base-color-grey-100: #19191C;
-    --base-color-primary-light: #6B57FF;
-    --base-color-primary-dark: #7B61FF;
+    --base-color-grey-100: #19191c;
+    --base-color-primary-light: #6b57ff;
+    --base-color-primary-dark: #7b61ff;
 
     /* Light Mode */
     --color-general-background: var(--base-color-grey-0);

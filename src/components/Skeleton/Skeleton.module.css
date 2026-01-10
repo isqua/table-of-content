@@ -1,12 +1,12 @@
 .skeleton {
     display: block;
-    animation: loading 2s infinite;
-    background-color: var(--color-secondary-background);
     pointer-events: none;
+    background-color: var(--color-secondary-background);
+    animation: loading 2s infinite;
 }
 
 .skeleton::before {
-    content: '\00a0';
+    content: "\00a0";
 }
 
 @keyframes loading {
