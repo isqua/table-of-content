@@ -1,5 +1,5 @@
 import { DocPage } from '../../components/DocPage'
-import { Error } from '../../components/Error'
+import { Alert } from '../../components/Alert'
 import { Layout } from '../../components/Layout'
 import { Menu, useGetTocQuery } from '../../features/toc'
 import { useCurrentPageUrl } from '../../hooks/useCurrentPageUrl'
@@ -22,7 +22,7 @@ export function Root() {
             </Layout.Sidebar>
             <Layout.Main>
                 {query.isSuccess && (<DocPage toc={query.data} />)}
-                {query.isError && <Error />}
+                {query.isError && <Alert />}
             </Layout.Main>
         </Layout>
     )
