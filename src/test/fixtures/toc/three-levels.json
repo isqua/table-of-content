@@ -12,10 +12,7 @@
                 "title": "Bar",
                 "url": "/bar.html",
                 "parentId": "root",
-                "pages": [
-                    "bar_install",
-                    "bar_features"
-                ]
+                "pages": ["bar_install", "bar_features"]
             },
             "baz": {
                 "id": "baz",
@@ -40,9 +37,7 @@
                 "title": "Bar: Features",
                 "url": "/bar-features.html",
                 "parentId": "bar",
-                "pages": [
-                    "bar_features_beer"
-                ]
+                "pages": ["bar_features_beer"]
             },
             "bar_features_beer": {
                 "id": "bar_features_beer",
@@ -52,9 +47,5 @@
             }
         }
     },
-    "topLevelIds": [
-        "bar",
-        "baz",
-        "foo"
-    ]
+    "topLevelIds": ["bar", "baz", "foo"]
 }

@@ -21,9 +21,5 @@
             }
         }
     },
-    "topLevelIds": [
-        "bar",
-        "baz",
-        "foo"
-    ]
+    "topLevelIds": ["bar", "baz", "foo"]
 }

@@ -113,10 +113,10 @@ Uses [Vite](https://vitejs.dev/).
 
 Runs code linters to check dumb errors and code style.
 
-Uses [eslint](https://www.npmjs.com/package/eslint) and [stylelint](https://stylelint.io/).
+Uses [biome](https://biomejs.dev/).
 
 ### `npm run lint:fix`
 
 Fixes code issues and style.
 
-Uses [eslint](https://www.npmjs.com/package/eslint) and [stylelint](https://stylelint.io/).
+Uses [biome](https://biomejs.dev/).

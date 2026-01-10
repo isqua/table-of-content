@@ -12,10 +12,7 @@
                 "title": "Bar",
                 "url": "/bar.html",
                 "parentId": "root",
-                "pages": [
-                    "bar_install",
-                    "bar_features"
-                ]
+                "pages": ["bar_install", "bar_features"]
             },
             "baz": {
                 "id": "baz",
@@ -37,9 +34,5 @@
             }
         }
     },
-    "topLevelIds": [
-        "bar",
-        "baz",
-        "foo"
-    ]
+    "topLevelIds": ["bar", "baz", "foo"]
 }

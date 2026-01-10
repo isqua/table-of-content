@@ -9,8 +9,15 @@ export default function htmlFallback(): Plugin {
             middlewares.use((req, _res, next) => {
                 const { originalUrl = '' } = req
 
-                if (originalUrl.length > 1 && path.extname(originalUrl) === '.html') {
-                    if (!fs.existsSync(path.join(config.root, `${originalUrl}.html`))) {
+                if (
+                    originalUrl.length > 1 &&
+                    path.extname(originalUrl) === '.html'
+                ) {
+                    if (
+                        !fs.existsSync(
+                            path.join(config.root, `${originalUrl}.html`),
+                        )
+                    ) {
                         req.url = '/index.html'
                     }
                 }
